@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce1aaaa65a4dbb46b690382ffa620b3, type: 3}
+  m_Name: FusRohCuack_Skin
+  m_EditorClassIdentifier: 
+  newAnimator: {fileID: 9100000, guid: 3534b5bc296bcd24f86041ae2cdd4a32, type: 2}
+  fusRohStats: {fileID: 11400000, guid: 99fe24a3565c3064d83fd4a0b100e365, type: 2}

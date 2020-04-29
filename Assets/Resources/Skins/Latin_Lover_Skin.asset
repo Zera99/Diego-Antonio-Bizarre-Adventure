@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8567de78c11e3b14c9138467a824aacf, type: 3}
+  m_Name: Latin_Lover_Skin
+  m_EditorClassIdentifier: 
+  newAnimator: {fileID: 9100000, guid: 085c359ca665b484b802747323650947, type: 2}
+  eggPrefab: {fileID: 6721317821793448607, guid: b9af9b2ed24a3ca45b97b2b4572d486a,
+    type: 3}
+  stats: {fileID: 11400000, guid: d03566da7a98c9942adec7332d896ff2, type: 2}

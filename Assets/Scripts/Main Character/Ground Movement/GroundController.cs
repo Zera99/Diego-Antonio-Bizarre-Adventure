@@ -17,12 +17,19 @@ public class GroundController : IController {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             _model.GroundedJump();
-        } else if (Input.GetKeyDown(KeyCode.J)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.J)) {
             _model.Attack();
-        } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1)) {
             _model.ChangeSkin(0);
-        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) {
             _model.ChangeSkin(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _model.ChangeSkin(2);
         }
     }
 

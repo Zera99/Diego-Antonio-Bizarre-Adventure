@@ -5,13 +5,18 @@ using UnityEngine;
 public class Crane : MonoBehaviour, IHazard
 {
 
+    float xPos;
     public int damage;
     public float min;
     public float max;
     public float speed;
 
+    private void Awake() {
+        xPos = this.transform.position.x;
+    }
+
     private void Update() {
-        transform.position = new Vector3(Mathf.PingPong(Time.time * speed, max - min) + min, transform.position.y, transform.position.z);
+        transform.position = new Vector3((Mathf.PingPong(Time.time * speed, max - min) + min) + xPos, transform.position.y, transform.position.z);
     }
 
     //private void OnCollisionEnter2D(Collision2D collision) {

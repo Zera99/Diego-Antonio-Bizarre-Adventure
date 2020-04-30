@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 3bd4cc58bae490b4d88489ad92b92461
+guid: ecd7f8d494d27574fbbe93418f4c3271
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2605233603631740574
-    second: SS AGARRAR CADENA_0
+      213: 4127466764148808450
+    second: Blinky_0
   - first:
-      213: 2472652647563596762
-    second: SS AGARRAR CADENA_1
+      213: 8636194471806876905
+    second: Blinky_1
+  - first:
+      213: 8783457422590910754
+    second: Blinky_2
+  - first:
+      213: -6029229405028323493
+    second: Blinky_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -49,10 +55,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.24, y: 0.5}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 42, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -68,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -80,7 +86,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -92,43 +98,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SS AGARRAR CADENA_0
+      name: Blinky_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 37
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 3
+        width: 35
+        height: 19
+      alignment: 9
+      pivot: {x: 0.4857143, y: 0.33333334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e07c6dc41c302b34598cea53171b09d1
-      internalID: -2605233603631740574
+      spriteID: 0da705ec9aa08174eb9e3579a9ce6fd2
+      internalID: 4127466764148808450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS AGARRAR CADENA_1
+      name: Blinky_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 0
-        width: 37
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 41
+        y: 3
+        width: 32
+        height: 17
+      alignment: 9
+      pivot: {x: 0.53125, y: 0.4117647}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28161d8115b39e64f80087a1c4a9373c
-      internalID: 2472652647563596762
+      spriteID: 8957a3d71959ea34994f0ac81117f894
+      internalID: 8636194471806876905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blinky_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 3
+        width: 33
+        height: 19
+      alignment: 9
+      pivot: {x: 0.4848485, y: 0.36842105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9bfa403aa501848891422d4651bef8
+      internalID: 8783457422590910754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blinky_3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 2
+        width: 30
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44444445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2497f87a8a88d34b85e22072bdb037e
+      internalID: -6029229405028323493
       vertices: []
       indices: 
       edges: []
@@ -136,7 +184,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4ab116dbee23ffc4e9189d975b1528bf
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

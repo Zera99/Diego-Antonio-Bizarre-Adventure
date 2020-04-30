@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7526015919867554895}
   - component: {fileID: 7526015919867554894}
-  - component: {fileID: 4080220063011691189}
   - component: {fileID: 7831718671069296416}
+  - component: {fileID: 480250626245570212}
   m_Layer: 0
   m_Name: Mobile-Hook
   m_TagString: Untagged
@@ -82,22 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4080220063011691189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526015919867554881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3c04042f8b89b741bb4bec2a759aa7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 2
-  min: -30
-  max: 3
-  speed: 7
 --- !u!61 &7831718671069296416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +108,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.30285445, y: 0.3169269}
   m_EdgeRadius: 0
+--- !u!114 &480250626245570212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526015919867554881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c04042f8b89b741bb4bec2a759aa7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  min: -30
+  max: 3
+  speed: 7

@@ -78,6 +78,7 @@ public class PlayerModel : MonoBehaviour
 	
     public event Action prepareAttack = delegate { };
     public Action<Action> addAttackToAnimation = delegate { };
+    public Action<Action<PlayerModel>> onSkinKeys;
     
 	
     Action<bool> _detectFloor;
@@ -89,9 +90,7 @@ public class PlayerModel : MonoBehaviour
     IController _groundKeys, _airKeys, _ladderKeys, _chainKeys;
     IMovement _groundMovementStrategy, _airMovementStrategy;
     IMovement _currentStrategy;
-
     
-
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -113,8 +112,9 @@ public class PlayerModel : MonoBehaviour
 
         _currentSpeed = stats.walkingSpeed;
 
-        _mySkins.Add(Resources.Load<LatinLoverSO>("Skins/Latin_Lover_Skin"));
+        _mySkins.Add(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         _mySkins.Add(Resources.Load<Skin>("Skins/Bowser_Skin"));
+        _mySkins.Add(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
 
         Debug.Log("MySkins:" + _mySkins.Count);
     }
@@ -165,10 +165,12 @@ public class PlayerModel : MonoBehaviour
         if (!newSkin)
             return;
 
-        if (_currentSkin != newSkin) {
+        if (_currentSkin != newSkin)
+        {
             _currentSkin = newSkin;
             onChangeSkin(_currentSkin.newAnimator);
             _currentSkin.GetAttack(this);
+            onSkinKeys(_currentSkin.ExtraKeys);
         }
     }
 

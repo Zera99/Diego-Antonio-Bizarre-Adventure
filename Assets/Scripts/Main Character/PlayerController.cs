@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerController
 {
     PlayerModel _model;
     IController _actualController;
+    Action<PlayerModel> _skinKeys;
 
     public PlayerController(PlayerModel m, PlayerView v, IController startController)
     {
@@ -15,6 +17,7 @@ public class PlayerController
         v.SetDisableControlBehaviour(DisableControls);
         v.SetEnableControlBehaviour(EnableControls);
 
+        m.onSkinKeys += SkinKeys;
         m.onUpdate += ControllerUpdate;
         m.onFixedUpdate += ControllerFixedUpdate;
         m.onChangeSkin += v.SetSkin;
@@ -44,17 +47,11 @@ public class PlayerController
     private void ControllerUpdate() {
 
         _actualController.ListenKeys();
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            _model.PressedRun();
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            _model.ReleaseRun();
-        }
-
         
+
+        _skinKeys(_model);
+
+
 
         if (Input.GetKeyDown(KeyCode.P)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -64,6 +61,11 @@ public class PlayerController
     public void ControllerFixedUpdate()
     {
         _actualController.ListenFixedKeys();
+    }
+
+    void SkinKeys(Action<PlayerModel> keys)
+    {
+        _skinKeys = keys;
     }
 
     public void SetController(IController newController)

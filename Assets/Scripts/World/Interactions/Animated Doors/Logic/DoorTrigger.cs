@@ -16,8 +16,8 @@ public class DoorTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<PlayerModel>() != null) {
-            eventTrigger.TriggerEvents();
             sr.sprite = activatedSprite;
+            eventTrigger.TriggerEvents();
         }
     }
 

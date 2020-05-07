@@ -10,7 +10,9 @@ public class GroundController : IController {
         return this;
     }
 
-    public void ListenKeys() {
+    public void ListenKeys()
+    {
+
         _model.MoveHorizontal(Input.GetAxisRaw("Horizontal"));
 
         _model.MoveVertical(Input.GetAxisRaw("Vertical"));
@@ -30,6 +32,10 @@ public class GroundController : IController {
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _model.ChangeSkin(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            _model.ChangeSkin(3);
         }
     }
 

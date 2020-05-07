@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Skins/Stats/Jetpack Stats")]
 public class JetpackStatsSO : ScriptableObject
 {
-
+    public float upSpeed = 3;
 }

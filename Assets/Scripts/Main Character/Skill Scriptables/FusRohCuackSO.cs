@@ -12,7 +12,7 @@ public class FusRohCuackSO : Skin {
 
     public override void GetAttack(PlayerModel pl) {
         ISkill fusRoSkill = new FusRohSkill(pl, fusRohStats.baseHeightCone, fusRohStats.lenghtCone, fusRohStats.endHeightCone);
-        pl.SetAttack(fusRoSkill.PrepareSkill, fusRoSkill.UseSkill);
+        pl.SetAttack(fusRoSkill.PrepareSkill, fusRoSkill.UseSkill, fusRoSkill.SecondSkill);
         pl.ReleaseRun();
     }
 }

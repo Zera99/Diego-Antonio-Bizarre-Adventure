@@ -12,7 +12,7 @@ public class LatinLoverSO : Skin {
     public override void GetAttack(PlayerModel pl)
     {
         ISkill eggSkill = new ThrowEggSkill(eggPrefab, pl, stats.throwForce, stats.eggDamage);
-        pl.SetAttack(eggSkill.PrepareSkill, eggSkill.UseSkill);
+        pl.SetAttack(eggSkill.PrepareSkill, eggSkill.UseSkill, eggSkill.SecondSkill);
     }
 
 

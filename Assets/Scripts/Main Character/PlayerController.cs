@@ -10,7 +10,7 @@ public class PlayerController
     IController _actualController;
     Action<PlayerModel> _skinKeys;
 
-    public PlayerController(PlayerModel m, PlayerView v, IController startController)
+    public PlayerController(PlayerModel m, PlayerView v)
     {
         _model = m;
 
@@ -41,7 +41,7 @@ public class PlayerController
         m.onGrabChain += v.GrabChain;
         m.addAttackToAnimation += v.SetAttackToAnimator;
         
-        SetController(startController);
+        //SetController(startController);
     }
 
     private void ControllerUpdate() {

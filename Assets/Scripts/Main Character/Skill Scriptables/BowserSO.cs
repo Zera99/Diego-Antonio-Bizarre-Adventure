@@ -11,6 +11,6 @@ public class BowserSO : Skin {
     public override void GetAttack(PlayerModel pl)
     {
         ISkill bowserSkill = new BowserFireSkill(firePrefab, pl, bowserStats.fireDamage);
-        pl.SetAttack(bowserSkill.PrepareSkill, bowserSkill.UseSkill);
+        pl.SetAttack(bowserSkill.PrepareSkill, bowserSkill.UseSkill, bowserSkill.SecondSkill);
     }
 }

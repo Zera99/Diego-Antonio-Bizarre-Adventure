@@ -76,7 +76,9 @@ public class PlayerModel : MonoBehaviour
     public event Action<bool> onLadderGrab = delegate { };
     public event Action<bool> onGrabChain = delegate { };
 	
-    public event Action prepareAttack = delegate { };
+    Action _prepareAttack = delegate { };
+    Action _optionalAttack = delegate { };
+
     public Action<Action> addAttackToAnimation = delegate { };
     public Action<Action<PlayerModel>> onSkinKeys;
     
@@ -115,18 +117,20 @@ public class PlayerModel : MonoBehaviour
         _mySkins.Add(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         _mySkins.Add(Resources.Load<Skin>("Skins/Bowser_Skin"));
         _mySkins.Add(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+        _mySkins.Add(Resources.Load<Skin>("Skins/Jetpack_Skin"));
 
         Debug.Log("MySkins:" + _mySkins.Count);
     }
     // Start is called before the first frame update
     private void Start() {
 
-        _control = new PlayerController(this, GetComponent<PlayerView>(), _groundKeys);
+        _control = new PlayerController(this, GetComponent<PlayerView>());
 
         _groundMovementStrategy = new GroundMovement(transform, onXMovement, DownwardsCollisionCheck);
         _airMovementStrategy = new AirMovement(transform, DownwardsCollisionCheck);
-        _currentStrategy = _groundMovementStrategy;
-        
+
+        SetNewStrategies(_groundKeys, _groundMovementStrategy);
+
         _ui = GetComponent<UpdateUI>();
 
         ChangeSkin(0);
@@ -158,6 +162,12 @@ public class PlayerModel : MonoBehaviour
         
     }
 
+    public void SetNewStrategies(IController newControl, IMovement newMovement)
+    {
+        _control.SetController(newControl);
+        _currentStrategy = newMovement;
+    }
+
     public void ChangeSkin(int index)
     {
         Skin newSkin = _mySkins[index];
@@ -174,9 +184,10 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public void SetAttack(Action preparation, Action execution)
+    public void SetAttack(Action preparation, Action execution, Action secondAction)
     {
-        prepareAttack = preparation;
+        _prepareAttack = preparation;
+        _optionalAttack = SecondAttack;
         addAttackToAnimation(execution);
     }
 
@@ -200,6 +211,20 @@ public class PlayerModel : MonoBehaviour
         return Physics2D.BoxCast(transform.position - new Vector3(0, boxSize.y / 2), boxSize, 0, Vector2.right, 0, groundLayers);
     }
 
+    public void RestorePhysics()
+    {
+        if (GroundDetect())
+        {
+            GroundSettings();
+            _detectFloor = DetectGroundFromGround;
+        }
+        else
+        {
+            AirSettings();
+            _detectFloor = DetectGroundFromAir;
+        }
+    }
+
     void GroundSettings()
     {
         yVelocity = 0;
@@ -207,8 +232,9 @@ public class PlayerModel : MonoBehaviour
         _currentJumps = 0;
         onDetectGround(true);
 
-        _currentStrategy = _groundMovementStrategy;
-        _control.SetController(_groundKeys);
+        //_currentStrategy = _groundMovementStrategy;
+        //_control.SetController(_groundKeys);
+        SetNewStrategies(_groundKeys, _groundMovementStrategy);
 
         _detectFloor = DetectGroundFromGround;
         
@@ -230,8 +256,9 @@ public class PlayerModel : MonoBehaviour
 
         if (_currentStrategy != _airMovementStrategy)
         {
-            _currentStrategy = _airMovementStrategy;
-            _control.SetController(_airKeys);
+            //_currentStrategy = _airMovementStrategy;
+            //_control.SetController(_airKeys);
+            SetNewStrategies(_airKeys, _airMovementStrategy);
         }
 
         _rb.velocity = new Vector2(0, yVelocity);
@@ -332,16 +359,18 @@ public class PlayerModel : MonoBehaviour
             Flip();
         }
 
-        _currentStrategy = new ChainMovement();
-        _control.SetController(_ladderKeys);
+        //_currentStrategy = new ChainMovement();
+        //_control.SetController(_ladderKeys);
+        SetNewStrategies(_ladderKeys, new ChainMovement());
         _applyPhysics = null;
         _rb.velocity = Vector3.zero;
         _cancelVerticalGrab = () => 
         {
             onGrabChain(false);
             _applyPhysics = ApplyGravity;
-            _currentStrategy = _airMovementStrategy;
-            _control.SetController(_airKeys);
+            //_currentStrategy = _airMovementStrategy;
+            //_control.SetController(_airKeys);
+            SetNewStrategies(_airKeys, _airMovementStrategy);
             _cancelVerticalGrab = null;
         };
         onGrabChain(true);
@@ -354,8 +383,9 @@ public class PlayerModel : MonoBehaviour
 
     void SetLadderSettings(Action moveUp, Action moveDown)
     {
-        _currentStrategy = new LadderMovement(transform, moveUp, moveDown, onYMovement);
-        _control.SetController(_ladderKeys);
+        //_currentStrategy = new LadderMovement(transform, moveUp, moveDown, onYMovement);
+        //_control.SetController(_ladderKeys);
+        SetNewStrategies(_ladderKeys, new LadderMovement(transform, moveUp, moveDown, onYMovement));
         _isControllerManipulated = true;
         _applyPhysics = null;
         _rb.velocity = Vector3.zero;
@@ -373,16 +403,18 @@ public class PlayerModel : MonoBehaviour
 
         yVelocity = 0;
 
-        if (GroundDetect())
-        {
-            GroundSettings();
-            _detectFloor = DetectGroundFromGround;
-        }
-        else
-        {
-            AirSettings();
-            _detectFloor = DetectGroundFromAir;
-        }
+        //if (GroundDetect())
+        //{
+        //    GroundSettings();
+        //    _detectFloor = DetectGroundFromGround;
+        //}
+        //else
+        //{
+        //    AirSettings();
+        //    _detectFloor = DetectGroundFromAir;
+        //}
+
+        RestorePhysics();
 
 
         if (_onLadderZone)
@@ -392,8 +424,7 @@ public class PlayerModel : MonoBehaviour
 
         onLadderGrab(false);
     }
-
-
+    
     public void EnterLadderZone(GameObject switchPlatform)
     {
         _onLadderZone = true;
@@ -430,8 +461,9 @@ public class PlayerModel : MonoBehaviour
     public void GroundedJump()
     {
         _cancelVerticalGrab?.Invoke();
-        _currentStrategy = _airMovementStrategy;
-        _control.SetController(_airKeys);
+        //_currentStrategy = _airMovementStrategy;
+        //_control.SetController(_airKeys);
+        SetNewStrategies(_airKeys, _airMovementStrategy);
         JumpLogic();
         onGroundedJump();
     }
@@ -475,8 +507,13 @@ public class PlayerModel : MonoBehaviour
 
     public void Attack()
     {
-        prepareAttack();
+        _prepareAttack();
         onAttack();
+    }
+
+    public void SecondAttack()
+    {
+        _optionalAttack();
     }
     
     // TODO: Super simple, habría que spawnear feedback o detallar mas como los elimina

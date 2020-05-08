@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59502acd71a682e4b8e745214df2bb05, type: 3}
   m_Name: Jetpack_Skin
   m_EditorClassIdentifier: 
-  newAnimator: {fileID: 9100000, guid: ef40fc1e7cae04f47bb1dc297c5afbc8, type: 2}
+  newAnimator: {fileID: 9100000, guid: 9a7612ac78d298e499b9dd6d407a49d8, type: 2}
   jetpackStats: {fileID: 11400000, guid: e9c9669e5b20c7d4ea85bf652af93ab2, type: 2}

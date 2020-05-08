@@ -7,19 +7,17 @@ public class ThrowEggSkill : ISkill {
     Transform _eggSpawnPoint;
     float _throwForce;
     int _eggDamage;
-    Action _flip;
 
-    public ThrowEggSkill(GameObject prefab, PlayerModel pl, float force, int dmg) {
+    public ThrowEggSkill(GameObject prefab, PlayerModel pl, float force, int dmg)
+    {
         _eggPrefab = prefab;
         _eggSpawnPoint = pl.eggSpawnPoint;
         _throwForce = force;
         _eggDamage = dmg;
-        _flip = pl.Flip;
     }
 
     public void PrepareSkill()
     {
-        _flip();
     }
 
     public void UseSkill() {

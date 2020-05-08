@@ -15,6 +15,8 @@ public class PlayerModel : MonoBehaviour
     PhysicsCalculation _physics;
     float yVelocity;
 
+    Vector3 _checkpointPosition;
+
     int _currentJumps;
     bool _isInAir;
     bool _isRunning;
@@ -78,6 +80,8 @@ public class PlayerModel : MonoBehaviour
 	
     Action _prepareAttack = delegate { };
     Action _optionalAttack = delegate { };
+
+    Action _cancelAttackSettings;
 
     public Action<Action> addAttackToAnimation = delegate { };
     public Action<Action<PlayerModel>> onSkinKeys;
@@ -187,7 +191,7 @@ public class PlayerModel : MonoBehaviour
     public void SetAttack(Action preparation, Action execution, Action secondAction)
     {
         _prepareAttack = preparation;
-        _optionalAttack = SecondAttack;
+        _optionalAttack = secondAction;
         addAttackToAnimation(execution);
     }
 
@@ -211,8 +215,17 @@ public class PlayerModel : MonoBehaviour
         return Physics2D.BoxCast(transform.position - new Vector3(0, boxSize.y / 2), boxSize, 0, Vector2.right, 0, groundLayers);
     }
 
+    public void ControlPhysics()
+    {
+        _isControllerManipulated = true;
+        _rb.velocity = Vector3.zero;
+    }
+
     public void RestorePhysics()
     {
+        _isControllerManipulated = false;
+        yVelocity = 0;
+
         if (GroundDetect())
         {
             GroundSettings();
@@ -223,6 +236,7 @@ public class PlayerModel : MonoBehaviour
             AirSettings();
             _detectFloor = DetectGroundFromAir;
         }
+
     }
 
     void GroundSettings()
@@ -354,13 +368,15 @@ public class PlayerModel : MonoBehaviour
 
     public void EnterChain(float dirX)
     {
+
+        if (_isControllerManipulated) return;
+
         if (dirX > 0 && _isFlipped || dirX < 0 && !_isFlipped)
         {
             Flip();
         }
 
-        //_currentStrategy = new ChainMovement();
-        //_control.SetController(_ladderKeys);
+
         SetNewStrategies(_ladderKeys, new ChainMovement());
         _applyPhysics = null;
         _rb.velocity = Vector3.zero;
@@ -368,8 +384,6 @@ public class PlayerModel : MonoBehaviour
         {
             onGrabChain(false);
             _applyPhysics = ApplyGravity;
-            //_currentStrategy = _airMovementStrategy;
-            //_control.SetController(_airKeys);
             SetNewStrategies(_airKeys, _airMovementStrategy);
             _cancelVerticalGrab = null;
         };
@@ -383,36 +397,24 @@ public class PlayerModel : MonoBehaviour
 
     void SetLadderSettings(Action moveUp, Action moveDown)
     {
-        //_currentStrategy = new LadderMovement(transform, moveUp, moveDown, onYMovement);
-        //_control.SetController(_ladderKeys);
+        
         SetNewStrategies(_ladderKeys, new LadderMovement(transform, moveUp, moveDown, onYMovement));
-        _isControllerManipulated = true;
+        
         _applyPhysics = null;
-        _rb.velocity = Vector3.zero;
+
+        ControlPhysics();
         _cancelVerticalGrab = () => CancelLadderSettings(moveUp, moveDown);
         _setVerticalStrategy = null;
         onLadderGrab(true);
     }
+    
 
     void CancelLadderSettings(Action moveUp, Action moveDown)
     {
         Debug.Log("cancelExecuted");
-        _isControllerManipulated = false;
 
         _cancelVerticalGrab = null;
-
-        yVelocity = 0;
-
-        //if (GroundDetect())
-        //{
-        //    GroundSettings();
-        //    _detectFloor = DetectGroundFromGround;
-        //}
-        //else
-        //{
-        //    AirSettings();
-        //    _detectFloor = DetectGroundFromAir;
-        //}
+        
 
         RestorePhysics();
 
@@ -461,8 +463,7 @@ public class PlayerModel : MonoBehaviour
     public void GroundedJump()
     {
         _cancelVerticalGrab?.Invoke();
-        //_currentStrategy = _airMovementStrategy;
-        //_control.SetController(_airKeys);
+
         SetNewStrategies(_airKeys, _airMovementStrategy);
         JumpLogic();
         onGroundedJump();
@@ -541,15 +542,24 @@ public class PlayerModel : MonoBehaviour
 
     // -------------------------------------------- End Attacks --------------------------------------------
     // -------------------------------------------- Damage --------------------------------------------
+
+    public void CancelAttackActionsOnDmg(Action action)
+    {
+        _cancelAttackSettings = action;
+        if (action != null)
+            _cancelAttackSettings += () => _cancelAttackSettings = null;
+    }
+
     public void TakeDamage(int dmg) {
+
         if (_isImmune || _isDying) return;
-
-
+        
         stats.hp = Mathf.Max(stats.hp -= dmg, 0);
 
         _ui.UpdateHPText(stats.hp);
 
         _cancelVerticalGrab?.Invoke();
+        _cancelAttackSettings?.Invoke();
 
         if (stats.hp == 0) {
             Die();

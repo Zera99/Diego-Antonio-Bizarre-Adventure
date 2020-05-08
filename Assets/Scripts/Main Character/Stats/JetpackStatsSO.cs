@@ -6,4 +6,5 @@ using UnityEngine;
 public class JetpackStatsSO : ScriptableObject
 {
     public float upSpeed = 3;
+    public float topSpeed = 10;
 }

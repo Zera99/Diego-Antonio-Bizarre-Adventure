@@ -42,7 +42,9 @@ public class PlayerView : MonoBehaviour {
 
     public void SetAttackToAnimator(Action atck)
     {
-        _anim.GetBehaviour<AttackAnimExecution>().SetAttackAction(atck);
+        var atkAnimBehav = _anim.GetBehaviour<AttackAnimExecution>();
+        if (atkAnimBehav)
+            atkAnimBehav.SetAttackAction(atck);
     }
 
     public void SetSkin(RuntimeAnimatorController newAnimator)

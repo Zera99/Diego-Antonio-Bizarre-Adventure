@@ -15,7 +15,7 @@ public class FlammableBox : MonoBehaviour {
         if(collision.gameObject.GetComponent<BowserFire>() != null) {
             anim.SetTrigger("setOnFire");
             Destroy(collision.gameObject);
-            Destroy(this.gameObject, 0.99f);
+            Destroy(this.gameObject, 0.70f);
         }
     }
 

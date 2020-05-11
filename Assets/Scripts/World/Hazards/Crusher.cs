@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crusher : MonoBehaviour, IHazard
-{
+public class Crusher : MonoBehaviour, IHazard {
 
     public float speed;
     public int damage;
@@ -54,43 +53,41 @@ public class Crusher : MonoBehaviour, IHazard
         }
 
         crushing = true;
-        
+
     }
 
     //private void OnTriggerEnter2D(Collision2D collision) {
 
-        //if (collision.gameObject.GetComponent<PlayerModel>() != null && crushing) {
-        //    collision.gameObject.GetComponent<PlayerModel>().TakeDamage(damage);
+    //if (collision.gameObject.GetComponent<PlayerModel>() != null && crushing) {
+    //    collision.gameObject.GetComponent<PlayerModel>().TakeDamage(damage);
 
-        //    crushing = false;
-        //    transform.position += new Vector3(0, 0.1f);
-        //    isWaiting = false;
-        //} else if(crushing)
-        //{
-        //    crushing = false;
-        //    transform.position += new Vector3(0, 0.1f);
-        //    isWaiting = false;
-        //}
-        //audioSource.PlayOneShot(crushingSound);
+    //    crushing = false;
+    //    transform.position += new Vector3(0, 0.1f);
+    //    isWaiting = false;
+    //} else if(crushing)
+    //{
+    //    crushing = false;
+    //    transform.position += new Vector3(0, 0.1f);
+    //    isWaiting = false;
+    //}
+    //audioSource.PlayOneShot(crushingSound);
     //}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (crushing)
-        {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (crushing) {
+            if (collision.gameObject.GetComponent<PlayerModel>() != null) {
+                Debug.Log("Triggered on player");
+                MakeDamage(collision.gameObject.GetComponent<PlayerModel>());
+            }
             crushing = false;
             transform.position += new Vector3(0, 0.1f);
             isWaiting = false;
         }
+
         audioSource.PlayOneShot(crushingSound);
     }
 
-    public void MakeDamage(PlayerModel player)
-    {
-        if (crushing)
-        {
-            player.TakeDamage(damage);
-
-        }
+    public void MakeDamage(PlayerModel player) {
+        player.TakeDamage(damage);
     }
 }

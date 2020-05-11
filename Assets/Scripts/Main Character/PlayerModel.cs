@@ -36,6 +36,9 @@ public class PlayerModel : MonoBehaviour
     public Transform fusRohSpawnPoint;
     public Transform wallCheck;
 
+    public Transform effectSpawnPoint;
+    public GameObject changeSkinEffect;
+
     List<Skin> _mySkins = new List<Skin>();
     Skin _currentSkin;
 
@@ -181,6 +184,7 @@ public class PlayerModel : MonoBehaviour
 
         if (_currentSkin != newSkin)
         {
+            GameObject effect = Instantiate(changeSkinEffect.gameObject, effectSpawnPoint);
             _currentSkin = newSkin;
             onChangeSkin(_currentSkin.newAnimator);
             _currentSkin.GetAttack(this);

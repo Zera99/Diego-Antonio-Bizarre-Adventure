@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &223774785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223774786}
+  m_Layer: 9
+  m_Name: Effect Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223774786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223774785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8553448317480851531}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488020894
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +107,7 @@ GameObject:
   - component: {fileID: 8553448317432029721}
   - component: {fileID: 1787672416}
   - component: {fileID: 3642745948204558181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +128,7 @@ Transform:
   - {fileID: 8553448318619662299}
   - {fileID: 861144300}
   - {fileID: 488020895}
+  - {fileID: 223774786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,7 +194,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012396805, y: 0.225}
+  m_Offset: {x: 0, y: 0.225}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -174,7 +205,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16594811, y: 0.45}
+  m_Size: {x: 0.2201035, y: 0.45}
   m_EdgeRadius: 0
 --- !u!114 &8553448317432029717
 MonoBehaviour:
@@ -188,9 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f3f6564cf1acf419d98757317ce8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthColor: {r: 0, g: 0, b: 0, a: 0}
-  lifeColor: {r: 0, g: 0, b: 0, a: 0}
-  stats: {fileID: 11400000, guid: d03566da7a98c9942adec7332d896ff2, type: 2}
   audioSource: {fileID: 3642745948204558181}
   jumpingSound: {fileID: 8300000, guid: 5d1665753915b9e41ada06bdf012f07d, type: 3}
   hurtSound: {fileID: 8300000, guid: 7c59ee95cdb8465449fc6a3a0b0b3e3c, type: 3}
@@ -209,22 +237,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10981a87aff450f448f47562f82526fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isInAir: 1
-  _reachedTop: 0
-  _tryingToClimb: 0
-  _canClimb: 0
-  _isHanging: 0
   stopRunningLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 257
   stats: {fileID: 11400000, guid: d03566da7a98c9942adec7332d896ff2, type: 2}
-  eggPrefab: {fileID: 6721317821793448607, guid: b9af9b2ed24a3ca45b97b2b4572d486a,
-    type: 3}
+  normalSkin: {fileID: 0}
+  bowserSkin: {fileID: 11400000, guid: afa781f971851c847bf9694f2c2a1650, type: 2}
   eggSpawnPoint: {fileID: 8553448318619662299}
   bowserFirePrefab: {fileID: 3408477215437300013, guid: 09772007414d46b4897ff95723866969,
     type: 3}
   fireSpawnPoint: {fileID: 488020895}
+  fusRohSpawnPoint: {fileID: 0}
   wallCheck: {fileID: 861144300}
+  effectSpawnPoint: {fileID: 223774786}
+  changeSkinEffect: {fileID: 7779016687201674110, guid: a382c100c1594d24ea0f0dfd25cc647f,
+    type: 3}
+  topLadderLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  downLadderLayer:
+    serializedVersion: 2
+    m_Bits: 257
+  offsetPosLadderPlatform: {x: 0, y: -0.007, z: 0}
+  boxSize: {x: 1.54, y: 0.12}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 1281
+  boxSizeCheck: {x: 1.54, y: 0.39}
 --- !u!50 &8553448317432029720
 Rigidbody2D:
   serializedVersion: 4
@@ -256,7 +295,7 @@ Animator:
   m_GameObject: {fileID: 8553448317432029726}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef40fc1e7cae04f47bb1dc297c5afbc8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3534b5bc296bcd24f86041ae2cdd4a32, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -279,6 +318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   livesText: {fileID: 0}
   hpText: {fileID: 0}
+  doomDuckAnim: {fileID: 0}
+  hudControl: {fileID: 0}
 --- !u!82 &3642745948204558181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -399,7 +440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8553448318619662296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.221, y: 0.219, z: 0}
+  m_LocalPosition: {x: -0.221, y: 0.219, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8553448317480851531}

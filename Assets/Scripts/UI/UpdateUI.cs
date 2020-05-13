@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TextExtensions;
 
 public class UpdateUI : MonoBehaviour {
 
     public Text livesText;
     public Text hpText;
+    public Text jetpackText;
+    public Text frqText;
+    public Text jojoText;
     public Animator doomDuckAnim;
     public HUDController hudControl;
 
@@ -21,6 +25,25 @@ public class UpdateUI : MonoBehaviour {
 
     public void SetDoomDuckHPValue(float val) {
         doomDuckAnim.SetFloat("DuckHP", val);
+    }
+
+    public void UpdateSkill(float val, int skillNum) {
+        switch (skillNum) {
+            case 3: {
+                jetpackText.ChangeSkillText(val);
+                break;
+            }
+            case 4: {
+                jojoText.ChangeSkillText(val);
+                break;
+            }
+            case 5: {
+                frqText.ChangeSkillText(val);
+                break;
+            }
+            default:
+                break;
+        }
     }
 
     // ----------------------------- TEST ------------------------------------

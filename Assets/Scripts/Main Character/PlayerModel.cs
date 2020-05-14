@@ -23,6 +23,7 @@ public class PlayerModel : MonoBehaviour
     bool _isFlipped;
     bool _isImmune;
     bool _isDying;
+    bool _isOnCrusher;
     
     float _currentSpeed;
 
@@ -490,6 +491,10 @@ public class PlayerModel : MonoBehaviour
         {
             collision.gameObject.GetComponent<IHazardCollider>().MakeCollisionDamage(this);
         }
+
+        if(collision.gameObject.tag == "Wall" && _isOnCrusher) {
+            TakeDamage(100);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -584,6 +589,10 @@ public class PlayerModel : MonoBehaviour
     public void SetImmunity(bool i)
     {
         _isImmune = i;
+    }
+
+    public void SetOnCrusher(bool c) {
+        _isOnCrusher = c;
     }
 
     public void Die()

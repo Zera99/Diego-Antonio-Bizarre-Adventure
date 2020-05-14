@@ -56,8 +56,6 @@ public class UpdateUI : MonoBehaviour {
             hudControl.ChangeIcon(1);
         } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
             hudControl.ChangeIcon(2);
-        } else if (Input.GetKeyDown(KeyCode.Alpha5)) {
-            hudControl.ChangeIcon(3);
         }
     }
 }

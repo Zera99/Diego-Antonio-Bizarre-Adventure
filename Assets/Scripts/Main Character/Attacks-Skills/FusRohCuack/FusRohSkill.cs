@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class FusRohSkill : ISkill {
     Transform _spawnPoint;
-    float _baseCone, _lengthCone, _edgeCone;
+    float _baseCone, _lengthCone, _edgeCone, _costPoints;
 
-    public FusRohSkill(PlayerModel pl, float baseCone, float lengthCone, float edgeCone) {
+    public FusRohSkill(PlayerModel pl, float baseCone, float lengthCone, float edgeCone, float costPoints) {
         _spawnPoint = pl.fusRohSpawnPoint;
         _baseCone = baseCone;
         _lengthCone = lengthCone;
         _edgeCone = edgeCone;
+        _costPoints = costPoints;
     }
 
-    public void PrepareSkill() {
+    public void PrepareSkill(PlayerModel pl, Action execute)
+    {
+        if (pl.currentPointsFRC >= _costPoints)
+        {
+            pl.currentPointsFRC -= _costPoints;
+            execute();
+        }
     }
 
     public void UseSkill() {

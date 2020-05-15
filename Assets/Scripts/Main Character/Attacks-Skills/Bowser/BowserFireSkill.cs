@@ -13,9 +13,9 @@ public class BowserFireSkill : ISkill {
         _fireDamage = dmg;
     }
 
-    public void PrepareSkill()
+    public void PrepareSkill(PlayerModel pl, System.Action execute)
     {
-        
+        execute();
     }
 
     public void UseSkill() {

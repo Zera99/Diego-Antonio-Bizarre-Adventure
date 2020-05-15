@@ -7,4 +7,5 @@ public class FusRohStatsSO : ScriptableObject {
     public float baseHeightCone;
     public float lenghtCone;
     public float endHeightCone;
+    public float usePoints;
 }

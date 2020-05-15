@@ -1,6 +1,6 @@
 ﻿
 public interface ISkill {
-    void PrepareSkill();
+    void PrepareSkill(PlayerModel pl, System.Action execute);
     void UseSkill();
     void SecondSkill();
 }

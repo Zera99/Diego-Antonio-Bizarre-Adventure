@@ -16,8 +16,9 @@ public class ThrowEggSkill : ISkill {
         _eggDamage = dmg;
     }
 
-    public void PrepareSkill()
+    public void PrepareSkill(PlayerModel pl, System.Action execute)
     {
+        execute();
     }
 
     public void UseSkill() {

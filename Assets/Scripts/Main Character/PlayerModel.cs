@@ -40,6 +40,10 @@ public class PlayerModel : MonoBehaviour
     public Transform effectSpawnPoint;
     public GameObject changeSkinEffect;
 
+    public float currentPointsFRC, currentPointsJetPack, currentPointsJojo;
+    public float recoverPointsSpeed;
+
+
     List<Skin> _mySkins = new List<Skin>();
     Skin _currentSkin;
 
@@ -82,7 +86,7 @@ public class PlayerModel : MonoBehaviour
     public event Action<bool> onLadderGrab = delegate { };
     public event Action<bool> onGrabChain = delegate { };
 	
-    Action _prepareAttack = delegate { };
+    Action<PlayerModel, Action> _prepareAttack = delegate { };
     Action _optionalAttack = delegate { };
 
     Action _cancelAttackSettings;
@@ -121,13 +125,12 @@ public class PlayerModel : MonoBehaviour
         stats.hp = stats.maxHP;
 
         _currentSpeed = stats.walkingSpeed;
-
-        _mySkins.Add(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
-        _mySkins.Add(Resources.Load<Skin>("Skins/Bowser_Skin"));
-        _mySkins.Add(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
-        _mySkins.Add(Resources.Load<Skin>("Skins/Jetpack_Skin"));
-
-        Debug.Log("MySkins:" + _mySkins.Count);
+        
+        AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
+        AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
+        AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+        AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
+        
     }
     // Start is called before the first frame update
     private void Start() {
@@ -167,13 +170,17 @@ public class PlayerModel : MonoBehaviour
 
         _restrictVerticalMovement?.Invoke(); //Es lo mismo que preguntar si es nulo antes de ejecutarlo. El invoke viene del Action, no es lo mismo que la caca del Invoke convencional
         
-        
     }
 
     public void SetNewStrategies(IController newControl, IMovement newMovement)
     {
         _control.SetController(newControl);
         _currentStrategy = newMovement;
+    }
+
+    void AddNewSkin(Skin newSkin)
+    {
+        _mySkins.Add(newSkin);
     }
 
     public void ChangeSkin(int index)
@@ -193,7 +200,7 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public void SetAttack(Action preparation, Action execution, Action secondAction)
+    public void SetAttack(Action<PlayerModel, Action> preparation, Action execution, Action secondAction)
     {
         _prepareAttack = preparation;
         _optionalAttack = secondAction;
@@ -517,8 +524,7 @@ public class PlayerModel : MonoBehaviour
 
     public void Attack()
     {
-        _prepareAttack();
-        onAttack();
+        _prepareAttack(this, onAttack);
     }
 
     public void SecondAttack()
@@ -662,6 +668,29 @@ public class PlayerModel : MonoBehaviour
 
 
     // -------------------------------------------- End Pickups --------------------------------------------
+
+    public Coroutine RechargeBar(Func<bool> condition, Action recharge, Action end)
+    {
+        return StartCoroutine(Recharge(condition, recharge, end));
+    }
+
+    public void StopRecharge(Coroutine cor)
+    {
+        if (cor != null)
+            StopCoroutine(cor);
+    }
+
+    IEnumerator Recharge(Func<bool> condition, Action recharge, Action end)
+    {
+        while (condition())
+        {
+            recharge();
+            yield return null;
+        }
+
+        end();
+    }
+
 
     // -------------------------------------------- Debugs --------------------------------------------
     private void OnDrawGizmos() {

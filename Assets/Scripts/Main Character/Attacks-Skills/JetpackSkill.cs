@@ -8,21 +8,25 @@ public class JetpackSkill : ISkill
 
     PlayerModel _pl;
     Transform _xTrf;
-    float _upImpulse, _topSpeed;
+    JetpackStatsSO _stats;
 
     IController _jetpackKeys;
     IMovement _jetpackMovement;
 
     Rigidbody2D _rgbd;
 
-    public JetpackSkill(PlayerModel pl, float upImpulse, float topSpeed)
+    Coroutine _rechargingJetCoroutine, _usingJetCoroutine;
+
+    System.Action _startRecharge;
+    System.Action _looseJetPoints;
+
+    public JetpackSkill(PlayerModel pl, JetpackStatsSO stats)
     {
         _isUsingJet = false;
 
         _pl = pl;
         _xTrf = _pl.transform;
-        _upImpulse = upImpulse;
-        _topSpeed = topSpeed;
+        _stats = stats;
         _rgbd = pl.GetComponent<Rigidbody2D>();
         _jetpackKeys = new JetpackController(_pl);
         _jetpackMovement = new JetpackMovement(_pl.transform);
@@ -32,34 +36,54 @@ public class JetpackSkill : ISkill
     {
         _isUsingJet = false;
         _pl.RestorePhysics();  //Le restauro el uso de fisica
+        _pl.CancelAttackActionsOnDmg(null);
+
+        _startRecharge?.Invoke();
+        _looseJetPoints?.Invoke();
     }
 
-    public void PrepareSkill()
+    public void PrepareSkill(PlayerModel pl, System.Action execute)
     {
         if (!_isUsingJet)
         {
+            //PARO RECHARGE
+            if (_rechargingJetCoroutine != null)
+            {
+                pl.StopRecharge(_rechargingJetCoroutine);
+            }
+
             _isUsingJet = true;
             _pl.SetNewStrategies(_jetpackKeys, _jetpackMovement); //Seteo el movimiento y keys del jetpack
 
             _pl.ControlPhysics();//Parar la fisica de gravedad.
             //Setear al action de eliminar cosas al ser golpeado esto.
             _pl.CancelAttackActionsOnDmg(ReleaseJetpack);
+            
+            //LOOSE GAS
+            _usingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack > 0); }, () => pl.currentPointsJetPack -= _stats.decayPointsPerSecond * Time.deltaTime, () => { pl.currentPointsJetPack = 0; ReleaseJetpack(); });
+            _looseJetPoints = () => pl.StopRecharge(_usingJetCoroutine);
+
+            //RECHARGE
+            _startRecharge = () => _rechargingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack < _stats.maxPoints); }, () => pl.currentPointsJetPack += _stats.rechargePointsPerSecond * Time.deltaTime, () => pl.currentPointsJetPack = _stats.maxPoints);
         }
         else
         {
-            _pl.CancelAttackActionsOnDmg(null);
+            //_pl.CancelAttackActionsOnDmg(null);
             ReleaseJetpack();
         }
+
+        execute();
     }
 
     public void SecondSkill()
     {
-        if (_rgbd.velocity.y < _topSpeed)
-            _rgbd.AddForce(Vector2.up * _upImpulse, ForceMode2D.Impulse);
+        if (_rgbd.velocity.y < _stats.topSpeed)
+            _rgbd.AddForce(Vector2.up * _stats.upSpeed, ForceMode2D.Impulse);
     }
 
     public void UseSkill()
     {
         
     }
+    
 }

@@ -530,6 +530,7 @@ public class PlayerModel : MonoBehaviour
         else if (collision.GetComponent<Checkpoint>())
         {
             _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
+            collision.GetComponent<Checkpoint>().ActivateCheckpoint();
         }
     }
 

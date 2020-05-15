@@ -154,7 +154,8 @@ public class PlayerModel : MonoBehaviour
         _miniUI = GetComponent<UpdateMiniUI>();
 
         ChangeSkin(0);
-        
+        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
+
         //_ui.UpdateHPText(stats.hp);
         //_ui.UpdateLivesText(stats.lives);
     }
@@ -206,7 +207,7 @@ public class PlayerModel : MonoBehaviour
             onChangeSkin(_currentSkin.newAnimator);
             _currentSkin.GetAttack(this);
             onSkinKeys(_currentSkin.ExtraKeys);
-            _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
+            _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin),SkillsAndValues[_currentSkin]);
         }
     }
 
@@ -542,13 +543,13 @@ public class PlayerModel : MonoBehaviour
         // TODO: Hay que hacer que esto se actualice solo, O en su defecto updatear el diccionario en todos los lados que se toca el valor, sumado o restado
 
         SkillsAndValues[_currentSkin] -= 20;
-        _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
+        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
     }
 
     public void SecondAttack()
     {
         _optionalAttack();
-        _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
+        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
     }
     
     //// TODO: Super simple, habría que spawnear feedback o detallar mas como los elimina

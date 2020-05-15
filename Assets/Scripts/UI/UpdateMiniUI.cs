@@ -15,8 +15,8 @@ public class UpdateMiniUI : MonoBehaviour {
         SetDoomDuckHPValue(HP);
     }
 
-    public void UpdateSkillText(float skillValue) {
-        skillText.ChangeSkillText(skillName, skillValue);
+    public void UpdateSkillText(int skillVal, float skillValue) {
+        skillText.ChangeSkillText(skillVal, skillValue);
     }
 
 
@@ -25,16 +25,17 @@ public class UpdateMiniUI : MonoBehaviour {
     }
 
     // ----------------------------- TEST ------------------------------------
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            skillName = "EGG";
-        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            skillName = "BOW";
-        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            skillName = "FRQ";
-        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            skillName = "JET";
-        }
-    }
+    //private void Update() {
+    //    if (Input.GetKeyDown(KeyCode.Alpha1)) {
+    //        skillName = "EGG";
+    //    } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+    //        skillName = "BOW";
+    //    } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+    //        Debug.Log("FRQ Set");
+    //        skillName = "FRQ";
+    //    } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+    //        skillName = "JET";
+    //    }
+    //}
 
 }

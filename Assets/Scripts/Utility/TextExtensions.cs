@@ -1,4 +1,5 @@
 ﻿using UnityEngine.UI;
+using UnityEngine;
 
 namespace TextExtensions {
 
@@ -11,7 +12,25 @@ namespace TextExtensions {
                 uiText.text = "" + val + "/100";
         }
 
-        public static void ChangeSkillText(this Text uiText, string skillName, float val) {
+        public static void ChangeSkillText(this Text uiText, int skillVal, float val) {
+            string skillName = "";
+
+            switch (skillVal) {
+                case 0:
+                    skillName = "EGG";
+                    break;
+                case 1:
+                    skillName = "BOW";
+                    break;
+                case 2:
+                    skillName = "FRQ";
+                    break;
+                case 3:
+                    skillName = "JET";
+                    break;
+            }
+
+
             if (val < 0)
                 uiText.text = skillName + " Infinite";
             else

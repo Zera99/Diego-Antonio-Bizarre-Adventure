@@ -9,7 +9,8 @@ public class PlayerModel : MonoBehaviour
 {
     
     Rigidbody2D _rb;
-    UpdateUI _ui;
+    //UpdateUI _ui;
+    UpdateMiniUI _miniUI; // Cuando sepamos cual queda, se borra el otro y listo.
     PlayerController _control;
 
     PhysicsCalculation _physics;
@@ -40,6 +41,7 @@ public class PlayerModel : MonoBehaviour
     public Transform effectSpawnPoint;
     public GameObject changeSkinEffect;
 
+    Dictionary<Skin, float> SkillsAndValues = new Dictionary<Skin, float>();
     public float currentPointsFRC, currentPointsJetPack, currentPointsJojo;
     public float recoverPointsSpeed;
 
@@ -126,10 +128,16 @@ public class PlayerModel : MonoBehaviour
 
         _currentSpeed = stats.walkingSpeed;
         
+
+
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
+        SkillsAndValues.Add(_mySkins[0], -1);
         AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
+        SkillsAndValues.Add(_mySkins[1], -1);
         AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+        SkillsAndValues.Add(_mySkins[2], currentPointsFRC);
         AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
+        SkillsAndValues.Add(_mySkins[3], currentPointsJetPack);
         
     }
     // Start is called before the first frame update
@@ -142,12 +150,13 @@ public class PlayerModel : MonoBehaviour
 
         SetNewStrategies(_groundKeys, _groundMovementStrategy);
 
-        _ui = GetComponent<UpdateUI>();
+        //_ui = GetComponent<UpdateUI>();
+        _miniUI = GetComponent<UpdateMiniUI>();
 
         ChangeSkin(0);
         
-        _ui.UpdateHPText(stats.hp);
-        _ui.UpdateLivesText(stats.lives);
+        //_ui.UpdateHPText(stats.hp);
+        //_ui.UpdateLivesText(stats.lives);
     }
 
     private void Update() {
@@ -197,6 +206,7 @@ public class PlayerModel : MonoBehaviour
             onChangeSkin(_currentSkin.newAnimator);
             _currentSkin.GetAttack(this);
             onSkinKeys(_currentSkin.ExtraKeys);
+            _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
         }
     }
 
@@ -518,18 +528,22 @@ public class PlayerModel : MonoBehaviour
             collision.gameObject.GetComponent<IHazard>().MakeDamage(this);
         }
     }
-    
+
 
     // -------------------------------------------- Attacks --------------------------------------------
 
-    public void Attack()
-    {
+    public void Attack() {
         _prepareAttack(this, onAttack);
+        // TODO: Hay que hacer que esto se actualice solo, O en su defecto updatear el diccionario en todos los lados que se toca el valor, sumado o restado
+
+        SkillsAndValues[_currentSkin] -= 20;
+        _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
     }
 
     public void SecondAttack()
     {
         _optionalAttack();
+        _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
     }
     
     // TODO: Super simple, habría que spawnear feedback o detallar mas como los elimina
@@ -571,7 +585,7 @@ public class PlayerModel : MonoBehaviour
         
         stats.hp = Mathf.Max(stats.hp -= dmg, 0);
 
-        _ui.UpdateHPText(stats.hp);
+        _miniUI.UpdateHPText(stats.hp);
 
         _cancelVerticalGrab?.Invoke();
         _cancelAttackSettings?.Invoke();
@@ -654,7 +668,8 @@ public class PlayerModel : MonoBehaviour
     {
         onHealPickUp();
         stats.hp = Mathf.Min(stats.hp + hp, stats.maxHP);
-        _ui.UpdateHPText(stats.hp);
+        //_ui.UpdateHPText(stats.hp);
+        _miniUI.UpdateHPText(stats.hp);
         StartCoroutine(PickUpColorRender(Color.green));
     }
 
@@ -662,7 +677,7 @@ public class PlayerModel : MonoBehaviour
     {
         onLifePickUp();
         stats.lives++;
-        _ui.UpdateLivesText(stats.lives);
+        //_ui.UpdateLivesText(stats.lives);
         StartCoroutine(PickUpColorRender(Color.yellow));
     }
 

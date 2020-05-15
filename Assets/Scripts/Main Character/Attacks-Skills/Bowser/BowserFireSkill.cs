@@ -27,4 +27,5 @@ public class BowserFireSkill : ISkill {
     public void SecondSkill() {
 
     }
+
 }

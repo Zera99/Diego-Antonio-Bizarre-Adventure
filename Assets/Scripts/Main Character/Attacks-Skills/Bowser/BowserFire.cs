@@ -30,9 +30,12 @@ public class BowserFire : MonoBehaviour {
 
     //TODO: Descomentar esto si queremos que el fuego dañe a todos los enemigos basicos (No trampas/Obstaculos)
 
-    //private void OnTriggerEnter2D(Collider2D collision) {
-    //    if (collision.gameObject.GetComponent<BasicEnemy>() != null) {
-    //        collision.gameObject.GetComponent<BasicEnemy>().TakeDamage(fireDamage);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<BasicEnemy>() != null)
+        {
+            collision.gameObject.GetComponent<BasicEnemy>().TakeDamage(fireDamage);
+            Destroy(gameObject);
+        }
+    }
 }

@@ -40,7 +40,8 @@ public class PlayerController
         m.onDeath += v.Die;
         m.onGrabChain += v.GrabChain;
         m.addAttackToAnimation += v.SetAttackToAnimator;
-        
+        m.onBackToCheckpoint += v.ResetAnimator;
+
         //SetController(startController);
     }
 

@@ -152,6 +152,12 @@ public class PlayerView : MonoBehaviour {
         _anim.SetTrigger("Attack");
     }
 
+
+    public void ResetAnimator()
+    {
+        _anim.SetTrigger("Reset");
+    }
+
     /* END FRANCO */
     
 

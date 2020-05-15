@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,6 +86,7 @@ public class PlayerModel : MonoBehaviour
     public event Action<float> onYVelocity = delegate { };
     public event Action<bool> onLadderGrab = delegate { };
     public event Action<bool> onGrabChain = delegate { };
+    public event Action onBackToCheckpoint = delegate { };
 	
     Action<PlayerModel, Action> _prepareAttack = delegate { };
     Action _optionalAttack = delegate { };
@@ -127,8 +127,8 @@ public class PlayerModel : MonoBehaviour
         stats.hp = stats.maxHP;
 
         _currentSpeed = stats.walkingSpeed;
-        
 
+        _checkpointPosition = transform.position;
 
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         SkillsAndValues.Add(_mySkins[0], -1);
@@ -527,6 +527,10 @@ public class PlayerModel : MonoBehaviour
         {
             collision.gameObject.GetComponent<IHazard>().MakeDamage(this);
         }
+        else if (collision.GetComponent<Checkpoint>())
+        {
+            _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
+        }
     }
 
 
@@ -546,28 +550,28 @@ public class PlayerModel : MonoBehaviour
         _miniUI.UpdateSkillText(SkillsAndValues[_currentSkin]);
     }
     
-    // TODO: Super simple, habría que spawnear feedback o detallar mas como los elimina
-    public void FusRoQuack() {
-        Debug.Log("FusRo Enter");
-        Collider2D[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy").Select(x => x.GetComponent<Collider2D>()).ToArray();
-        Debug.Log("Enemies: " + allEnemies.Length.ToString());
-        List<GameObject> enemiesToDestroy = new List<GameObject>();
-        Debug.Log("To Destroy: " + enemiesToDestroy.Count.ToString());
-        Camera cam = Camera.main;
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
+    //// TODO: Super simple, habría que spawnear feedback o detallar mas como los elimina
+    //public void FusRoQuack() {
+    //    Debug.Log("FusRo Enter");
+    //    Collider2D[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy").Select(x => x.GetComponent<Collider2D>()).ToArray();
+    //    Debug.Log("Enemies: " + allEnemies.Length.ToString());
+    //    List<GameObject> enemiesToDestroy = new List<GameObject>();
+    //    Debug.Log("To Destroy: " + enemiesToDestroy.Count.ToString());
+    //    Camera cam = Camera.main;
+    //    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
 
-        for (int i = 0; i < allEnemies.Length; i++) {
-            Debug.Log("Name: " + allEnemies[i].name);
-            if (GeometryUtility.TestPlanesAABB(planes, allEnemies[i].bounds)) { // Chequea si el collider esta dentro de los planos de vision de la camara.
-                enemiesToDestroy.Add(allEnemies[i].gameObject);
-            }
-        }
+    //    for (int i = 0; i < allEnemies.Length; i++) {
+    //        Debug.Log("Name: " + allEnemies[i].name);
+    //        if (GeometryUtility.TestPlanesAABB(planes, allEnemies[i].bounds)) { // Chequea si el collider esta dentro de los planos de vision de la camara.
+    //            enemiesToDestroy.Add(allEnemies[i].gameObject);
+    //        }
+    //    }
 
-        foreach (GameObject e in enemiesToDestroy) {
-            Destroy(e);
-        }
-        enemiesToDestroy.Clear();
-    }
+    //    foreach (GameObject e in enemiesToDestroy) {
+    //        Destroy(e);
+    //    }
+    //    enemiesToDestroy.Clear();
+    //}
 
     // -------------------------------------------- End Attacks --------------------------------------------
     // -------------------------------------------- Damage --------------------------------------------
@@ -626,17 +630,30 @@ public class PlayerModel : MonoBehaviour
         {
             Debug.Log("Obligado a reiniciar. No hay mas vidas");
             stats.lives = stats.maxLives;
+            StartCoroutine(RestartLevel());
+        }
+        else
+        {
+            StartCoroutine(DieToCheckpoint());
         }
 
         onDeath();
         
-        StartCoroutine(RestartLevel());
     } 
 
     IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(1.3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator DieToCheckpoint()
+    {
+        yield return new WaitForSeconds(1.3f);
+        transform.position = _checkpointPosition;
+        _isDying = false;
+        stats.hp = stats.maxHP;
+        onBackToCheckpoint();
     }
 
     IEnumerator GetHitEffect()

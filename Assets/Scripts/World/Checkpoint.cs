@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour{
-    Vector3 GetCheckpointPosition() {
-        return this.transform.position;
+public class Checkpoint : MonoBehaviour
+{
+
+    public Vector3 GetCheckpointPosition()
+    {
+        return transform.position;
     }
 }

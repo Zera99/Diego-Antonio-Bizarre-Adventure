@@ -535,6 +535,12 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.GetComponent<Spike>() != null)
+        {
+            collision.gameObject.GetComponent<Spike>().MakeDamage(this);
+        }
+    }
 
     // -------------------------------------------- Attacks --------------------------------------------
 

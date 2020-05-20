@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crusher : MonoBehaviour, IHazard {
+public class Crusher : MonoBehaviour {
 
     public float speed;
     public int damage;
@@ -74,6 +74,7 @@ public class Crusher : MonoBehaviour, IHazard {
     //}
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log("Is Crushing: " + crushing);
         if (crushing) {
             if (collision.gameObject.GetComponent<PlayerModel>() != null) {
                 Debug.Log("Triggered on player");

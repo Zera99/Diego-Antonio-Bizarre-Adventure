@@ -9,6 +9,7 @@ public class UpdateMiniUI : MonoBehaviour {
     public Text skillText;
     string skillName = "EGG"; // Por defecto esta en EGG, para el inicio
     public Animator doomDuckAnim;
+    public HUDController hudControl;
 
     public void UpdateHPText(int HP) {
         hpText.text = "" + HP;
@@ -22,6 +23,18 @@ public class UpdateMiniUI : MonoBehaviour {
 
     public void SetDoomDuckHPValue(float val) {
         doomDuckAnim.SetFloat("DuckHP", val);
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            hudControl.ChangeToBase();
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            hudControl.ChangeIcon(0);
+        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            hudControl.ChangeIcon(1);
+        } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            hudControl.ChangeIcon(2);
+        }
     }
 
     // ----------------------------- TEST ------------------------------------

@@ -6,6 +6,7 @@ using TextExtensions;
 
 public class UpdateMiniUI : MonoBehaviour {
     public Text hpText;
+	public Text livesText;
     public Text skillText;
     string skillName = "EGG"; // Por defecto esta en EGG, para el inicio
     public Animator doomDuckAnim;
@@ -15,6 +16,10 @@ public class UpdateMiniUI : MonoBehaviour {
         hpText.text = "" + HP;
         SetDoomDuckHPValue(HP);
     }
+	
+	public void UpdateLivesText(int lives) {
+		livesText.text = "" + lives;
+	}
 
     public void UpdateSkillText(int skillVal, float skillValue) {
         skillText.ChangeSkillText(skillVal, skillValue);

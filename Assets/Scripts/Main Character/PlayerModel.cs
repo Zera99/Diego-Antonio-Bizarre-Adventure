@@ -158,6 +158,8 @@ public class PlayerModel : MonoBehaviour
 
         //_ui.UpdateHPText(stats.hp);
         //_ui.UpdateLivesText(stats.lives);
+		_miniUI.UpdateHPText(stats.hp);
+		_miniUI.UpdateHPText(stats.lives);
     }
 
     private void Update() {
@@ -633,6 +635,7 @@ public class PlayerModel : MonoBehaviour
         yVelocity = 0;
 
         stats.lives--;
+		_miniUI.UpdateLivesText(stats.lives);
 
         if (stats.lives <= 0)
         {
@@ -661,6 +664,7 @@ public class PlayerModel : MonoBehaviour
         transform.position = _checkpointPosition;
         _isDying = false;
         stats.hp = stats.maxHP;
+		_miniUI.UpdateHPText(stats.hp);
         onBackToCheckpoint();
     }
 
@@ -702,7 +706,7 @@ public class PlayerModel : MonoBehaviour
     {
         onLifePickUp();
         stats.lives++;
-        //_ui.UpdateLivesText(stats.lives);
+        _miniUI.UpdateLivesText(stats.lives);
         StartCoroutine(PickUpColorRender(Color.yellow));
     }
 

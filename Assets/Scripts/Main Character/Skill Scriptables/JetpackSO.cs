@@ -10,7 +10,7 @@ public class JetpackSO : Skin {
 
     public override void GetAttack(PlayerModel pl)
     {
-        ISkill JetSkill = new JetpackSkill(pl, jetpackStats);
+        ISkill JetSkill = new JetpackSkill(pl, jetpackStats, this);
         pl.SetAttack(JetSkill.PrepareSkill, JetSkill.UseSkill, JetSkill.SecondSkill);
 
     }

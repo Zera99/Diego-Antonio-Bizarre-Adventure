@@ -40,7 +40,7 @@ public class PlayerModel : MonoBehaviour
     public Transform effectSpawnPoint;
     public GameObject changeSkinEffect;
 
-    Dictionary<Skin, float> SkillsAndValues = new Dictionary<Skin, float>();
+    Dictionary<Skin, Func<float>> SkillsAndValues = new Dictionary<Skin, Func<float>>();
     public float currentPointsFRC, currentPointsJetPack, currentPointsJojo;
     public float recoverPointsSpeed;
 
@@ -131,13 +131,13 @@ public class PlayerModel : MonoBehaviour
         _checkpointPosition = transform.position;
 
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
-        SkillsAndValues.Add(_mySkins[0], -1);
+        SkillsAndValues.Add(_mySkins[0], () => { return -1; });
         AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
-        SkillsAndValues.Add(_mySkins[1], -1);
+        SkillsAndValues.Add(_mySkins[1], () => { return -1; });
         AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
-        SkillsAndValues.Add(_mySkins[2], currentPointsFRC);
+        SkillsAndValues.Add(_mySkins[2], () => { return currentPointsFRC; });
         AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
-        SkillsAndValues.Add(_mySkins[3], currentPointsJetPack);
+        SkillsAndValues.Add(_mySkins[3], () => { return currentPointsJetPack; });
         
     }
     // Start is called before the first frame update
@@ -154,7 +154,7 @@ public class PlayerModel : MonoBehaviour
         _miniUI = GetComponent<UpdateMiniUI>();
 
         ChangeSkin(0);
-        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
+        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]());
 
         //_ui.UpdateHPText(stats.hp);
         //_ui.UpdateLivesText(stats.lives);
@@ -209,7 +209,7 @@ public class PlayerModel : MonoBehaviour
             onChangeSkin(_currentSkin.newAnimator);
             _currentSkin.GetAttack(this);
             onSkinKeys(_currentSkin.ExtraKeys);
-            _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin),SkillsAndValues[_currentSkin]);
+            _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin),SkillsAndValues[_currentSkin]());
         }
     }
 
@@ -550,16 +550,22 @@ public class PlayerModel : MonoBehaviour
         _prepareAttack(this, onAttack);
         // TODO: Hay que hacer que esto se actualice solo, O en su defecto updatear el diccionario en todos los lados que se toca el valor, sumado o restado
 
-        SkillsAndValues[_currentSkin] -= 20;
-        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
+        //SkillsAndValues[_currentSkin] -= 20;
+        //_miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
     }
 
     public void SecondAttack()
     {
         _optionalAttack();
-        _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
+        //_miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
     }
     
+    public void ChangePointsValue(Skin skinCalling, float value)
+    {
+        if (_currentSkin == skinCalling)
+            _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), value);
+    }
+
     //// TODO: Super simple, habría que spawnear feedback o detallar mas como los elimina
     //public void FusRoQuack() {
     //    Debug.Log("FusRo Enter");

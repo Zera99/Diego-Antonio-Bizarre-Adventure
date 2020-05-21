@@ -9,6 +9,7 @@ public class JetpackSkill : ISkill
     PlayerModel _pl;
     Transform _xTrf;
     JetpackStatsSO _stats;
+    Skin _thisSkin;
 
     IController _jetpackKeys;
     IMovement _jetpackMovement;
@@ -20,7 +21,7 @@ public class JetpackSkill : ISkill
     System.Action _startRecharge;
     System.Action _looseJetPoints;
 
-    public JetpackSkill(PlayerModel pl, JetpackStatsSO stats)
+    public JetpackSkill(PlayerModel pl, JetpackStatsSO stats, Skin thisSkin)
     {
         _isUsingJet = false;
 
@@ -30,6 +31,7 @@ public class JetpackSkill : ISkill
         _rgbd = pl.GetComponent<Rigidbody2D>();
         _jetpackKeys = new JetpackController(_pl);
         _jetpackMovement = new JetpackMovement(_pl.transform);
+        _thisSkin = thisSkin;
     }
 
     void ReleaseJetpack()
@@ -60,11 +62,11 @@ public class JetpackSkill : ISkill
             _pl.CancelAttackActionsOnDmg(ReleaseJetpack);
             
             //LOOSE GAS
-            _usingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack > 0); }, () => pl.currentPointsJetPack -= _stats.decayPointsPerSecond * Time.deltaTime, () => { pl.currentPointsJetPack = 0; ReleaseJetpack(); });
+            _usingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack > 0); }, () => { pl.currentPointsJetPack -= _stats.decayPointsPerSecond * Time.deltaTime; pl.ChangePointsValue(_thisSkin, Mathf.RoundToInt(pl.currentPointsJetPack)); }, () => { pl.currentPointsJetPack = 0; pl.ChangePointsValue(_thisSkin, 0); ReleaseJetpack(); });
             _looseJetPoints = () => pl.StopRecharge(_usingJetCoroutine);
 
             //RECHARGE
-            _startRecharge = () => _rechargingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack < _stats.maxPoints); }, () => pl.currentPointsJetPack += _stats.rechargePointsPerSecond * Time.deltaTime, () => pl.currentPointsJetPack = _stats.maxPoints);
+            _startRecharge = () => _rechargingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack < _stats.maxPoints); }, () => { pl.currentPointsJetPack += _stats.rechargePointsPerSecond * Time.deltaTime; pl.ChangePointsValue(_thisSkin, Mathf.RoundToInt(pl.currentPointsJetPack)); }, () => { pl.currentPointsJetPack = _stats.maxPoints; pl.ChangePointsValue(_thisSkin, _stats.maxPoints); });
         }
         else
         {

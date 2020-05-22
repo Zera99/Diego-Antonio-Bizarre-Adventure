@@ -74,10 +74,8 @@ public class Crusher : MonoBehaviour {
     //}
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Is Crushing: " + crushing);
         if (crushing) {
             if (collision.gameObject.GetComponent<PlayerModel>() != null) {
-                Debug.Log("Triggered on player");
                 MakeDamage(collision.gameObject.GetComponent<PlayerModel>());
             }
             crushing = false;

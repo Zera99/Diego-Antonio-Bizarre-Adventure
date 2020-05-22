@@ -12,7 +12,8 @@ public class PlayerView : MonoBehaviour {
     public AudioSource audioSource;
     public AudioClip jumpingSound;
     public AudioClip hurtSound;
-    public AudioClip fartSound;
+    public AudioClip eggShotSound;
+    
     public AudioClip lifeCollected;
     public AudioClip healthCollected;
 
@@ -171,7 +172,8 @@ public class PlayerView : MonoBehaviour {
     }
 
     public void PlayFartSound() {
-        audioSource.PlayOneShot(fartSound);
+        audioSource.PlayOneShot(eggShotSound);
+        Debug.Log("Plays");
     }
 
     public void PlayHpCollected() {

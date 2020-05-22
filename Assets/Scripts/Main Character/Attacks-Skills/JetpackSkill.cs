@@ -10,6 +10,7 @@ public class JetpackSkill : ISkill
     Transform _xTrf;
     JetpackStatsSO _stats;
     Skin _thisSkin;
+    PlayerView view;
 
     IController _jetpackKeys;
     IMovement _jetpackMovement;
@@ -32,6 +33,8 @@ public class JetpackSkill : ISkill
         _jetpackKeys = new JetpackController(_pl);
         _jetpackMovement = new JetpackMovement(_pl.transform);
         _thisSkin = thisSkin;
+
+        view = pl.gameObject.GetComponent<PlayerView>();
     }
 
     void ReleaseJetpack()
@@ -48,6 +51,7 @@ public class JetpackSkill : ISkill
     {
         if (!_isUsingJet)
         {
+            view.PlayJetpackSound();
             //PARO RECHARGE
             if (_rechargingJetCoroutine != null)
             {

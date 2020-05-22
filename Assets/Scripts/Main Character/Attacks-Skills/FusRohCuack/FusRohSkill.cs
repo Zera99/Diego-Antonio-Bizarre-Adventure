@@ -8,6 +8,7 @@ public class FusRohSkill : ISkill {
     Transform _spawnPoint;
     float _baseCone, _lengthCone, _edgeCone, _costPoints;
     Skin _thisSkin;
+    PlayerView view;
 
     public FusRohSkill(PlayerModel pl, float baseCone, float lengthCone, float edgeCone, float costPoints, Skin thisSkin) {
         _spawnPoint = pl.fusRohSpawnPoint;
@@ -17,6 +18,8 @@ public class FusRohSkill : ISkill {
         _costPoints = costPoints;
 
         _thisSkin = thisSkin;
+
+        view = pl.gameObject.GetComponent<PlayerView>();
     }
 
     public void PrepareSkill(PlayerModel pl, Action execute)
@@ -26,6 +29,7 @@ public class FusRohSkill : ISkill {
             pl.currentPointsFRC -= _costPoints;
             execute();
             pl.ChangePointsValue(_thisSkin, pl.currentPointsFRC);
+            view.PlayFusRohSound();
         }
     }
 

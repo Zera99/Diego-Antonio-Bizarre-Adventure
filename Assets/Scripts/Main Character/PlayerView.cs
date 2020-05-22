@@ -13,6 +13,9 @@ public class PlayerView : MonoBehaviour {
     public AudioClip jumpingSound;
     public AudioClip hurtSound;
     public AudioClip eggShotSound;
+    public AudioClip bowserFireSound;
+    public AudioClip fusRoQuackSound;
+    public AudioClip jetpackSound;
     
     public AudioClip lifeCollected;
     public AudioClip healthCollected;
@@ -171,9 +174,20 @@ public class PlayerView : MonoBehaviour {
         audioSource.PlayOneShot(hurtSound);
     }
 
-    public void PlayFartSound() {
+    public void PlayEggSound() {
         audioSource.PlayOneShot(eggShotSound);
-        Debug.Log("Plays");
+    }
+
+    public void PlayBowserFire() {
+        audioSource.PlayOneShot(bowserFireSound);
+    }
+
+    public void PlayJetpackSound() {
+        audioSource.PlayOneShot(jetpackSound);
+    }
+
+    public void PlayFusRohSound() {
+        audioSource.PlayOneShot(fusRoQuackSound);
     }
 
     public void PlayHpCollected() {

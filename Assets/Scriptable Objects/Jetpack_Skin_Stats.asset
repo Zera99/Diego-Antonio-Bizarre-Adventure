@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d339f58bf407afd4889ca3202846d7b4, type: 3}
   m_Name: Jetpack_Skin_Stats
   m_EditorClassIdentifier: 
+  upSpeed: 3
+  topSpeed: 10
+  maxPoints: 100
+  rechargePointsPerSecond: 0.5
+  decayPointsPerSecond: 20

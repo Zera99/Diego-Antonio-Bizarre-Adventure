@@ -66,7 +66,7 @@ public class JetpackSkill : ISkill
             _pl.CancelAttackActionsOnDmg(ReleaseJetpack);
             
             //LOOSE GAS
-            _usingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack > 0); }, () => { pl.currentPointsJetPack -= _stats.decayPointsPerSecond * Time.deltaTime; pl.ChangePointsValue(_thisSkin, Mathf.RoundToInt(pl.currentPointsJetPack)); }, () => { pl.currentPointsJetPack = 0; pl.ChangePointsValue(_thisSkin, 0); ReleaseJetpack(); });
+            _usingJetCoroutine = pl.RechargeBar(() => { return (pl.currentPointsJetPack > 0); }, () => { pl.currentPointsJetPack -= _stats.decayPointsPerSecond * Time.deltaTime; pl.ChangePointsValue(_thisSkin, Mathf.RoundToInt(pl.currentPointsJetPack)); }, () => { pl.currentPointsJetPack = 0; pl.ChangePointsValue(_thisSkin, 0); ReleaseJetpack(); execute(); });
             _looseJetPoints = () => pl.StopRecharge(_usingJetCoroutine);
 
             //RECHARGE

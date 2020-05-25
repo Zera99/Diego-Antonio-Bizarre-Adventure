@@ -28,7 +28,7 @@ public class ThrowEggSkill : ISkill {
         egg.SetEggDamage(_eggDamage);
         view.PlayEggSound();
         egg.transform.position = _eggSpawnPoint.position;
-        egg.GetComponent<Rigidbody2D>().AddForce(new Vector2(-_eggSpawnPoint.right.x, 1).normalized * _throwForce, ForceMode2D.Impulse);
+        egg.GetComponent<Rigidbody2D>().AddForce(new Vector2(_eggSpawnPoint.right.x, 1).normalized * _throwForce, ForceMode2D.Impulse);
     }
     public void SecondSkill() {
 

@@ -199,9 +199,4 @@ public class PlayerView : MonoBehaviour {
     }
     
     
-
-
-
-    
-    
 }

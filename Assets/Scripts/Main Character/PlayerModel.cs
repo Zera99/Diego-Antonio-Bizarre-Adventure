@@ -685,6 +685,7 @@ public class PlayerModel : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         normalRenderColor();
+        yield return new WaitForSeconds(1f);
         SetImmunity(false);
     }
 

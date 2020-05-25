@@ -15,5 +15,5 @@ MonoBehaviour:
   upSpeed: 3
   topSpeed: 10
   maxPoints: 100
-  rechargePointsPerSecond: 0.5
+  rechargePointsPerSecond: 4
   decayPointsPerSecond: 20

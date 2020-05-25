@@ -15,4 +15,4 @@ MonoBehaviour:
   baseHeightCone: 2
   lenghtCone: 6
   endHeightCone: 8
-  usePoints: 20
+  usePoints: 25

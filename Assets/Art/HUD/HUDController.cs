@@ -13,6 +13,8 @@ public class HUDController : MonoBehaviour {
     }
 
     public void ChangeIcon(int skillNum) {
+        if (!allIcons[skillNum].gameObject.activeInHierarchy)
+            return;
         currentIcon.TurnOff();
         currentNum = skillNum;
         currentIcon = allIcons[currentNum];

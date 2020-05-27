@@ -11,7 +11,6 @@ public class FlammableBox : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Collision");
         if(collision.gameObject.GetComponent<BowserFire>() != null) {
             anim.SetTrigger("setOnFire");
             Destroy(collision.gameObject);

@@ -132,12 +132,12 @@ public class PlayerModel : MonoBehaviour
 
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         SkillsAndValues.Add(_mySkins[0], () => { return -1; });
-        AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
-        SkillsAndValues.Add(_mySkins[1], () => { return -1; });
-        AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
-        SkillsAndValues.Add(_mySkins[2], () => { return currentPointsFRC; });
-        AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
-        SkillsAndValues.Add(_mySkins[3], () => { return currentPointsJetPack; });
+        //AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
+        //SkillsAndValues.Add(_mySkins[1], () => { return -1; });
+        //AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+        //SkillsAndValues.Add(_mySkins[2], () => { return currentPointsFRC; });
+        //AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
+        //SkillsAndValues.Add(_mySkins[3], () => { return currentPointsJetPack; });
         
     }
     // Start is called before the first frame update
@@ -190,13 +190,30 @@ public class PlayerModel : MonoBehaviour
         _currentStrategy = newMovement;
     }
 
-    void AddNewSkin(Skin newSkin)
+    public void AddNewSkin(Skin newSkin)
     {
         _mySkins.Add(newSkin);
+
+        switch(_mySkins.Count) {
+            case 2:
+                SkillsAndValues.Add(_mySkins[1], () => { return -1; }); ;
+                break;
+            case 3:
+                SkillsAndValues.Add(_mySkins[2], () => { return currentPointsFRC; });
+                break;
+            case 4:
+                SkillsAndValues.Add(_mySkins[3], () => { return currentPointsJetPack; });
+                break;
+        }
     }
 
     public void ChangeSkin(int index)
     {
+
+        if (index >= _mySkins.Count) {
+            return;
+        }
+
         Skin newSkin = _mySkins[index];
 
         if (!newSkin)
@@ -521,6 +538,7 @@ public class PlayerModel : MonoBehaviour
     {
         
         IPickupable pickupable = collision.gameObject.GetComponent<IPickupable>();
+        Debug.Log("Trigger: " + collision.gameObject.name);
 
         if (pickupable != null)
         {

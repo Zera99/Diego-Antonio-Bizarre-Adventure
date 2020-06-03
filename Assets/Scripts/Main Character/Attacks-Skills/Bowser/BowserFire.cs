@@ -36,6 +36,8 @@ public class BowserFire : MonoBehaviour {
         {
             collision.gameObject.GetComponent<BasicEnemy>().TakeDamage(fireDamage);
             Destroy(gameObject);
+        } else if (collision.gameObject.GetComponent<PlayerModel>() == null) { // Si no toco el player, tiene que destruirse
+            Destroy(gameObject);
         }
     }
 }

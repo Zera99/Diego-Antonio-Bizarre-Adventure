@@ -105,9 +105,8 @@ GameObject:
   - component: {fileID: 8553448317432029722}
   - component: {fileID: 8553448317432029720}
   - component: {fileID: 8553448317432029721}
+  - component: {fileID: 1787672416}
   - component: {fileID: 3642745948204558181}
-  - component: {fileID: 1134797140}
-  - component: {fileID: 527743399}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -189,7 +188,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8553448317432029726}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 878db52a0abf0cc4e9501fa35da723cb, type: 2}
   m_IsTrigger: 0
@@ -223,10 +222,10 @@ MonoBehaviour:
   audioSource: {fileID: 3642745948204558181}
   jumpingSound: {fileID: 8300000, guid: 5d1665753915b9e41ada06bdf012f07d, type: 3}
   hurtSound: {fileID: 8300000, guid: 7c59ee95cdb8465449fc6a3a0b0b3e3c, type: 3}
-  eggShotSound: {fileID: 8300000, guid: c09bc7de67c8d084589d60af5a15f569, type: 3}
-  bowserFireSound: {fileID: 8300000, guid: d9b3f6ef611258c45b42d14ef7ff7ee8, type: 3}
-  fusRoQuackSound: {fileID: 8300000, guid: 9cf96ba420fedc14580e864161e20d9e, type: 3}
-  jetpackSound: {fileID: 8300000, guid: cac36e7230528624d8ae99499984cd5a, type: 3}
+  eggShotSound: {fileID: 0}
+  bowserFireSound: {fileID: 0}
+  fusRoQuackSound: {fileID: 0}
+  jetpackSound: {fileID: 0}
   lifeCollected: {fileID: 8300000, guid: aa5bc9918b380124a9d29324c5566be1, type: 3}
   healthCollected: {fileID: 8300000, guid: 896b3f6012b04d24a98450e452b1676d, type: 3}
 --- !u!114 &8553448317432029722
@@ -245,7 +244,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 257
   stats: {fileID: 11400000, guid: d03566da7a98c9942adec7332d896ff2, type: 2}
-  normalSkin: {fileID: 11400000, guid: 3ba3cd26db74a464c8a22a7595a4e87a, type: 2}
+  normalSkin: {fileID: 0}
   bowserSkin: {fileID: 11400000, guid: afa781f971851c847bf9694f2c2a1650, type: 2}
   eggSpawnPoint: {fileID: 8553448318619662299}
   bowserFirePrefab: {fileID: 3408477215437300013, guid: 09772007414d46b4897ff95723866969,
@@ -256,10 +255,10 @@ MonoBehaviour:
   effectSpawnPoint: {fileID: 223774786}
   changeSkinEffect: {fileID: 7779016687201674110, guid: a382c100c1594d24ea0f0dfd25cc647f,
     type: 3}
-  currentPointsFRC: 100
-  currentPointsJetPack: 100
-  currentPointsJojo: 100
-  recoverPointsSpeed: 1
+  currentPointsFRC: 0
+  currentPointsJetPack: 0
+  currentPointsJojo: 0
+  recoverPointsSpeed: 0
   topLadderLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -312,6 +311,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1787672416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553448317432029726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377468cee3b440d43a880edf61524cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesText: {fileID: 0}
+  hpText: {fileID: 0}
+  jetpackText: {fileID: 0}
+  frqText: {fileID: 0}
+  jojoText: {fileID: 0}
+  doomDuckAnim: {fileID: 0}
+  hudControl: {fileID: 0}
 --- !u!82 &3642745948204558181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -408,39 +426,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &1134797140
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8553448317432029726}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.225}
-  m_Size: {x: 0.28, y: 0.45}
-  m_Direction: 0
---- !u!114 &527743399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8553448317432029726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6427b48510eff4e8a897a380f10b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpText: {fileID: 0}
-  livesText: {fileID: 0}
-  skillText: {fileID: 0}
-  doomDuckAnim: {fileID: 0}
-  hudControl: {fileID: 0}
 --- !u!1 &8553448318619662296
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8553448318619662296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.221, y: 0.219, z: 0}
+  m_LocalPosition: {x: -0.221, y: 0.219, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8553448317480851531}

@@ -522,14 +522,14 @@ public class PlayerModel : MonoBehaviour
     }
     #endregion
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<IHazardCollider>() != null)
-        {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<IHazardCollider>() != null) {
             collision.gameObject.GetComponent<IHazardCollider>().MakeCollisionDamage(this);
         }
 
-        if(collision.gameObject.tag == "Wall" && _isOnCrusher) {
+        
+
+        if (collision.gameObject.tag == "Wall" && _isOnCrusher) {
             TakeDamage(100);
         }
     }
@@ -538,7 +538,7 @@ public class PlayerModel : MonoBehaviour
     {
         
         IPickupable pickupable = collision.gameObject.GetComponent<IPickupable>();
-        Debug.Log("Trigger: " + collision.gameObject.name);
+        //Debug.Log("Trigger: " + collision.gameObject.name);
 
         if (pickupable != null)
         {
@@ -552,6 +552,8 @@ public class PlayerModel : MonoBehaviour
         {
             _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
             collision.GetComponent<Checkpoint>().ActivateCheckpoint();
+        } else if (collision.gameObject.GetComponent<IMovingPlatform>() != null) {
+            collision.gameObject.GetComponent<IMovingPlatform>().ParentToPlatform(this.gameObject.transform);
         }
     }
 
@@ -559,6 +561,12 @@ public class PlayerModel : MonoBehaviour
         if (collision.gameObject.GetComponent<Spike>() != null)
         {
             collision.gameObject.GetComponent<Spike>().MakeDamage(this);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.GetComponent<IMovingPlatform>() != null) {
+            this.gameObject.transform.parent = null;
         }
     }
 

@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6709652911312341651}
   - component: {fileID: 6709652911312341650}
   m_Layer: 5
-  m_Name: Side Panel 1
+  m_Name: Side Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,8 +259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 124, y: 56.6}
-  m_SizeDelta: {x: 62.78003, y: 30}
+  m_AnchoredPosition: {x: 125.3, y: 52.7}
+  m_SizeDelta: {x: 87.75, y: 48.14}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6709652911814349883
 CanvasRenderer:
@@ -296,10 +296,10 @@ MonoBehaviour:
     m_MinSize: 3
     m_MaxSize: 167
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 10
 --- !u!114 &6709652911814349882

@@ -16,13 +16,13 @@ MonoBehaviour:
   maxHP: 10
   hp: 10
   maxLives: 5
-  lives: 5
+  lives: 1
   jumpHeight: 7
   timeToApex: 0.45
   fallingSpeed: 2
   maxJumps: 1
-  walkingSpeed: 7
-  runningSpeed: 14
+  walkingSpeed: 12
+  runningSpeed: 20
   climbingSpeed: 5
   throwForce: 25
   eggDamage: 2

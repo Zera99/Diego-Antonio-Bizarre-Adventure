@@ -159,7 +159,7 @@ public class PlayerModel : MonoBehaviour
         //_ui.UpdateHPText(stats.hp);
         //_ui.UpdateLivesText(stats.lives);
 		_miniUI.UpdateHPText(stats.hp);
-		_miniUI.UpdateHPText(stats.lives);
+		_miniUI.UpdateLivesText(stats.lives);
     }
 
     private void Update() {

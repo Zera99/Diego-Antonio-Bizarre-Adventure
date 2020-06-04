@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHP: 10
   hp: 10
   maxLives: 5
-  lives: 1
+  lives: 5
   jumpHeight: 7
   timeToApex: 0.45
   fallingSpeed: 2

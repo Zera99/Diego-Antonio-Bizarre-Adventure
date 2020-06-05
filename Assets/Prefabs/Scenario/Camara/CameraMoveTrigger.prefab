@@ -70,5 +70,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44bf31a03b38bde439b4bfddfde1324c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCameraDistance: 15
+  newCameraDistance: 20
   movementSeconds: 1

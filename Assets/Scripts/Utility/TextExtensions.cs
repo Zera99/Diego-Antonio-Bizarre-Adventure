@@ -23,10 +23,10 @@ namespace TextExtensions {
                     skillName = "BOW";
                     break;
                 case 2:
-                    skillName = "FRQ";
+                    skillName = "JET";
                     break;
                 case 3:
-                    skillName = "JET";
+                    skillName = "FRQ";
                     break;
             }
 

@@ -17,7 +17,7 @@ public class BigBossModel : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         Egg e = collision.GetComponent<Egg>();
 
-        if(e) {
+        if(e && !_isStunned) {
             _canAttack = false;
             _isStunned = true;
             StartCoroutine(Stun());

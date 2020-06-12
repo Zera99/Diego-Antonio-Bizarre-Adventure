@@ -129,7 +129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127.73003, y: 27.699997}
+  m_AnchoredPosition: {x: 222.8, y: 27.699997}
   m_SizeDelta: {x: 133.63, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2261174965172895481
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offMode: {fileID: 21300000, guid: 8f5d08bdf0aa99f4491568ec3ff2c717, type: 3}
   onMode: {fileID: 21300000, guid: 16046bc50deb2e24885f1ff73e530a6a, type: 3}
-  numberOff: {fileID: 21300000, guid: 7595e14e482deef42af0934989fbd291, type: 3}
-  numberOn: {fileID: 21300000, guid: 8c8c145471542e445980aff8f3230f19, type: 3}
+  numberOff: {fileID: 21300000, guid: bb80a71b00cd9d44098785cdea7abd8a, type: 3}
+  numberOn: {fileID: 21300000, guid: aedebb910a08f114cbd599d384fff8f6, type: 3}
   spriteRenderer: {fileID: 2261174965172895480}
   numberRenderer: {fileID: 2261174965652116401}
 --- !u!1 &2261174965289090517
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 2261174965652116402}
   - component: {fileID: 2261174965652116401}
   m_Layer: 5
-  m_Name: 3
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7595e14e482deef42af0934989fbd291, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb80a71b00cd9d44098785cdea7abd8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -368,7 +368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219.53003, y: 28.150002}
+  m_AnchoredPosition: {x: 128.4, y: 28.150002}
   m_SizeDelta: {x: 126.05, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2261174965761482532
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offMode: {fileID: 21300000, guid: 400d2656c1719744eaa0c6db12c8c454, type: 3}
   onMode: {fileID: 21300000, guid: febe6f821b2f9cf4c84160834a14475c, type: 3}
-  numberOff: {fileID: 21300000, guid: bb80a71b00cd9d44098785cdea7abd8a, type: 3}
-  numberOn: {fileID: 21300000, guid: aedebb910a08f114cbd599d384fff8f6, type: 3}
+  numberOff: {fileID: 21300000, guid: 7595e14e482deef42af0934989fbd291, type: 3}
+  numberOn: {fileID: 21300000, guid: 8c8c145471542e445980aff8f3230f19, type: 3}
   spriteRenderer: {fileID: 2261174965761482531}
   numberRenderer: {fileID: 2261174967072746626}
 --- !u!1 &2261174966488377257
@@ -448,7 +448,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261174966488377257}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 2261174967072746627}
   - component: {fileID: 2261174967072746626}
   m_Layer: 5
-  m_Name: 4
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb80a71b00cd9d44098785cdea7abd8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7595e14e482deef42af0934989fbd291, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

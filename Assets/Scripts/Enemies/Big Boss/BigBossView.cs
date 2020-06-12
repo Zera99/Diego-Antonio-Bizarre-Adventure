@@ -19,6 +19,7 @@ public class BigBossView : MonoBehaviour {
     }
 
     public void Stun() {
+        _anim.SetTrigger("isStunned");
         StartCoroutine(StunCoroutine());
     }
 

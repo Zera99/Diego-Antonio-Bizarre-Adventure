@@ -553,6 +553,7 @@ public class PlayerModel : MonoBehaviour
             _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
             collision.GetComponent<Checkpoint>().ActivateCheckpoint();
         } else if (collision.gameObject.GetComponent<IMovingPlatform>() != null) {
+            Debug.Log("Parent");
             collision.gameObject.GetComponent<IMovingPlatform>().ParentToPlatform(this.gameObject.transform);
         }
     }

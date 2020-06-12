@@ -1,0 +1,631 @@
+fileFormatVersion: 2
+guid: c0794a1e7bb569348b3ae92aaddf643b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3041948796307044315
+    second: txjetpack_0
+  - first:
+      213: 5471808691921792570
+    second: txjetpack_1
+  - first:
+      213: 1435528253689394674
+    second: txjetpack_2
+  - first:
+      213: -6236127938028175704
+    second: txjetpack_3
+  - first:
+      213: 7943374683458688912
+    second: txjetpack_4
+  - first:
+      213: -8021170641881018734
+    second: txjetpack_5
+  - first:
+      213: 5871922664530054252
+    second: txjetpack_6
+  - first:
+      213: 1704768810801336515
+    second: txjetpack_7
+  - first:
+      213: 9037472075393272789
+    second: txjetpack_8
+  - first:
+      213: -5360251933984961270
+    second: txjetpack_9
+  - first:
+      213: -1348377924540018731
+    second: txjetpack_10
+  - first:
+      213: -1174617994959461694
+    second: txjetpack_11
+  - first:
+      213: -5922255007720106053
+    second: txjetpack_12
+  - first:
+      213: -1210834793075868285
+    second: txjetpack_13
+  - first:
+      213: 1627659128788403348
+    second: txjetpack_14
+  - first:
+      213: -921018890066336490
+    second: txjetpack_15
+  - first:
+      213: -1227837808900736461
+    second: txjetpack_16
+  - first:
+      213: 7909647270937069907
+    second: txjetpack_17
+  - first:
+      213: -2580518622649631070
+    second: txjetpack_18
+  - first:
+      213: 6787440137041008603
+    second: txjetpack_19
+  - first:
+      213: -4123362488642233679
+    second: txjetpack_20
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: txjetpack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 785
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f4b9f45613cfa4cb1c73ca82d6c2e5
+      internalID: 3041948796307044315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 785
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a519d2f9efa8f448b498ad47340bcd0
+      internalID: 5471808691921792570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_2
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 785
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab2d3981307de341b4d3a72e79827a8
+      internalID: 1435528253689394674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_3
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 785
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f97fed6c7d41345991b3d48b3938e0
+      internalID: -6236127938028175704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 628
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88711d83d9e182e498aab860f09982c7
+      internalID: 7943374683458688912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 628
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b913a83f13c61f4aad6c9c662bbc617
+      internalID: -8021170641881018734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_6
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 628
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c0cb6dd5043b544b410ea0c12ac7a5
+      internalID: 5871922664530054252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_7
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 628
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315b55ea4f477c549b9e6fd19579e90a
+      internalID: 1704768810801336515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 471
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8629857b32ada834aa322217b57183e6
+      internalID: 9037472075393272789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 471
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7c91975ae8b81428840a1bf38c216e
+      internalID: -5360251933984961270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_10
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 471
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ffa7ac9939079142b6b69d88c8865bf
+      internalID: -1348377924540018731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_11
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 471
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920e2b6a608393146b581f50c8b0b36a
+      internalID: -1174617994959461694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 314
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3904dcaebc623409cc9058445ce8d7
+      internalID: -5922255007720106053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_13
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 314
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd4e341e6e73a94a996b79eeb9763e9
+      internalID: -1210834793075868285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_14
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 314
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8988d965ab9e5489f120d1f9ef4db6
+      internalID: 1627659128788403348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_15
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 314
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30b2a8a6c5ffcc47a474d514a78b208
+      internalID: -921018890066336490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 157
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c641663ab1d76e1449164f9feeb36900
+      internalID: -1227837808900736461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_17
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 157
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1029c176b9f653b43b078a2ca1efc3e5
+      internalID: 7909647270937069907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_18
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 157
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460aafb0c2ac9f64aa9f27917e764440
+      internalID: -2580518622649631070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_19
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 157
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0fd7d7e001a874285da033bfdacece
+      internalID: 6787440137041008603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: txjetpack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c532a83328228e429b51f463bb57ecd
+      internalID: -4123362488642233679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -20,4 +20,8 @@ public class FSM {
             _currentState.Exec();
     }
 
+    public IState PeekCurrentState() {
+        return _currentState;
+    }
+
 }

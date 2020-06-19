@@ -12,32 +12,33 @@ public class MoveAndShootState : IState {
     float _speed;
 
     GameObject _bulletPrefab;
-    float _timeToNextShot;
+    bool _isDoneShooting;
     float _shotCooldown;
+    float _breathingTime;
 
-    public MoveAndShootState(ShootyHyenaBro hyena, Transform wp1, Transform wp2, GameObject bulletPrefab) {
+    public MoveAndShootState(ShootyHyenaBro hyena, Transform wp1, Transform wp2) {
         _hyena = hyena;
         _waypoint1 = wp1;
         _waypoint2 = wp2;
-        _bulletPrefab = bulletPrefab;
     }
 
-    public MoveAndShootState SetParameters(float shotCD, float speed) {
+    public MoveAndShootState SetParameters(float shotCD, float speed, float breathingTime) {
         _shotCooldown = shotCD;
         _speed = speed;
+        _breathingTime = breathingTime;
         return this;
     }
 
     public void Enter() {
         _targetWP = _waypoint2;
         _currentDir = (_waypoint2.position - _hyena.transform.position).normalized;
+        _isDoneShooting = true;
         // Feedback Cambio de estado
     }
 
     public void Exec() {
         Move();
-        _timeToNextShot += Time.deltaTime;
-        if(_timeToNextShot >= _shotCooldown) {
+        if(_isDoneShooting) {
             Shoot();
         }
     }
@@ -55,8 +56,32 @@ public class MoveAndShootState : IState {
     }
 
     void Shoot() {
-        _timeToNextShot = 0;
-        _hyena.Shoot();
+        _isDoneShooting = false;
+        _hyena.StartCoroutine(ShootSet()); // Horrible, lo se. 
+    }
+
+    IEnumerator ShootSet() {
+        int amount = Random.Range(1, 5);
+        int type = Random.Range(0, 3);
+        while(amount > 0) {
+            switch(type) {
+                case 0:
+                    _hyena.ShootMissile();
+                    break;
+                case 1:
+                    _hyena.ShootBottle();
+                    break;
+                case 2:
+                    _hyena.ThrowBox();
+                    break;
+            }
+
+            amount--;
+            yield return new WaitForSeconds(_shotCooldown);
+        }
+
+        yield return new WaitForSeconds(_breathingTime);
+        _isDoneShooting = true;
     }
 
     Vector3 CalculateDirection() {

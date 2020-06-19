@@ -1682,6 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 8a8ac42cd1210264f9d01c18099f0739, type: 2}
   target: {fileID: 417192262}
+  _shakeAmount: 3
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -4925,10 +4926,16 @@ MonoBehaviour:
   wp2: {fileID: 1430987796}
   moveSpeed: 8
   vulnerableMoveSpeed: 3
-  hyenaBulletPrefab: {fileID: 7144756337298832621, guid: 768767fe665363047935739885265a91,
+  hyenaMissilePrefab: {fileID: 7047447967506664478, guid: 169803420fc50e94cadf8bc1a6c56535,
+    type: 3}
+  hyenaBottlePrefab: {fileID: 1506564478120745525, guid: 692e0cae56870e44187f31fe5d0452fa,
+    type: 3}
+  hyenaBoxPrefab: {fileID: 3649219229167142748, guid: b1c1881fb8d244b459646b144ccf2238,
     type: 3}
   bulletSpawnPoint: {fileID: 6709986}
-  shootingCooldown: 0.85
+  shootingCooldown: 0.25
+  breathingTime: 2
+  maxThrowForce: 25
 --- !u!212 &1829549092
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -49,12 +49,10 @@ public class PlayerController
 
         _actualController.ListenKeys();
         
-
         _skinKeys(_model);
-
-
-
-        if (Input.GetKeyDown(KeyCode.P)) {
+        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

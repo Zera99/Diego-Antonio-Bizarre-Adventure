@@ -6,6 +6,8 @@ public class CameraMovement : MonoBehaviour {
 
     public CameraStatsSO stats;
     public Transform target;
+    Vector3 modifierPos = new Vector3();
+    public float _shakeAmount = 3;
 
     //Vector3 velocity;
 
@@ -13,12 +15,15 @@ public class CameraMovement : MonoBehaviour {
 
 
     // Start is called before the first frame update
-    //void Start() {
-    //    velocity = Vector3.zero;
-    //}
+    void Start()
+    {
+        EventsManager.SubscribeToEvent(Constants.EVENT_SHAKECAMERA, ShakeCamera);
+    }
+    
 
     // Update is called once per frame
-    void LateUpdate() {
+    void LateUpdate()
+    {
         //Vector3 point = Camera.main.WorldToViewportPoint(target.position);
         //Vector3 posDelta = target.position - Camera.main.transform.position + stats.cameraRightOffset;
         //Vector3 dest = transform.position + posDelta;
@@ -53,8 +58,33 @@ public class CameraMovement : MonoBehaviour {
             }
         }
 
+        Vector3 finalPos = Vector3.Lerp(transform.position, desiredPos, stats.speed * Time.deltaTime);
+        transform.position = finalPos + modifierPos;
+    }
 
-        transform.position = Vector3.Lerp(transform.position, desiredPos, stats.speed * Time.deltaTime);
+    void ShakeCamera(params object[] p)
+    {
+        StartCoroutine(Shake((float)p[0]));
+    }
+
+    IEnumerator Shake(float shakeDuration)
+    {
+        modifierPos = Vector3.zero;
+
+        while (shakeDuration > 0)
+        {
+            modifierPos = Random.insideUnitSphere * _shakeAmount;
+
+            shakeDuration -= Time.deltaTime;
+            yield return null;
+        }
+
+        modifierPos = Vector3.zero;
+    }
+
+    void OnDestroy()
+    {
+        EventsManager.UnsubscribeToEvent(Constants.EVENT_SHAKECAMERA, ShakeCamera);
     }
 
     private void OnDrawGizmos()

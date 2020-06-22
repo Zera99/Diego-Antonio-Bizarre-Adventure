@@ -19296,7 +19296,7 @@ PrefabInstance:
     - target: {fileID: 2261174966488377258, guid: 9dc6405c3520b0e4fa24faaf7c3d0d2d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14.4999695
+      value: -14.5
       objectReference: {fileID: 0}
     - target: {fileID: 2261174966488377258, guid: 9dc6405c3520b0e4fa24faaf7c3d0d2d,
         type: 3}
@@ -19668,6 +19668,11 @@ PrefabInstance:
       propertyPath: hudControl
       value: 
       objectReference: {fileID: 7581105252920512322}
+    - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
+        type: 3}
+      propertyPath: groundLayers.m_Bits
+      value: 9473
+      objectReference: {fileID: 0}
     - target: {fileID: 8553448317432029726, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: m_Name

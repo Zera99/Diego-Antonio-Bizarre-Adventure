@@ -1,0 +1,1135 @@
+fileFormatVersion: 2
+guid: 2fa5be113fec81f4b98c856e852451d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4122523151125523307
+    second: radiacion_0
+  - first:
+      213: -2500503200478924254
+    second: radiacion_1
+  - first:
+      213: 6877011113030523000
+    second: radiacion_2
+  - first:
+      213: 6455556261569390844
+    second: radiacion_3
+  - first:
+      213: 1594339974137097971
+    second: radiacion_4
+  - first:
+      213: 5285028447375958487
+    second: radiacion_5
+  - first:
+      213: 5415723256559225900
+    second: radiacion_6
+  - first:
+      213: -7781618181346639631
+    second: radiacion_7
+  - first:
+      213: 6105131207376752688
+    second: radiacion_8
+  - first:
+      213: 1538757450169542836
+    second: radiacion_9
+  - first:
+      213: -4686282947438541583
+    second: radiacion_10
+  - first:
+      213: -6436539557083170364
+    second: radiacion_11
+  - first:
+      213: 5300267100075207029
+    second: radiacion_12
+  - first:
+      213: 4531386755195219006
+    second: radiacion_13
+  - first:
+      213: -2911837138794224584
+    second: radiacion_14
+  - first:
+      213: -7434790804586512063
+    second: radiacion_15
+  - first:
+      213: 214664540060464333
+    second: radiacion_16
+  - first:
+      213: 7282291883422024194
+    second: radiacion_17
+  - first:
+      213: -6976664044768638057
+    second: radiacion_18
+  - first:
+      213: -2565369178555124805
+    second: radiacion_19
+  - first:
+      213: -7296590092338592011
+    second: radiacion_20
+  - first:
+      213: 138908957709441291
+    second: radiacion_21
+  - first:
+      213: 1809527359394342037
+    second: radiacion_22
+  - first:
+      213: 8499175132194933217
+    second: radiacion_23
+  - first:
+      213: 2931218237692324738
+    second: radiacion_24
+  - first:
+      213: 6408670392141540331
+    second: radiacion_25
+  - first:
+      213: 7586649107631715937
+    second: radiacion_26
+  - first:
+      213: -4329669345600574481
+    second: radiacion_27
+  - first:
+      213: -939789609236997820
+    second: radiacion_28
+  - first:
+      213: 4158253065651876960
+    second: radiacion_29
+  - first:
+      213: 1573424823910428600
+    second: radiacion_30
+  - first:
+      213: -6045660397529066926
+    second: radiacion_31
+  - first:
+      213: 3188609254271334443
+    second: radiacion_32
+  - first:
+      213: 6657695151278281018
+    second: radiacion_33
+  - first:
+      213: -8602577438145213071
+    second: radiacion_34
+  - first:
+      213: 8773520781977318565
+    second: radiacion_35
+  - first:
+      213: 6436064032663119343
+    second: radiacion_36
+  - first:
+      213: -249388220208578530
+    second: radiacion_37
+  - first:
+      213: 8208288214061080025
+    second: radiacion_38
+  - first:
+      213: -1896224584258418058
+    second: radiacion_39
+  - first:
+      213: 5869292534252058319
+    second: radiacion_40
+  - first:
+      213: 4005253323547090200
+    second: radiacion_41
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: radiacion_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5af825fc4c80de489bc189af6a54561
+      internalID: -4122523151125523307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867d70ecf73ac7c45a98870e7f72bd6b
+      internalID: -2500503200478924254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4606ef5554de6e44801c641fb983446
+      internalID: 6877011113030523000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c6780f25008ff4f9a9fa0926c7df3e
+      internalID: 6455556261569390844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_4
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120f8fcdf2f3edc49b7feab29bde23c2
+      internalID: 1594339974137097971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_5
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87db9adbc319202439cd54c142e5697d
+      internalID: 5285028447375958487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_6
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a51fdc6aabbba5148a7de7e71fa486b4
+      internalID: 5415723256559225900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_7
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a86c3e782dbbc41bb3221e99691893
+      internalID: -7781618181346639631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_8
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 555
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88ba3efaacd6b9489699de48a0da9a9
+      internalID: 6105131207376752688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_9
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 444
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2869d4cd31567c548b4eb236a592e792
+      internalID: 1538757450169542836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 444
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d14bcb3a0a22d4c8185b56b5ec1649
+      internalID: -4686282947438541583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_11
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 444
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f40e34ab0a198a42a910903d0bddf34
+      internalID: -6436539557083170364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_12
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 444
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d994e999b4cde4ab3e295dbdd1f425
+      internalID: 5300267100075207029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_13
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 444
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0899f5b4893f464ebc2395f11b0e0c6
+      internalID: 4531386755195219006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_14
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 333
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f49553a162e5846896d072813cc576
+      internalID: -2911837138794224584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 333
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc864e392510e2499bb43f483e8dbec
+      internalID: -7434790804586512063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_16
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 333
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bfe29730cc0c3e4da0580f2d4610d80
+      internalID: 214664540060464333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_17
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 333
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fee1cef487b11d47aac2629f2eb0ee1
+      internalID: 7282291883422024194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_18
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 222
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb24811cb5ac1b4ba03f192de70e287
+      internalID: -6976664044768638057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d7c5f7a8a5c0548b396f095df109b1
+      internalID: -2565369178555124805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_20
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 222
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d849354e35a63db41939d0fea2f27855
+      internalID: -7296590092338592011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_21
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 222
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60e94c332abc814eaa091ec95225f4f
+      internalID: 138908957709441291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_22
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 222
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3cb4892b1070ce4ab7f3a5f7f65f67b
+      internalID: 1809527359394342037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff7434af69aba643a965dd6ec03ea8b
+      internalID: 8499175132194933217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_24
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 111
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4da0c067eb7f44b8abf4c076882b37
+      internalID: 2931218237692324738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_25
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 111
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2919448f3076794a88b3654b9551f37
+      internalID: 6408670392141540331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_26
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 111
+        width: 173
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caad5c840386f5742922d9cb23c8da10
+      internalID: 7586649107631715937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69860ce683c2d64da1eb3a9def346d2
+      internalID: -4329669345600574481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_28
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4b7a3bc8aa7bb448ad3b87b6b91469
+      internalID: -939789609236997820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_29
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf120d3e493353940b07101997a2793b
+      internalID: 4158253065651876960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_30
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a2e4ccac6aaa54584f4f44d07aeede
+      internalID: 1573424823910428600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_31
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89216c13f8adeb4697d05be82324efc
+      internalID: -6045660397529066926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_32
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550e2dd4807b75f4b878cfef7ed87d98
+      internalID: 3188609254271334443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_33
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7197f8ecfebef45bbb74a484cfbfeb
+      internalID: 6657695151278281018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_34
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f366a41a3da90794f89457cba88633d3
+      internalID: -8602577438145213071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_35
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 0
+        width: 109
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6178c8602d34c948a6c39c1ba605d64
+      internalID: 8773520781977318565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_36
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 335
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7d01bc738abd441a8e84422eb5f11c
+      internalID: 6436064032663119343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_37
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 354
+        width: 37
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321ef703df42b65448159fcbc425ded1
+      internalID: -249388220208578530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_38
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 354
+        width: 51
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81b25310c0351a4fbb6cae1695303a2
+      internalID: 8208288214061080025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_39
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 335
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580297cf318772845aae12f916952be4
+      internalID: -1896224584258418058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_40
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 335
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d56403359090c4ead863e321e8d9c6
+      internalID: 5869292534252058319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radiacion_41
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 335
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffc047874d777e44a7ed6454053e39e
+      internalID: 4005253323547090200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

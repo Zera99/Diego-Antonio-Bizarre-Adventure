@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: a9f8bbe06a40f994d94f4996c9c1096c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3469178385484208995
+    second: Bateria_0
+  - first:
+      213: -4903254553845163760
+    second: Bateria_1
+  - first:
+      213: -2307794284884632615
+    second: Bateria_2
+  - first:
+      213: -7017983711608374906
+    second: Bateria_3
+  - first:
+      213: 1573245032970343668
+    second: Bateria_4
+  - first:
+      213: -4188751573287301759
+    second: Bateria_5
+  - first:
+      213: -161452351421409261
+    second: Bateria_6
+  - first:
+      213: -4534500042130079901
+    second: Bateria_7
+  - first:
+      213: 9011577397879573060
+    second: Bateria_8
+  - first:
+      213: -5280082291785600050
+    second: Bateria_9
+  - first:
+      213: 824121593240745416
+    second: Bateria_10
+  - first:
+      213: 6609665804584522335
+    second: Bateria_11
+  - first:
+      213: 2251450825457293772
+    second: Bateria_12
+  - first:
+      213: 6911611339511676287
+    second: Bateria_13
+  - first:
+      213: -5581907420381061842
+    second: Bateria_14
+  - first:
+      213: 2283025181868653149
+    second: Bateria_15
+  - first:
+      213: 4134445849302777610
+    second: Bateria_16
+  - first:
+      213: -1868423733930175610
+    second: Bateria_17
+  - first:
+      213: -574236439179907940
+    second: Bateria_18
+  - first:
+      213: 4543376861873837593
+    second: Bateria_19
+  - first:
+      213: -419751677425787586
+    second: Bateria_20
+  - first:
+      213: 244456871896292490
+    second: Bateria_21
+  - first:
+      213: -2860813000200930987
+    second: Bateria_22
+  - first:
+      213: 8262573767038402895
+    second: Bateria_23
+  - first:
+      213: -3176913908733452088
+    second: Bateria_24
+  - first:
+      213: -6763417309552596417
+    second: Bateria_25
+  - first:
+      213: 3275191763751781207
+    second: Bateria_26
+  - first:
+      213: -4717539365825852077
+    second: Bateria_27
+  - first:
+      213: 5330581579490200983
+    second: Bateria_28
+  - first:
+      213: 3940470871398964165
+    second: Bateria_29
+  - first:
+      213: 2412211606663204047
+    second: Bateria_30
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bateria_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4772ed91040bb41449e99086bd03f912
+      internalID: 3469178385484208995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc02a49692c0dc3448c3f411da9b8eee
+      internalID: -4903254553845163760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb80548c8a86d746ae3f1fd2c39adb9
+      internalID: -2307794284884632615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2591a2ffd5445e8438e516f7522c7acd
+      internalID: -7017983711608374906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 485
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc6b99502489e44ead1a8705a4c65c3
+      internalID: 1573245032970343668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bf7b0955cbd61418a52886358030c4
+      internalID: -4188751573287301759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_6
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a2497084ccfeb488bf53982ef61864
+      internalID: -161452351421409261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_7
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab07d873d183e54ab2d33000e7fa8d3
+      internalID: -4534500042130079901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_8
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b43c533a36e539647ab3bd85b6ed00b7
+      internalID: 9011577397879573060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 291
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ae93b851bbacc4094a01c6309b8fa4
+      internalID: -5280082291785600050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de54b5e2e706c840a63b6f4cdf2d834
+      internalID: 824121593240745416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_11
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb255374faa4a74499f31615e3f17e6
+      internalID: 6609665804584522335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_12
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c188f109ff773b94991bda6fcf790974
+      internalID: 2251450825457293772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_13
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfaddb388ff278944bfb74258ad783f5
+      internalID: 6911611339511676287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34f0d49597d97649959616434cfbcc8
+      internalID: -5581907420381061842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70174e810143a34488b191fd3a5efacc
+      internalID: 2283025181868653149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_16
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bbc31fa8e8116040b581bca955825e8
+      internalID: 4134445849302777610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_17
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f703e383264350a488ffe5b9ad2d45b4
+      internalID: -1868423733930175610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_18
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0a685e5ae47524296d479758d40dbb
+      internalID: -574236439179907940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_19
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0aa93e5404b3f4d8ed0527db355685
+      internalID: 4543376861873837593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_20
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90096020e417c5443b8776703ff1400d
+      internalID: -419751677425787586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_21
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 582
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70034883fbc082d4799cd5115dd34df9
+      internalID: 244456871896292490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_22
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6c0262239348b43919b2fd38a420a7
+      internalID: -2860813000200930987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_23
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e373cd6661e02b468551439759d69ef
+      internalID: 8262573767038402895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_24
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 388
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d5fc9cfc109b74fbc701cbecbf50ee
+      internalID: -3176913908733452088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_25
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e95fcd95ea8a9d4bbd1b961fbb56dbf
+      internalID: -6763417309552596417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_26
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4bc6b77515eb443bb16ae40f1ade9d
+      internalID: 3275191763751781207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_27
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 194
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d500eb2b565a574e96460df29d92a52
+      internalID: -4717539365825852077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_28
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0cbe46de3d433a47b25e4ab2cc00038
+      internalID: 5330581579490200983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_29
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8441ce6af9bdb4b80dac75df98f76d
+      internalID: 3940470871398964165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bateria_30
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 107
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f861033977a9fa41b2999aa9da088af
+      internalID: 2412211606663204047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

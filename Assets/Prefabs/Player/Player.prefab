@@ -270,7 +270,7 @@ MonoBehaviour:
   boxSize: {x: 1.54, y: 0.12}
   groundLayers:
     serializedVersion: 2
-    m_Bits: 1281
+    m_Bits: 9473
   boxSizeCheck: {x: 1.54, y: 0.39}
 --- !u!50 &8553448317432029720
 Rigidbody2D:

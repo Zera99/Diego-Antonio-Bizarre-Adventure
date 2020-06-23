@@ -17,14 +17,16 @@ public class ShootyHyenaBro : MonoBehaviour {
     public GameObject hyenaMissilePrefab;
     public GameObject hyenaBottlePrefab;
     public GameObject hyenaBoxPrefab;
+    public GameObject ratSlugPrefab;
     public Transform bulletSpawnPoint;
     public float shootingCooldown;
     public float breathingTime;
     public float maxThrowForce;
+    public int roundsForRatSlug;
     // Start is called before the first frame update
     void Start() {
         _fsm = new FSM();
-        _moveState = new MoveAndShootState(this, wp1, wp2).SetParameters(shootingCooldown, moveSpeed, breathingTime);
+        _moveState = new MoveAndShootState(this, wp1, wp2).SetParameters(shootingCooldown, moveSpeed, breathingTime, roundsForRatSlug);
         _moveVulnerableState = new MoveWithoutShieldState(this, vulnerableMoveSpeed, wp1, wp2);
         _fsm.ChangeState(_moveState);
     }
@@ -73,5 +75,9 @@ public class ShootyHyenaBro : MonoBehaviour {
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
         Debug.Log(forceVector);
         Box.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
+    }
+
+    public void SpawnRatBoi() {
+        // TODO: Spawn it D:<
     }
 }

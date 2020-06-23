@@ -11,10 +11,11 @@ public class MoveAndShootState : IState {
     Vector3 _currentDir;
     float _speed;
 
-    GameObject _bulletPrefab;
     bool _isDoneShooting;
     float _shotCooldown;
     float _breathingTime;
+    int _round;
+    int _roundsForRatBoi;
 
     public MoveAndShootState(ShootyHyenaBro hyena, Transform wp1, Transform wp2) {
         _hyena = hyena;
@@ -22,10 +23,11 @@ public class MoveAndShootState : IState {
         _waypoint2 = wp2;
     }
 
-    public MoveAndShootState SetParameters(float shotCD, float speed, float breathingTime) {
+    public MoveAndShootState SetParameters(float shotCD, float speed, float breathingTime, int roundsForRatBoi) {
         _shotCooldown = shotCD;
         _speed = speed;
         _breathingTime = breathingTime;
+        _roundsForRatBoi = roundsForRatBoi;
         return this;
     }
 
@@ -61,18 +63,19 @@ public class MoveAndShootState : IState {
     }
 
     IEnumerator ShootSet() {
-        int amount = Random.Range(1, 5);
-        int type = Random.Range(0, 3);
+        int amount = Random.Range(1, 6);
+        int type = _round % 4;
         while(amount > 0) {
             switch(type) {
                 case 0:
-                    _hyena.ShootMissile();
-                    break;
                 case 1:
                     _hyena.ShootBottle();
                     break;
                 case 2:
                     _hyena.ThrowBox();
+                    break;
+                case 3:
+                    _hyena.ShootMissile();
                     break;
             }
 
@@ -80,6 +83,10 @@ public class MoveAndShootState : IState {
             yield return new WaitForSeconds(_shotCooldown);
         }
 
+        _round++;
+        if(_round > _roundsForRatBoi) {
+            _hyena.SpawnRatBoi();
+        }
         yield return new WaitForSeconds(_breathingTime);
         _isDoneShooting = true;
     }

@@ -73,11 +73,14 @@ public class ShootyHyenaBro : MonoBehaviour {
         GameObject Box = Instantiate(hyenaBoxPrefab);
         Box.transform.position = bulletSpawnPoint.position;
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
-        Debug.Log(forceVector);
         Box.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
     }
 
     public void SpawnRatBoi() {
-        // TODO: Spawn it D:<
+        GameObject rat = Instantiate(ratSlugPrefab);
+        rat.transform.position = bulletSpawnPoint.position;
+        Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
+        rat.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
+
     }
 }

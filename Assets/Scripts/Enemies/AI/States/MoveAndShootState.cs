@@ -84,7 +84,7 @@ public class MoveAndShootState : IState {
         }
 
         _round++;
-        if(_round > _roundsForRatBoi) {
+        if(_round >= _roundsForRatBoi) {
             _hyena.SpawnRatBoi();
         }
         yield return new WaitForSeconds(_breathingTime);

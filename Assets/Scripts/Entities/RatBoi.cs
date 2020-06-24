@@ -13,6 +13,11 @@ public class RatBoi : MonoBehaviour {
         _anim = GetComponent<Animator>();
     }
 
+    private void Update() {
+        if(!_hasLanded)
+            transform.Rotate(0, 0, 20);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.GetComponent<PlayerModel>() != null && _hasLanded) {
@@ -27,6 +32,7 @@ public class RatBoi : MonoBehaviour {
     public void Land() {
         _anim.SetTrigger("hasLanded");
         _hasLanded = true;
+        transform.rotation = Quaternion.identity;
     }
 
     public void RatboiSpawnItem() {

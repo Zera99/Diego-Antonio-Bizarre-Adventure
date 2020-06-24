@@ -8,8 +8,13 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
     public float speed;
     Vector3 startPosition;
     Vector3 finishPosition;
+    Rigidbody2D _rb;
     bool _isMoving;
     float _timer;
+
+    private void Awake() {
+        _rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Start() {
         startPosition = this.transform.position;
@@ -31,10 +36,11 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
     IEnumerator Move() {
         _isMoving = true;
         while (Vector3.Distance(this.transform.position, finishPosition) >= 0.2f) {
-            transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
+            //transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
+            _rb.velocity = Vector2.up * speed;
             yield return new WaitForEndOfFrame();
         }
-
+        _rb.velocity = Vector2.zero;
         Vector3 temp = finishPosition;
         finishPosition = startPosition;
         startPosition = temp;
@@ -47,17 +53,16 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
         _isMoving = true;
         yield return new WaitForSeconds(3.0f);
         while (Vector3.Distance(this.transform.position, finishPosition) >= 0.2f) {
-            transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
+            //transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
+            _rb.velocity = Vector2.down * speed;
             yield return new WaitForEndOfFrame();
         }
-
+        _rb.velocity = Vector2.zero;
         Vector3 temp = finishPosition;
         finishPosition = startPosition;
         startPosition = temp;
         _isMoving = false;
     }
-
-
 
     public void ParentToPlatform(Transform player) {
         player.parent = this.transform;

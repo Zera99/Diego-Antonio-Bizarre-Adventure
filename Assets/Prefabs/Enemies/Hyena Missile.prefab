@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7047447967506664474}
   - component: {fileID: 1551000013066614700}
   - component: {fileID: 2915182120778153103}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Hyena Missile
   m_TagString: Enemy
   m_Icon: {fileID: 0}

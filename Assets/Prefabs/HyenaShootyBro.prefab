@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3855243635320260644}
   - component: {fileID: 3855243635320260645}
   - component: {fileID: 3855243635320260642}
-  m_Layer: 0
+  - component: {fileID: 1318024403}
+  - component: {fileID: 1318024404}
+  m_Layer: 16
   m_Name: HyenaShootyBro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acad98f32046a14da805ddb661f042b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 5
   timeBetweenStateChange: 5
   wp1: {fileID: 0}
   wp2: {fileID: 0}
@@ -105,10 +108,60 @@ MonoBehaviour:
     type: 3}
   hyenaBoxPrefab: {fileID: 3649219229167142748, guid: b1c1881fb8d244b459646b144ccf2238,
     type: 3}
+  ratSlugPrefab: {fileID: 8732328089687479621, guid: 9454e371c47276242bdfb67cbd3f450c,
+    type: 3}
   bulletSpawnPoint: {fileID: 3855243636710268643}
-  shootingCooldown: 0.25
-  breathingTime: 2
+  shootingCooldown: 0.75
+  breathingTime: 3
   maxThrowForce: 25
+  roundsForRatSlug: 4
+--- !u!50 &1318024403
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855243635320260643}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &1318024404
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855243635320260643}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.48619875, y: 0.5585329}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0.38, y: 0.3}
+    newSize: {x: 0.25, y: 0.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9927934, y: 1.1170658}
+  m_EdgeRadius: 0
 --- !u!1 &3855243636710268640
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3855243636710268643}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bullet spawn point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3855243636710268640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.158, y: 0.145, z: 0}
+  m_LocalPosition: {x: -0.22, y: 0.145, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3855243635320260644}

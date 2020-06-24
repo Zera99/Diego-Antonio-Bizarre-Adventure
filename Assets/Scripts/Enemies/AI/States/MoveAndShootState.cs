@@ -17,8 +17,11 @@ public class MoveAndShootState : IState {
     int _round;
     int _roundsForRatBoi;
 
+    float _initialX;
+
     public MoveAndShootState(ShootyHyenaBro hyena, Transform wp1, Transform wp2) {
         _hyena = hyena;
+        _initialX = hyena.gameObject.transform.position.x;
         _waypoint1 = wp1;
         _waypoint2 = wp2;
     }
@@ -51,7 +54,8 @@ public class MoveAndShootState : IState {
 
     void Move() {
         _hyena.transform.position += _currentDir * _speed * Time.deltaTime;
-        if(Vector3.Distance(_hyena.transform.position, _targetWP.position) < 0.2f) {
+        Debug.Log("Current dir: " + _currentDir);
+        if(Vector3.Distance(_hyena.transform.position, _targetWP.position) < 0.5f) {
             SwitchTarget();
             _currentDir = CalculateDirection();
         }
@@ -92,7 +96,11 @@ public class MoveAndShootState : IState {
     }
 
     Vector3 CalculateDirection() {
-        return (_targetWP.position - _hyena.transform.position).normalized;
+        if (_targetWP == _waypoint1)
+            return Vector2.down;
+        else
+            return Vector2.up;
+        //return (_targetWP.position - _hyena.transform.position).normalized;
     }
 
     void SwitchTarget() {

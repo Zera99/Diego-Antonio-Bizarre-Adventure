@@ -7,6 +7,8 @@ public class ShootyHyenaBro : MonoBehaviour {
     MoveAndShootState       _moveState;
     MoveWithoutShieldState  _moveVulnerableState;
 
+    public int HP;
+
     public float timeBetweenStateChange;
     //float _currentTime;
 
@@ -23,6 +25,7 @@ public class ShootyHyenaBro : MonoBehaviour {
     public float breathingTime;
     public float maxThrowForce;
     public int roundsForRatSlug;
+
     // Start is called before the first frame update
     void Start() {
         _fsm = new FSM();
@@ -82,5 +85,18 @@ public class ShootyHyenaBro : MonoBehaviour {
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
         rat.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.GetComponent<Egg>() != null || collision.gameObject.GetComponent<BowserFire>() != null) {
+            Destroy(collision.gameObject);
+            HP--;
+            Debug.Log("Boss Recibio Daño");
+
+            if (HP <= 0) {
+                Destroy(this.gameObject);
+                Debug.Log("Boss destruido");
+            }
+        }
     }
 }

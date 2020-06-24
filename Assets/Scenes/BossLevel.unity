@@ -8103,27 +8103,6 @@ PrefabInstance:
       propertyPath: wp2
       value: 
       objectReference: {fileID: 1955718509}
-    - target: {fileID: 3855243635320260642, guid: 905ebd47be73e574c954d1be492bd542,
-        type: 3}
-      propertyPath: breathingTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3855243635320260642, guid: 905ebd47be73e574c954d1be492bd542,
-        type: 3}
-      propertyPath: shootingCooldown
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3855243635320260642, guid: 905ebd47be73e574c954d1be492bd542,
-        type: 3}
-      propertyPath: ratSlugPrefab
-      value: 
-      objectReference: {fileID: 8732328089687479621, guid: 9454e371c47276242bdfb67cbd3f450c,
-        type: 3}
-    - target: {fileID: 3855243635320260642, guid: 905ebd47be73e574c954d1be492bd542,
-        type: 3}
-      propertyPath: roundsForRatSlug
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3855243635320260643, guid: 905ebd47be73e574c954d1be492bd542,
         type: 3}
       propertyPath: m_Name

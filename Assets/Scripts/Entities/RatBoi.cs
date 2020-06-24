@@ -18,15 +18,14 @@ public class RatBoi : MonoBehaviour {
             transform.Rotate(0, 0, 20);
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<PlayerModel>() != null && _hasLanded) {
             Destroy(GetComponent<BoxCollider2D>());
             _anim.SetTrigger("spawnItem");
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(this.gameObject, 3.0f);
         }
-
+        
     }
 
     public void Land() {

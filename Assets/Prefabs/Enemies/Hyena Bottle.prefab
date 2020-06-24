@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1506564478120745527}
   - component: {fileID: 1506564478120745524}
   - component: {fileID: 1506564478120745521}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Hyena Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

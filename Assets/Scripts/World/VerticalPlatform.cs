@@ -9,6 +9,7 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
     Vector3 startPosition;
     Vector3 finishPosition;
     bool _isMoving;
+    float _timer;
 
     private void Start() {
         startPosition = this.transform.position;
@@ -16,16 +17,36 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
         _isMoving = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.GetComponent<PlayerModel>() != null && !_isMoving) {
-            StartCoroutine(Move());
-            _isMoving = true;
+            _timer += Time.deltaTime;
+            if (_timer >= 2.0f) {
+                _timer = 0.0f;
+                StartCoroutine(Move());
+            }
+
         }
     }
 
     IEnumerator Move() {
-        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.1f)
-        {
+        _isMoving = true;
+        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.2f) {
+            transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        Vector3 temp = finishPosition;
+        finishPosition = startPosition;
+        startPosition = temp;
+        _isMoving = false;
+
+        StartCoroutine(ReturnToOriginalPos());
+    }
+
+    IEnumerator ReturnToOriginalPos() {
+        _isMoving = true;
+        yield return new WaitForSeconds(3.0f);
+        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.2f) {
             transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }

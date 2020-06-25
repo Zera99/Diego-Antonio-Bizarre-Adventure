@@ -12,6 +12,7 @@ public class RatBoi : MonoBehaviour {
     float _currentTime;
     Animator _anim;
     bool _hasLanded;
+    bool _isDying;
     SpriteRenderer _renderer;
 
     private void Awake() {
@@ -21,6 +22,7 @@ public class RatBoi : MonoBehaviour {
 
     private void Start() {
         _currentTime = 0;
+        _isDying = false;
     }
 
     private void Update() {
@@ -30,7 +32,8 @@ public class RatBoi : MonoBehaviour {
             _currentTime += Time.deltaTime;
         }
 
-        if (_currentTime > timeToDestroy && _hasLanded) {
+        if (_currentTime > timeToDestroy && _hasLanded && !_isDying) {
+            _isDying = true;
             StartCoroutine(StunCoroutine());
         }
 

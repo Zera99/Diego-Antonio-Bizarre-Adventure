@@ -65,7 +65,6 @@ public class MoveAndShootState : IState {
 
     void Move() {
         _hyena.transform.position += _currentDir * _speed * Time.deltaTime;
-        Debug.Log("Current dir: " + _currentDir);
         if(Vector3.Distance(_hyena.transform.position, _targetWP.position) < 0.5f) {
             SwitchTarget();
             _currentDir = CalculateDirection();

@@ -18,6 +18,7 @@ public class FlammableBox : MonoBehaviour {
     }
 
     public void SetOnFire() {
+        Debug.Log("Set on fire. My pos is: " + transform.position);
         anim.SetTrigger("setOnFire");
         Destroy(this.gameObject, 0.70f);
     }

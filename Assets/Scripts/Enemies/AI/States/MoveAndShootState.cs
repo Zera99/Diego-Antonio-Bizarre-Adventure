@@ -90,6 +90,7 @@ public class MoveAndShootState : IState {
         _round++;
         if(_round >= _roundsForRatBoi) {
             _hyena.SpawnRatBoi();
+            _round = 0;
         }
         yield return new WaitForSeconds(_breathingTime);
         _isDoneShooting = true;

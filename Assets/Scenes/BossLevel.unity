@@ -8030,6 +8030,16 @@ PrefabInstance:
       propertyPath: wp2
       value: 
       objectReference: {fileID: 1955718509}
+    - target: {fileID: 3855243635320260642, guid: 905ebd47be73e574c954d1be492bd542,
+        type: 3}
+      propertyPath: maxRatSlug
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855243635320260642, guid: 905ebd47be73e574c954d1be492bd542,
+        type: 3}
+      propertyPath: roundsForRatSlug
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3855243635320260643, guid: 905ebd47be73e574c954d1be492bd542,
         type: 3}
       propertyPath: m_Name

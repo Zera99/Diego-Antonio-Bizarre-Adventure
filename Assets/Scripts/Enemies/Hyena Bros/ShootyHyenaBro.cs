@@ -8,6 +8,8 @@ public class ShootyHyenaBro : MonoBehaviour {
     MoveWithoutShieldState  _moveVulnerableState;
 
     public int HP;
+    public int maxRatSlug;
+    int ratCount;
 
     public float timeBetweenStateChange;
     //float _currentTime;
@@ -80,11 +82,20 @@ public class ShootyHyenaBro : MonoBehaviour {
     }
 
     public void SpawnRatBoi() {
+        if (ratCount + 1 > maxRatSlug)
+            return;
+
         GameObject rat = Instantiate(ratSlugPrefab);
         rat.transform.position = bulletSpawnPoint.position;
+        rat.GetComponent<RatBoi>().hyena = this;
+        ratCount++;
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
         rat.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
 
+    }
+
+    public void DecrementRatCount() {
+        ratCount--;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

@@ -6,6 +6,7 @@ public class RatBoi : MonoBehaviour {
     public GameObject hpPrefab;
     public GameObject effect;
     public Transform itemSpawnPoint;
+    public ShootyHyenaBro hyena;
     Animator _anim;
     bool _hasLanded;
 
@@ -23,6 +24,7 @@ public class RatBoi : MonoBehaviour {
             Destroy(GetComponent<BoxCollider2D>());
             _anim.SetTrigger("spawnItem");
             Destroy(GetComponent<Rigidbody2D>());
+            hyena.DecrementRatCount();
             Destroy(this.gameObject, 3.0f);
         }
         

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ShootyHyenaBro : MonoBehaviour {
     FSM _fsm;
-    MoveAndShootState       _moveState;
+    MoveAndShootState _moveState;
 
     BoxCollider2D _collider;
+    Animator _anim;
 
     public int HP;
     public int maxRatSlug;
@@ -15,6 +16,7 @@ public class ShootyHyenaBro : MonoBehaviour {
     public Transform wp1, wp2;
     public float moveSpeed;
     public float vulnerableMoveSpeed;
+    bool _isVulnerable;
 
     public GameObject hyenaMissilePrefab;
     public GameObject hyenaBottlePrefab;
@@ -29,6 +31,7 @@ public class ShootyHyenaBro : MonoBehaviour {
     private void Awake() {
         _collider = GetComponent<BoxCollider2D>();
         _collider.enabled = false;
+        _anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -43,7 +46,7 @@ public class ShootyHyenaBro : MonoBehaviour {
         _fsm.Update();
 
 
-        if(Input.GetKeyDown(KeyCode.B)) {
+        if (Input.GetKeyDown(KeyCode.B)) {
             OnLeftBossDeath();
         }
     }
@@ -52,11 +55,13 @@ public class ShootyHyenaBro : MonoBehaviour {
         GameObject bullet = Instantiate(hyenaMissilePrefab);
         bullet.transform.position = bulletSpawnPoint.position;
         bullet.GetComponent<Missile>().Direction = Vector3.left;
+        ShootFeedback();
     }
 
     public void ShootBottle() {
         GameObject bottle = Instantiate(hyenaBottlePrefab);
         bottle.transform.position = bulletSpawnPoint.position;
+        ShootFeedback();
     }
 
     public void ThrowBox() {
@@ -64,6 +69,7 @@ public class ShootyHyenaBro : MonoBehaviour {
         Box.transform.position = bulletSpawnPoint.position;
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
         Box.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
+        ShootFeedback();
     }
 
     public void SpawnRatBoi() {
@@ -76,8 +82,17 @@ public class ShootyHyenaBro : MonoBehaviour {
         ratCount++;
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
         rat.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
+        ShootFeedback();
 
     }
+
+    void ShootFeedback() {
+        if (!_isVulnerable)
+            _anim.SetTrigger("shoot");
+        else
+            _anim.SetTrigger("shootShieldless");
+    }
+
 
     public void DecrementRatCount() {
         ratCount--;
@@ -87,18 +102,21 @@ public class ShootyHyenaBro : MonoBehaviour {
     public void OnLeftBossDeath() {
         _collider.enabled = true;
         _moveState.ChangeSpeed(vulnerableMoveSpeed);
+        _isVulnerable = true;
+        _anim.SetTrigger("transition");
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<Egg>() != null || collision.gameObject.GetComponent<BowserFire>() != null) {
+            _anim.SetTrigger("takeDamage");
             Destroy(collision.gameObject);
             HP--;
-            Debug.Log("Boss Recibio Daño");
 
             if (HP <= 0) {
-                Destroy(this.gameObject);
-                Debug.Log("Boss destruido");
+                _anim.SetTrigger("death");
+                _moveState.ChangeSpeed(0.0f);
+                _moveState.Die();
             }
         }
     }

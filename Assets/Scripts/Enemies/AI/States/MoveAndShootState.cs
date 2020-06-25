@@ -17,11 +17,10 @@ public class MoveAndShootState : IState {
     int _round;
     int _roundsForRatBoi;
 
-    float _initialX;
+    bool _isDead;
 
     public MoveAndShootState(ShootyHyenaBro hyena, Transform wp1, Transform wp2) {
         _hyena = hyena;
-        _initialX = hyena.gameObject.transform.position.x;
         _waypoint1 = wp1;
         _waypoint2 = wp2;
     }
@@ -42,6 +41,9 @@ public class MoveAndShootState : IState {
     }
 
     public void Exec() {
+        if (_isDead)
+            return;
+
         Move();
         if(_isDoneShooting) {
             Shoot();
@@ -54,6 +56,11 @@ public class MoveAndShootState : IState {
 
     public void ChangeSpeed(float sp) {
         _speed = sp;
+    }
+
+    public void Die() {
+        _isDead = true;
+        _hyena.StopAllCoroutines();
     }
 
     void Move() {

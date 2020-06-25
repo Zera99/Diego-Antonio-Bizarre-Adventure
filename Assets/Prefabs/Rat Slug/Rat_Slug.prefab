@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 9432299045122063}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2125628094820180532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3372756323686668624}
+  m_Layer: 17
+  m_Name: Effect Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3372756323686668624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125628094820180532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.138, y: -0.022, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9432299045122063}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8732328089687479621
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +94,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4424818159996001446}
+  - {fileID: 3372756323686668624}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -149,9 +180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpPrefab: {fileID: 1220821587488911, guid: 464f18de4991add4398e254b46d749e9, type: 3}
-  effect: {fileID: 7779016687201674110, guid: a382c100c1594d24ea0f0dfd25cc647f, type: 3}
+  deathEffect: {fileID: 7779016687201674110, guid: a382c100c1594d24ea0f0dfd25cc647f,
+    type: 3}
   itemSpawnPoint: {fileID: 4424818159996001446}
+  effectSpawnPoint: {fileID: 3372756323686668624}
   hyena: {fileID: 0}
+  timeToDestroy: 2
 --- !u!50 &6915659878835284645
 Rigidbody2D:
   serializedVersion: 4

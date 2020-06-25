@@ -74,6 +74,7 @@ public class CameraMovement : MonoBehaviour {
         while (shakeDuration > 0)
         {
             modifierPos = Random.insideUnitSphere * _shakeAmount;
+            modifierPos.z = 0;
 
             shakeDuration -= Time.deltaTime;
             yield return null;

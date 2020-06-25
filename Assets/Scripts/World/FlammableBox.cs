@@ -12,10 +12,14 @@ public class FlammableBox : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.GetComponent<BowserFire>() != null) {
-            anim.SetTrigger("setOnFire");
             Destroy(collision.gameObject);
-            Destroy(this.gameObject, 0.70f);
+            SetOnFire();
         }
+    }
+
+    public void SetOnFire() {
+        anim.SetTrigger("setOnFire");
+        Destroy(this.gameObject, 0.70f);
     }
 
 }

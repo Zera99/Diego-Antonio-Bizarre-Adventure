@@ -7,7 +7,7 @@ public class RatBoi : MonoBehaviour {
     public GameObject deathEffect;
     public Transform itemSpawnPoint;
     public Transform effectSpawnPoint;
-    public ShootyHyenaBro hyena;
+    //public ShootyHyenaBro hyena;
     public float timeToDestroy;
     float _currentTime;
     Animator _anim;
@@ -39,8 +39,7 @@ public class RatBoi : MonoBehaviour {
             Destroy(GetComponent<BoxCollider2D>());
             _anim.SetTrigger("spawnItem");
             Destroy(GetComponent<Rigidbody2D>());
-            hyena.DecrementRatCount();
-            Destroy(this.gameObject, 3.0f);
+            Die();
         }
         
     }
@@ -59,6 +58,7 @@ public class RatBoi : MonoBehaviour {
     public void Die() {
         GameObject effect = Instantiate(deathEffect, effectSpawnPoint);
         effect.transform.localPosition = Vector3.zero;
+        //hyena.DecrementRatCount();
         Destroy(this.gameObject, 0.75f);
     }
 

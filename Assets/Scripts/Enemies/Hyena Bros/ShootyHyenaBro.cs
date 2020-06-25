@@ -11,7 +11,7 @@ public class ShootyHyenaBro : MonoBehaviour {
 
     public int HP;
     public int maxRatSlug;
-    int ratCount;
+    //int ratCount;
 
     public Transform wp1, wp2;
     public float moveSpeed;
@@ -73,13 +73,13 @@ public class ShootyHyenaBro : MonoBehaviour {
     }
 
     public void SpawnRatBoi() {
-        if (ratCount + 1 > maxRatSlug)
-            return;
+        //if (ratCount + 1 > maxRatSlug)
+        //    return;
 
         GameObject rat = Instantiate(ratSlugPrefab);
         rat.transform.position = bulletSpawnPoint.position;
-        rat.GetComponent<RatBoi>().hyena = this;
-        ratCount++;
+        //rat.GetComponent<RatBoi>().hyena = this;
+        //ratCount++;
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
         rat.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
         ShootFeedback();
@@ -94,9 +94,9 @@ public class ShootyHyenaBro : MonoBehaviour {
     }
 
 
-    public void DecrementRatCount() {
-        ratCount--;
-    }
+    //public void DecrementRatCount() {
+    //    ratCount--;
+    //}
 
 
     public void OnLeftBossDeath() {

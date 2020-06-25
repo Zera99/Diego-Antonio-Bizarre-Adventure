@@ -52,6 +52,10 @@ public class MoveAndShootState : IState {
         // Feedback Cambio de estado
     }
 
+    public void ChangeSpeed(float sp) {
+        _speed = sp;
+    }
+
     void Move() {
         _hyena.transform.position += _currentDir * _speed * Time.deltaTime;
         Debug.Log("Current dir: " + _currentDir);

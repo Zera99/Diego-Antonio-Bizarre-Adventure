@@ -151,6 +151,7 @@ MonoBehaviour:
   hpPrefab: {fileID: 1220821587488911, guid: 464f18de4991add4398e254b46d749e9, type: 3}
   effect: {fileID: 7779016687201674110, guid: a382c100c1594d24ea0f0dfd25cc647f, type: 3}
   itemSpawnPoint: {fileID: 4424818159996001446}
+  hyena: {fileID: 0}
 --- !u!50 &6915659878835284645
 Rigidbody2D:
   serializedVersion: 4
@@ -211,7 +212,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14680304, y: -0.28668135}
+  m_Offset: {x: -0.14818798, y: -0.029083602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -222,5 +223,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29344037, y: 0.036637306}
+  m_Size: {x: 0.29621026, y: 0.5518328}
   m_EdgeRadius: 0

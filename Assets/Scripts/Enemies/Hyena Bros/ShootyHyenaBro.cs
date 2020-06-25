@@ -5,14 +5,12 @@ using UnityEngine;
 public class ShootyHyenaBro : MonoBehaviour {
     FSM _fsm;
     MoveAndShootState       _moveState;
-    MoveWithoutShieldState  _moveVulnerableState;
+
+    BoxCollider2D _collider;
 
     public int HP;
     public int maxRatSlug;
     int ratCount;
-
-    public float timeBetweenStateChange;
-    //float _currentTime;
 
     public Transform wp1, wp2;
     public float moveSpeed;
@@ -28,38 +26,25 @@ public class ShootyHyenaBro : MonoBehaviour {
     public float maxThrowForce;
     public int roundsForRatSlug;
 
+    private void Awake() {
+        _collider = GetComponent<BoxCollider2D>();
+        _collider.enabled = false;
+    }
+
     // Start is called before the first frame update
     void Start() {
         _fsm = new FSM();
         _moveState = new MoveAndShootState(this, wp1, wp2).SetParameters(shootingCooldown, moveSpeed, breathingTime, roundsForRatSlug);
-        _moveVulnerableState = new MoveWithoutShieldState(this, vulnerableMoveSpeed, wp1, wp2);
         _fsm.ChangeState(_moveState);
     }
 
     // Update is called once per frame
     void Update() {
         _fsm.Update();
-        //_currentTime += Time.deltaTime;
 
-        //if(_currentTime >= timeBetweenStateChange) {
-        //    if(_fsm.PeekCurrentState() == _moveState) {
-        //        _fsm.ChangeState(_moveVulnerableState);
-        //    } else {
-        //        _fsm.ChangeState(_moveState);
-        //    }
-        //    _currentTime = 0;
-        //}
 
         if(Input.GetKeyDown(KeyCode.B)) {
-            ThrowBox();
-        }
-
-        if (Input.GetKeyDown(KeyCode.N)) {
-            ShootBottle();
-        }
-
-        if (Input.GetKeyDown(KeyCode.M)) {
-            ShootMissile();
+            OnLeftBossDeath();
         }
     }
 
@@ -97,6 +82,13 @@ public class ShootyHyenaBro : MonoBehaviour {
     public void DecrementRatCount() {
         ratCount--;
     }
+
+
+    public void OnLeftBossDeath() {
+        _collider.enabled = true;
+        _moveState.ChangeSpeed(vulnerableMoveSpeed);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<Egg>() != null || collision.gameObject.GetComponent<BowserFire>() != null) {

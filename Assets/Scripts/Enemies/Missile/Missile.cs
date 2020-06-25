@@ -7,6 +7,9 @@ public class Missile : MonoBehaviour
     public Vector3 Direction { get; set; }
     public float speed;
     public int damage;
+    private void Start() {
+        Destroy(this.gameObject, 30.0f);
+    }
 
     // Update is called once per frame
     void Update() {

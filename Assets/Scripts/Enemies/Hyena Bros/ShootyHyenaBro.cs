@@ -32,6 +32,7 @@ public class ShootyHyenaBro : MonoBehaviour {
         _collider = GetComponent<BoxCollider2D>();
         _collider.enabled = false;
         _anim = GetComponent<Animator>();
+        FindObjectOfType<LeftyBossModel>().onDeath += OnLeftBossDeath;
     }
 
     // Start is called before the first frame update

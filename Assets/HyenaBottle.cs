@@ -9,6 +9,10 @@ public class HyenaBottle : MonoBehaviour
     public int damage;
 
     // Update is called once per frame
+
+    private void Start() {
+        Destroy(this.gameObject, 30.0f);
+    }
     void Update() {
         this.transform.position += Vector3.left * speed * Time.deltaTime;
         transform.Rotate(0, 0, rotationSpeed);

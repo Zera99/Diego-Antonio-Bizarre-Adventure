@@ -24,11 +24,13 @@ public class RatBoi : MonoBehaviour {
     }
 
     private void Update() {
-        if(!_hasLanded) {
+        if (!_hasLanded) {
             transform.Rotate(0, 0, 20);
+        } else {
+            _currentTime += Time.deltaTime;
         }
-        _currentTime += Time.deltaTime;
-        if(_currentTime > timeToDestroy) {
+
+        if (_currentTime > timeToDestroy && _hasLanded) {
             StartCoroutine(StunCoroutine());
         }
 
@@ -41,7 +43,7 @@ public class RatBoi : MonoBehaviour {
             Destroy(GetComponent<Rigidbody2D>());
             Die();
         }
-        
+
     }
 
     public void Land() {

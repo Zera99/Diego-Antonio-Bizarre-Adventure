@@ -6,6 +6,8 @@ public class DoorTrigger : MonoBehaviour {
     public EventTrigger eventTrigger;
     public Sprite deactivatedSprite;
     public Sprite activatedSprite;
+    public AudioClip doorOpenAudio;
+    AudioSource _audSource;
 
     SpriteRenderer sr;
 
@@ -14,10 +16,17 @@ public class DoorTrigger : MonoBehaviour {
         sr.sprite = deactivatedSprite;
     }
 
+    private void Start()
+    {
+        _audSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<PlayerModel>() != null) {
             sr.sprite = activatedSprite;
             eventTrigger.TriggerEvents();
+            _audSource.clip = doorOpenAudio;
+            _audSource.Play();
         }
     }
 

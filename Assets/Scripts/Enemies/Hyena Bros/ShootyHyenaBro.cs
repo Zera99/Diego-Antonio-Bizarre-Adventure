@@ -9,6 +9,9 @@ public class ShootyHyenaBro : MonoBehaviour {
     BoxCollider2D _collider;
     Animator _anim;
 
+    public AudioSource audSource;
+    public AudioClip throwBoxClip, getHitClip;
+
     public int HP;
     public int maxRatSlug;
     //int ratCount;
@@ -41,7 +44,8 @@ public class ShootyHyenaBro : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         _fsm = new FSM();
         _moveState = new MoveAndShootState(this, wp1, wp2).SetParameters(shootingCooldown, moveSpeed, breathingTime, roundsForRatSlug);
         _fsm.ChangeState(_moveState);
@@ -72,7 +76,11 @@ public class ShootyHyenaBro : MonoBehaviour {
         ShootFeedback();
     }
 
-    public void ThrowBox() {
+    public void ThrowBox()
+    {
+        audSource.clip = throwBoxClip;
+        audSource.Play();
+
         GameObject Box = Instantiate(hyenaBoxPrefab);
         Box.transform.position = bulletSpawnPoint.position;
         Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
@@ -118,6 +126,8 @@ public class ShootyHyenaBro : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<Egg>() != null || collision.gameObject.GetComponent<BowserFire>() != null) {
             _anim.SetTrigger("takeDamage");
+            audSource.clip = getHitClip;
+            audSource.Play();
             Destroy(collision.gameObject);
             HP--;
 

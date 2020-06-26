@@ -6,10 +6,19 @@ using System;
 public class LeftyBossView : MonoBehaviour
 {
     Animator _anim;
-    
+    AudioSource _audSource;
+
+    public AudioClip getHitClip;
+
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _audSource = GetComponent<AudioSource>();
+
+        foreach (var beh in _anim.GetBehaviours<LeftyAudioAnimation>())
+        {
+            beh.audSource = _audSource;
+        }
     }
 
     public void FillActiveElectricity(Action action)
@@ -24,6 +33,7 @@ public class LeftyBossView : MonoBehaviour
         if (!_anim)
             _anim = GetComponent<Animator>();
         _anim.GetBehaviour<DeactiveElectricityAnimation>().action += action;
+        _anim.GetBehaviour<DeactiveElectricityAnimation>().action += () =>  _audSource.Stop();
     }
 
     public void TriggerElectricityConsole()

@@ -7,6 +7,8 @@ public class RatBoi : MonoBehaviour {
     public GameObject deathEffect;
     public Transform itemSpawnPoint;
     public Transform effectSpawnPoint;
+    public AudioSource audSource;
+    public AudioClip triggerClip;
     //public ShootyHyenaBro hyena;
     public float timeToDestroy;
     float _currentTime;
@@ -47,6 +49,10 @@ public class RatBoi : MonoBehaviour {
             Destroy(GetComponent<BoxCollider2D>());
             _anim.SetTrigger("spawnItem");
             Destroy(GetComponent<Rigidbody2D>());
+
+            audSource.clip = triggerClip;
+            audSource.Play();
+
             Die();
         }
 

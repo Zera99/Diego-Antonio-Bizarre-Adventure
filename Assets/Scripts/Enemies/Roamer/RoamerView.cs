@@ -6,11 +6,15 @@ public class RoamerView : MonoBehaviour
 {
     Animator _anim;
     SpriteRenderer _renderer;
+    AudioSource _audSource;
+    public AudioClip getHitSound;
+
     //Color _oldColor;
 
     private void Start() {
         _anim = this.GetComponent<Animator>();
         _renderer = this.GetComponent<SpriteRenderer>();
+        _audSource = GetComponent<AudioSource>();
         //_oldColor = _renderer.color;
     }
 
@@ -21,6 +25,8 @@ public class RoamerView : MonoBehaviour
     public void TakeDamage() {
         _anim.Play("Damage Animation");
         //StartCoroutine(BlinkEffect());
+        _audSource.clip = getHitSound;
+        _audSource.Play();
     }
 
     public void Die() {

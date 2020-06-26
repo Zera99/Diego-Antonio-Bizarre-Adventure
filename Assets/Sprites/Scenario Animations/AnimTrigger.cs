@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimTrigger : MonoBehaviour
 {
     Animator anim;
+    public AudioSource screen;
 
     private void Start() {
         anim = GetComponent<Animator>();
@@ -12,5 +13,6 @@ public class AnimTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         anim.SetTrigger("playAnim");
+        screen.Play();
     }
 }

@@ -142,13 +142,13 @@ public class PlayerModel : MonoBehaviour
 
             if (skillJet)
             {
-                AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
-                GameObject.Find("FRQ").SetActive(true);
+                AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
+                GameObject.Find("JET").SetActive(true);
 
                 if (skillFRQ)
                 {
-                    AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
-                    GameObject.Find("JET").SetActive(true);
+                    AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+                    GameObject.Find("FRQ").SetActive(true);
                 }
             }
         }

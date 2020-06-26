@@ -15,6 +15,9 @@ public class RatBoi : MonoBehaviour {
     bool _isDying;
     SpriteRenderer _renderer;
 
+    public float timeBlinkDuration;
+    public float timeBetweenBlinks;
+
     private void Awake() {
         _anim = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
@@ -70,9 +73,9 @@ public class RatBoi : MonoBehaviour {
     IEnumerator StunCoroutine() {
         for (int i = 0; i < 8; i++) {
             _renderer.enabled = false;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(timeBlinkDuration);
             _renderer.enabled = true;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(timeBetweenBlinks);
         }
         Die();
     }

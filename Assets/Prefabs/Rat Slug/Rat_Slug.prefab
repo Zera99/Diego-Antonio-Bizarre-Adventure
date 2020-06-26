@@ -185,6 +185,8 @@ MonoBehaviour:
   itemSpawnPoint: {fileID: 4424818159996001446}
   effectSpawnPoint: {fileID: 3372756323686668624}
   timeToDestroy: 2
+  timeBlinkDuration: 0.1
+  timeBetweenBlinks: 0.05
 --- !u!50 &6915659878835284645
 Rigidbody2D:
   serializedVersion: 4

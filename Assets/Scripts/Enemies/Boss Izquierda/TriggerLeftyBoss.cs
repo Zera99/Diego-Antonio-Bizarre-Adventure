@@ -9,6 +9,7 @@ public class TriggerLeftyBoss : MonoBehaviour
         if (collision.GetComponent<PlayerModel>())
         {
             FindObjectOfType<LeftyBossModel>().StartFight();
+            FindObjectOfType<ShootyHyenaBro>().StartFight();
             Destroy(gameObject);
         }
     }

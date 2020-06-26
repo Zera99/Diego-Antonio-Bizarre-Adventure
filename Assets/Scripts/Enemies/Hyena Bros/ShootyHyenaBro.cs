@@ -12,6 +12,7 @@ public class ShootyHyenaBro : MonoBehaviour {
     public int HP;
     public int maxRatSlug;
     //int ratCount;
+    bool _hasStarted;
 
     public Transform wp1, wp2;
     public float moveSpeed;
@@ -35,6 +36,10 @@ public class ShootyHyenaBro : MonoBehaviour {
         FindObjectOfType<LeftyBossModel>().onDeath += OnLeftBossDeath;
     }
 
+    public void StartFight() {
+        _hasStarted = true;
+    }
+
     // Start is called before the first frame update
     void Start() {
         _fsm = new FSM();
@@ -44,6 +49,8 @@ public class ShootyHyenaBro : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (!_hasStarted)
+            return;
         _fsm.Update();
 
 

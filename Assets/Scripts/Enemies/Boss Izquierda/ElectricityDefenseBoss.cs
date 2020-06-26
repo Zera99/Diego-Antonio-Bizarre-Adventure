@@ -10,6 +10,7 @@ public class ElectricityDefenseBoss : Electricity
     {
         _collider = GetComponent<BoxCollider2D>();
         _anim = GetComponent<Animator>();
+        _audSource = GetComponent<AudioSource>();
         SwitchActive(true);
     }
 

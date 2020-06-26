@@ -9,10 +9,12 @@ public class LeftyBossController
     public LeftyBossController(LeftyBossModel m, LeftyBossView v)
     {
         _m = m;
-    }
 
-    public void UpdateController()
-    {
+        v.FillActiveElectricity(_m.activeElectricity);
+        v.FillDeactiveElectricity(_m.deactiveElectricity);
 
+        _m.onSwitchElectricty += v.TriggerElectricityConsole;
+        _m.onGetHit += v.GetHit;
+        _m.onDeath += v.Die;
     }
 }

@@ -65,6 +65,8 @@ public class PlayerModel : MonoBehaviour
 
     bool _isControllerManipulated;
 
+    public bool skillBowser, skillFRQ, skillJet;
+
     public event Action<RuntimeAnimatorController> onChangeSkin = delegate { };
     public event Action onUpdate = delegate { };
     public event Action onFixedUpdate = delegate { };
@@ -132,13 +134,32 @@ public class PlayerModel : MonoBehaviour
 
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         SkillsAndValues.Add(_mySkins[0], () => { return -1; });
+
+        if (skillBowser)
+        {
+            AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
+            GameObject.Find("BOW").SetActive(true);
+
+            if (skillJet)
+            {
+                AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+                GameObject.Find("FRQ").SetActive(true);
+
+                if (skillFRQ)
+                {
+                    AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
+                    GameObject.Find("JET").SetActive(true);
+                }
+            }
+        }
+
         //AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
         //SkillsAndValues.Add(_mySkins[1], () => { return -1; });
         //AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
         //SkillsAndValues.Add(_mySkins[2], () => { return currentPointsFRC; });
         //AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
         //SkillsAndValues.Add(_mySkins[3], () => { return currentPointsJetPack; });
-        
+
     }
     // Start is called before the first frame update
     private void Start() {

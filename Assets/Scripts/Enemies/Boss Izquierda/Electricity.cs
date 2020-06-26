@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Electricity : MonoBehaviour
 {
-    Animator _anim;
-    BoxCollider2D _collider;
+    protected Animator _anim;
+    protected BoxCollider2D _collider;
 
-
-    void Start()
+    protected virtual void Awake()
     {
+        _collider = GetComponent<BoxCollider2D>();
         _anim = GetComponent<Animator>();
 
-        //Buscar el animator behaviour y setearle SwitchCollider
+        SwitchCollider(false);
+    }
+
+    protected void Start()
+    {
+        _anim.GetBehaviour<ElectricityDamageAnimation>().switchCollider += SwitchCollider;
     }
 
     public void SwitchActive(bool boolean)
@@ -20,12 +25,12 @@ public class Electricity : MonoBehaviour
         _anim.SetBool("Active", boolean);
     }
 
-    void SwitchCollider(bool boolean)
+    protected virtual void SwitchCollider(bool boolean)
     {
         _collider.enabled = boolean;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected void OnTriggerStay2D(Collider2D collision)
     {
         PlayerModel pl = collision.GetComponent<PlayerModel>();
         if (pl)

@@ -84,7 +84,12 @@ public class JetpackSkill : ISkill
     public void SecondSkill()
     {
         if (_rgbd.velocity.y < _stats.topSpeed)
+        {
             _rgbd.AddForce(Vector2.up * _stats.upSpeed, ForceMode2D.Impulse);
+            var vel = _rgbd.velocity;
+            vel.x = 0;
+            _rgbd.velocity = vel;
+        }
     }
 
     public void UseSkill()

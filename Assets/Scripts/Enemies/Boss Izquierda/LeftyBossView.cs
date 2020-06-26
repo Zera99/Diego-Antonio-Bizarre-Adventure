@@ -1,18 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LeftyBossView : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Animator _anim;
+
+    
     void Start()
     {
-        
+        _anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FillActiveElectricity(Action action)
     {
-        
+        _anim.GetBehaviour<ActiveElectricityAnimation>().action += action;
+    }
+
+    public void FillDeactiveElectricity(Action action)
+    {
+        _anim.GetBehaviour<DeactiveElectricityAnimation>().action += action;
+    }
+
+    public void TriggerElectricityConsole()
+    {
+        _anim.SetTrigger("UseConsole");
+    }
+
+    public void GetHit()
+    {
+        _anim.SetTrigger("GetHit");
+    }
+
+    public void Die()
+    {
+        _anim.SetTrigger("Die");
     }
 }

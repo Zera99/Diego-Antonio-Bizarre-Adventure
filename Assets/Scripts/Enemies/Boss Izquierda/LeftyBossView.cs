@@ -6,7 +6,6 @@ using System;
 public class LeftyBossView : MonoBehaviour
 {
     Animator _anim;
-
     
     void Start()
     {
@@ -15,11 +14,15 @@ public class LeftyBossView : MonoBehaviour
 
     public void FillActiveElectricity(Action action)
     {
+        if (!_anim)
+            _anim = GetComponent<Animator>();
         _anim.GetBehaviour<ActiveElectricityAnimation>().action += action;
     }
 
     public void FillDeactiveElectricity(Action action)
     {
+        if (!_anim)
+            _anim = GetComponent<Animator>();
         _anim.GetBehaviour<DeactiveElectricityAnimation>().action += action;
     }
 

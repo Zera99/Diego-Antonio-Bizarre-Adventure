@@ -32,6 +32,8 @@ public class ShootyHyenaBro : MonoBehaviour {
     public float maxThrowForce;
     public int roundsForRatSlug;
 
+    public int sceneIndex;
+
     private void Awake() {
         _collider = GetComponent<BoxCollider2D>();
         _collider.enabled = false;
@@ -135,7 +137,14 @@ public class ShootyHyenaBro : MonoBehaviour {
                 _anim.SetTrigger("death");
                 _moveState.ChangeSpeed(0.0f);
                 _moveState.Die();
+                StartCoroutine(WaitToEndScene());
             }
         }
+    }
+
+    IEnumerator WaitToEndScene()
+    {
+        yield return new WaitForSeconds(4.0f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 }

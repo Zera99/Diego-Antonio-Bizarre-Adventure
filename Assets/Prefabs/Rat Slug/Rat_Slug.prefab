@@ -186,7 +186,7 @@ MonoBehaviour:
   itemSpawnPoint: {fileID: 4424818159996001446}
   effectSpawnPoint: {fileID: 3372756323686668624}
   audSource: {fileID: -735572861925596170}
-  triggerClip: {fileID: 0}
+  triggerClip: {fileID: 8300000, guid: 29a8e38a4cfe29240831f721f84b2994, type: 3}
   timeToDestroy: 8
   timeBlinkDuration: 0.1
   timeBetweenBlinks: 0.05

@@ -17,6 +17,6 @@ public class ElectricityDefenseBoss : Electricity
     protected override void SwitchCollider(bool boolean)
     {
         base.SwitchCollider(boolean);
-        colliderBlock.enabled = false;
+        colliderBlock.enabled = boolean;
     }
 }

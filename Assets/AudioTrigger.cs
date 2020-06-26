@@ -7,31 +7,51 @@ public class AudioTrigger : MonoBehaviour
     public AudioClip theSound;
     public float volume; //de 0 a 1
     AudioSource audioSource;
-    public BoxCollider2D c1;
-    public BoxCollider2D c2;
+    Coroutine fadeCoroutine;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        c1.enabled = true;
-        c2.enabled = false;
+        audioSource = GetComponent<AudioSource>();     
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
     {
         if (col.GetComponent<PlayerModel>())
+        {           
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+            }           
+        }
+    }*/
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.GetComponent<PlayerModel>())
         {
-            c1.enabled = !c1.enabled;
-            c2.enabled = !c2.enabled;
-            if (audioSource.clip != null)
+
+            if (fadeCoroutine != null)
             {
-                StartCoroutine(FadeOutSound());
+                StopCoroutine(fadeCoroutine);
             }
-            else
-            {
+
+            if (!audioSource.isPlaying)
+            {               
                 audioSource.clip = theSound;
                 audioSource.volume = volume;
                 audioSource.Play();
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<PlayerModel>())
+        {
+
+            if (audioSource.isPlaying)
+            {
+                fadeCoroutine = StartCoroutine(FadeOutSound());                
             }
         }
     }

@@ -14,5 +14,6 @@ public class AnimTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         anim.SetTrigger("playAnim");
         screen.Play();
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }

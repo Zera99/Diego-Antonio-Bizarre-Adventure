@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audSource: {fileID: 0}
-  laughAudio: {fileID: 0}
+  laughAudio: {fileID: 8300000, guid: 70ed8994385d87b48adfe9a1faf3476c, type: 3}
   loopSound: 1
 --- !u!1101 &1615730924229611503
 AnimatorStateTransition:

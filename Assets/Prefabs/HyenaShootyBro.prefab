@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audSource: {fileID: 0}
-  throwBoxClip: {fileID: 0}
-  getHitClip: {fileID: 0}
-  HP: 5
+  throwBoxClip: {fileID: 8300000, guid: 6fe48be0125f63049b3da022f5e324d6, type: 3}
+  getHitClip: {fileID: 8300000, guid: 18eeabe323419e4428cc57cb94b48a57, type: 3}
+  HP: 13
   maxRatSlug: 0
   wp1: {fileID: 0}
   wp2: {fileID: 0}
-  moveSpeed: 8
-  vulnerableMoveSpeed: 3
+  moveSpeed: 12
+  vulnerableMoveSpeed: 7
   hyenaMissilePrefab: {fileID: 7047447967506664478, guid: 169803420fc50e94cadf8bc1a6c56535,
     type: 3}
   hyenaBottlePrefab: {fileID: 1506564478120745525, guid: 692e0cae56870e44187f31fe5d0452fa,
@@ -120,6 +120,7 @@ MonoBehaviour:
   breathingTime: 3
   maxThrowForce: 25
   roundsForRatSlug: 4
+  sceneIndex: 3
 --- !u!50 &1318024403
 Rigidbody2D:
   serializedVersion: 4

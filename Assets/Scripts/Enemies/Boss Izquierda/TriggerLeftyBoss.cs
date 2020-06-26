@@ -6,6 +6,7 @@ public class TriggerLeftyBoss : MonoBehaviour
 {
     public GameObject door;
     public GameObject wall;
+    public GameObject loz;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class TriggerLeftyBoss : MonoBehaviour
             FindObjectOfType<ShootyHyenaBro>().StartFight();
             door.SetActive(true);
             wall.SetActive(false);
+            loz.SetActive(false);
             Destroy(gameObject);
         }
     }

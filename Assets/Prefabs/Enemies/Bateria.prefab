@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 3
+  maxHitPoints: 3
 --- !u!114 &6470364449090431307
 MonoBehaviour:
   m_ObjectHideFlags: 0

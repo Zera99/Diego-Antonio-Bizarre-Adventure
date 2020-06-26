@@ -5,7 +5,9 @@ using UnityEngine;
 public class BatteryBoss : MonoBehaviour, IObservable
 {
     public int maxLife;
+    public int maxHitPoints;
     int _currentLife;
+    int hitPoints = 0;
 
     bool _isDeath = false;
 
@@ -23,17 +25,23 @@ public class BatteryBoss : MonoBehaviour, IObservable
     {
         if (_isDeath) return;
 
-        _currentLife--;
-        _anim.SetTrigger("Hit");
+        hitPoints++;
 
-        if (_currentLife <= 0)
+        if (hitPoints == maxHitPoints)
         {
-            _isDeath = true;
+            _currentLife--;
+            _anim.SetTrigger("Hit");
+            hitPoints = 0;
 
-            GetComponentInChildren<BatteryDoor>().Canceled();
+            if (_currentLife <= 0)
+            {
+                _isDeath = true;
 
-            NotifyToObservers("BatteryDied");
-        }
+                GetComponentInChildren<BatteryDoor>().Canceled();
+
+                NotifyToObservers("BatteryDied");
+            }
+        }        
     }
 
     public void Subscribe(IObserver obs)

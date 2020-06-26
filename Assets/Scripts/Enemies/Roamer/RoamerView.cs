@@ -27,6 +27,10 @@ public class RoamerView : MonoBehaviour
         _anim.Play("Die Animation");
     }
 
+    public void DieFRQ() {
+        _anim.SetTrigger("DieFRQ");
+    }
+
     public void Attack() {
         _anim.Play("Attack Animation");
     }

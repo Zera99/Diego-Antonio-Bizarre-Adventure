@@ -22,10 +22,8 @@ public class FusRohSkill : ISkill {
         view = pl.gameObject.GetComponent<PlayerView>();
     }
 
-    public void PrepareSkill(PlayerModel pl, Action execute)
-    {
-        if (pl.currentPointsFRC >= _costPoints)
-        {
+    public void PrepareSkill(PlayerModel pl, Action execute) {
+        if (pl.currentPointsFRC >= _costPoints) {
             pl.currentPointsFRC -= _costPoints;
             execute();
             pl.ChangePointsValue(_thisSkin, pl.currentPointsFRC);
@@ -51,7 +49,12 @@ public class FusRohSkill : ISkill {
         }
 
         foreach (GameObject e in enemiesToDestroy) {
-            GameObject.Destroy(e);
+            if (e.GetComponent<Shell>() != null)
+                e.GetComponent<Shell>().DieFRQ();
+            else {
+                e.GetComponent<BasicEnemy>().DieFRQ();
+
+            }
         }
         enemiesToDestroy.Clear();
     }

@@ -74,6 +74,12 @@ public class RoamerModel : BasicEnemy {
         Destroy(this.gameObject, 1f);
     }
 
+    public override void DieFRQ() {
+        base.DieFRQ();
+        _view.DieFRQ();
+        Destroy(this);
+    }
+
     public override void TakeDamage(int damage) {
         HP -= damage;
         //_rb.AddForce(new Vector2(1, 1).normalized * stats.damageForce, ForceMode2D.Impulse);

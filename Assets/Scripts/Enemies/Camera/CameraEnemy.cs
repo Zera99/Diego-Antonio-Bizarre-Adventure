@@ -25,6 +25,15 @@ public class CameraEnemy : MonoBehaviour {
         currentTime += Time.deltaTime;
     }
 
+    public void DieFRQ() {
+        _view.DieFRQ();
+        this.gameObject.AddComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+        GetComponent<Rigidbody2D>().gravityScale = 4;
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(this.gameObject, 10.0f);
+        Destroy(this);
+    }
+
     void Attack(Transform t) {
         canAttack = false;
         Vector3 dir = (t.position - this.transform.position).normalized;

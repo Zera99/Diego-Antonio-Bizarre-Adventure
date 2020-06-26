@@ -51,9 +51,10 @@ public class FusRohSkill : ISkill {
         foreach (GameObject e in enemiesToDestroy) {
             if (e.GetComponent<Shell>() != null)
                 e.GetComponent<Shell>().DieFRQ();
-            else {
+            else if(e.GetComponent<CameraEnemy>() != null) {
+                e.GetComponent<CameraEnemy>().DieFRQ();
+            } else {
                 e.GetComponent<BasicEnemy>().DieFRQ();
-
             }
         }
         enemiesToDestroy.Clear();

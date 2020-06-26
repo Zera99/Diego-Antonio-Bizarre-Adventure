@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39b23f1e0dad5e47a0fd1d9adf55f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHitSound: {fileID: 8300000, guid: f0a1a38c8b95aa1439fc3334787b8f66, type: 3}
+  getHitSound: {fileID: 8300000, guid: b30b4ac5038e2dd48ab6d4123f9a75b8, type: 3}
 --- !u!50 &3435780294348511969
 Rigidbody2D:
   serializedVersion: 4

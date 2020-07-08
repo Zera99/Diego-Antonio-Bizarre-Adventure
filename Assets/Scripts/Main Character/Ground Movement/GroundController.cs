@@ -36,6 +36,8 @@ public class GroundController : IController {
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             _model.ChangeSkin(3);
+        } else if (Input.GetKeyDown(KeyCode.C)) {
+            _model.ActivateCheat();
         }
     }
 

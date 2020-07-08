@@ -693,9 +693,9 @@ public class PlayerModel : MonoBehaviour
 
         if (stats.lives <= 0)
         {
-            Debug.Log("Obligado a reiniciar. No hay mas vidas");
             stats.lives = stats.maxLives;
-            StartCoroutine(RestartLevel());
+            SceneManager.LoadScene(4);
+            //StartCoroutine(RestartLevel());
         }
         else
         {
@@ -706,11 +706,18 @@ public class PlayerModel : MonoBehaviour
         
     } 
 
-    IEnumerator RestartLevel()
-    {
-        yield return new WaitForSeconds(1.3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void ActivateCheat() {
+        stats.lives = stats.maxLives;
+        stats.hp = stats.maxHP;
+        _miniUI.UpdateHPText(stats.hp);
+        _miniUI.UpdateLivesText(stats.lives);
     }
+
+    //IEnumerator RestartLevel()
+    //{
+    //    yield return new WaitForSeconds(1.3f);
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //}
 
     IEnumerator DieToCheckpoint()
     {

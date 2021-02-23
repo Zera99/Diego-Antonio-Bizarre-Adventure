@@ -2,41 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioTrigger : MonoBehaviour
-{
+public class AudioTrigger : MonoBehaviour {
+
     public AudioClip theSound;
     public float volume; //de 0 a 1
     AudioSource audioSource;
+    AudioSource mainThemeSource;
+    float mainThemeVolume;
     Coroutine fadeCoroutine;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();     
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+        mainThemeSource = Camera.main.GetComponent<AudioSource>();
+        mainThemeVolume = mainThemeSource.volume;
     }
 
-    /*void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.GetComponent<PlayerModel>())
-        {           
-            if (fadeCoroutine != null)
-            {
-                StopCoroutine(fadeCoroutine);
-            }           
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.GetComponent<PlayerModel>()) {
+            StartCoroutine(AdjustMainThemeVolume(0));
         }
-    }*/
+    }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.GetComponent<PlayerModel>())
-        {
-
-            if (fadeCoroutine != null)
-            {
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.GetComponent<PlayerModel>()) {
+            if (fadeCoroutine != null) {
                 StopCoroutine(fadeCoroutine);
             }
 
-            if (!audioSource.isPlaying)
-            {               
+            if (!audioSource.isPlaying) {
                 audioSource.clip = theSound;
                 audioSource.volume = volume;
                 audioSource.Play();
@@ -44,23 +37,19 @@ public class AudioTrigger : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.GetComponent<PlayerModel>())
-        {
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.GetComponent<PlayerModel>()) {
 
-            if (audioSource.isPlaying)
-            {
-                fadeCoroutine = StartCoroutine(FadeOutSound());                
+            if (audioSource.isPlaying) {
+                fadeCoroutine = StartCoroutine(FadeOutSound());
+                StartCoroutine(AdjustMainThemeVolume(mainThemeVolume));
             }
         }
     }
 
-    IEnumerator FadeOutSound()
-    {
+    IEnumerator FadeOutSound() {
         float ticks = 0;
-        while (ticks < 1)
-        {
+        while (ticks < 1) {
             ticks += Time.deltaTime;
             audioSource.volume = Mathf.Lerp(volume, 0, ticks);
             yield return null;
@@ -68,5 +57,14 @@ public class AudioTrigger : MonoBehaviour
         audioSource.volume = 0;
         audioSource.Stop();
         audioSource.clip = null;
+    }
+
+    IEnumerator AdjustMainThemeVolume(float vol) {
+        float ticks = 0;
+        while (ticks < 1) {
+            ticks += Time.deltaTime;
+            mainThemeSource.volume = Mathf.Lerp(mainThemeSource.volume, vol, ticks);
+            yield return null;
+        }
     }
 }

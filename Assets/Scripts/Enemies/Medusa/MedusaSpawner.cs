@@ -10,18 +10,20 @@ public class MedusaSpawner : MonoBehaviour {
     float xSpawn = 25.0f;
     float ySpawn = 15.0f;
     float padding = 5.0f;
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
 
     Vector3 GetRandomPosition() {
         return new Vector3(xSpawn, Random.Range(-ySpawn, ySpawn), 0);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        PlayerModel p = collision.gameObject.GetComponent<PlayerModel>();
+        if(p != null) {
+            SpawnMedusa(GetRandomPosition());
+        }
+    }
+
+    void SpawnMedusa(Vector3 spawnPoint) {
+
+    }
 
 }

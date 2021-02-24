@@ -6,20 +6,32 @@ public class Girasol : MonoBehaviour {
 
     public int damage;
     public float damageRadius;
+    bool isAttacking;
+    Animator anim;
 
-    void ExecuteAttack(PlayerModel player) {
-        transform.position = transform.position + Vector3.up * 5; // Dependerá de la animación
-        // Animacion
-        if (Vector3.Distance(transform.position, player.transform.position) <= damageRadius)
-            player.TakeDamage(damage);
-
-        Destroy(gameObject, 5); // Duracion de la animacion
+    private void Awake() {
+        anim = GetComponent<Animator>();
+        isAttacking = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         PlayerModel p = collision.GetComponent<PlayerModel>();
         if (p != null)
-            ExecuteAttack(p);
+            StartCoroutine(ExecuteAttack(p));
     }
+
+    IEnumerator ExecuteAttack(PlayerModel player) {
+        isAttacking = true;
+        anim.SetBool("Attacking", true);
+        yield return new WaitForSeconds(1.7f);
+        Debug.Log("Distance is: " + Vector3.Distance(transform.position, player.transform.position));
+        if (Vector3.Distance(transform.position, player.transform.position) <= damageRadius) {
+            player.TakeDamage(damage);
+
+        }
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
+    }
+
 
 }

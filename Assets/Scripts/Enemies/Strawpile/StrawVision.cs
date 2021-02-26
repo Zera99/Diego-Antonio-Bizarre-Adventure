@@ -8,7 +8,7 @@ public class StrawVision : MonoBehaviour {
     private void Awake() {
         pile = transform.parent.GetComponent<StrawPile>();
     }
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
         PlayerModel p = collision.gameObject.GetComponent<PlayerModel>();
         if (p != null) {
             pile.ChangeVision(myZone);

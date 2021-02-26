@@ -23,7 +23,7 @@ public class Girasol : MonoBehaviour {
     IEnumerator ExecuteAttack(PlayerModel player) {
         isAttacking = true;
         anim.SetBool("Attacking", true);
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Distance is: " + Vector3.Distance(transform.position, player.transform.position));
         if (Vector3.Distance(transform.position, player.transform.position) <= damageRadius) {
             player.TakeDamage(damage);

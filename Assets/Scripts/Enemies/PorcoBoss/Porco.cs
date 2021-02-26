@@ -14,6 +14,7 @@ public class Porco : MonoBehaviour {
     public int JumpCount;
     public int HP;
     public Collider2D WeaponCollider;
+    public PorcoHazards Hazards;
 
     bool _isVulnerable;
 
@@ -69,9 +70,11 @@ public class Porco : MonoBehaviour {
         fsm.ChangeState(jumpState);
         anim.SetTrigger("Jump");
         anim.ResetTrigger("Landed");
+        Hazards.StartJumpPhase();
     }
 
     public void Move(bool wasStuck) {
+        Hazards.StopPhase();
         if (wasStuck) {
             if (transform.localScale.x > 0) {
                 rb.AddForce(new Vector2(-1, 1).normalized * 7, ForceMode2D.Impulse);

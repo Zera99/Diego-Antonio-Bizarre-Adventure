@@ -12,11 +12,41 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7905a514434088c45a827323d82f0989
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/IntroCutscene.unity
+    guid: ab953f87b9ae5af47967c5acbd2e8aea
+  - enabled: 1
+    path: Assets/Scenes/Granja1.unity
+    guid: 835cc91696785b94ab58df38b43e9c01
+  - enabled: 1
+    path: Assets/Scenes/Granja2.unity
+    guid: 675af3f5ed45f0341bb959db4832007b
+  - enabled: 1
+    path: Assets/Scenes/GranjaBoss.unity
+    guid: 64ba529a27db2394e97705c7f2a4e520
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/GranjaBossCutscene.unity
+    guid: 4b59cd7012aa3024a96fa5046c6c3977
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/BowserCutscene.unity
+    guid: ca8b0e9c65548d546a3f9959565c36cf
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/JetpackCutscene.unity
+    guid: cb74bcff1f3343946a392ff4aa529904
+  - enabled: 1
     path: Assets/Scenes/NewLevel.unity
     guid: 3eb7754033660ee4982d991005f3e98c
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/PreDogBossFightCtuscene.unity
+    guid: 6f2310ed4380b8c43923e18fe0620c9f
+  - enabled: 1
     path: Assets/Scenes/BossLevel.unity
     guid: 0d6871c66fa5317439711357b1267202
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: 54fde0bb1fc303840a685a3db6bb3f16
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/FinalCutscene.unity
+    guid: 3997db91948e2244cb1302fdb76dc7f1
   - enabled: 1
     path: Assets/Scenes/Win Screen.unity
     guid: ef3f6ab785ba4d44ea1a0ecedd07c3ee

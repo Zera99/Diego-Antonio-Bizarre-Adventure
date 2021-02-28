@@ -18212,11 +18212,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puerta
       objectReference: {fileID: 0}
-    - target: {fileID: 3045582452953610102, guid: 7d007d4aa102ec24ea37f3aa0892338c,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8550683306026458695, guid: 7d007d4aa102ec24ea37f3aa0892338c,
         type: 3}
       propertyPath: m_LocalPosition.x

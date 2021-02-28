@@ -9,7 +9,7 @@ public class Phase2 : PhaseBase {
 
     private void Start() {
         Transform player = GameObject.FindObjectOfType<PlayerModel>().transform;
-        moveMissileState = new FinalBossMoveMissile(this.boss,this.boss.MissileMoveSpeed, this.boss.FastMissilePrefab, this.boss.SlowMissilePrefab, player);
+        moveMissileState = new FinalBossMoveMissile(this.boss,this.boss.MissileMoveSpeed, this.boss.FastMissilePrefab, player);
 
 
         fsm = new FSM();

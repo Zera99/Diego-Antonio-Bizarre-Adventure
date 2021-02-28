@@ -23,11 +23,12 @@ public class Girasol : MonoBehaviour {
     IEnumerator ExecuteAttack(PlayerModel player) {
         isAttacking = true;
         anim.SetBool("Attacking", true);
+        if(transform.position.x - Mathf.Abs(player.transform.position.x) < 0) {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         yield return new WaitForSeconds(1f);
-        Debug.Log("Distance is: " + Vector3.Distance(transform.position, player.transform.position));
         if (Vector3.Distance(transform.position, player.transform.position) <= damageRadius) {
             player.TakeDamage(damage);
-
         }
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);

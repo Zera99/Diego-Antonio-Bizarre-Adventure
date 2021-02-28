@@ -10,6 +10,7 @@ public class StrawPile : MonoBehaviour {
     PlayerModel _player;
     Animator _anim;
     bool isBlinded;
+    bool onCD;
 
     private void Awake() {
         _anim = GetComponent<Animator>();
@@ -20,7 +21,7 @@ public class StrawPile : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(!isBlinded && vision != VisionAreas.NONE && Vector3.Distance(this.gameObject.transform.position, _player.transform.position) <= range) {
+        if(!isBlinded && vision != VisionAreas.NONE && Vector3.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
             _player.TakeDamage(Damage);
         }
     }
@@ -30,15 +31,24 @@ public class StrawPile : MonoBehaviour {
         switch(vision) {
             case VisionAreas.LEFT:
                 _anim.ResetTrigger("StopAttacking");
-                _anim.SetTrigger("AttackLeft");
+                if(Vector3.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
+                    _anim.SetTrigger("AttackLeft");
+                    StartCoroutine(AttackCD());
+                }
                 break;
             case VisionAreas.TOP:
                 _anim.ResetTrigger("StopAttacking");
-                _anim.SetTrigger("AttackTop");
+                if (Vector3.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
+                    _anim.SetTrigger("AttackTop");
+                    StartCoroutine(AttackCD());
+                }
                 break;
             case VisionAreas.RIGHT:
                 _anim.ResetTrigger("StopAttacking");
-                _anim.SetTrigger("AttackRight");
+                if (Vector3.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
+                    _anim.SetTrigger("AttackRight");
+                    StartCoroutine(AttackCD());
+                }
                 break;
             case VisionAreas.NONE:
                 _anim.SetTrigger("StopAttacking");
@@ -56,6 +66,17 @@ public class StrawPile : MonoBehaviour {
             _anim.SetTrigger("Blinded");
             StartCoroutine(Blinded());
         }
+    }
+
+    IEnumerator AttackCD() {
+        yield return new WaitForSeconds(0.7f);
+        onCD = true;
+        _anim.SetTrigger("StopAttacking");
+        _anim.ResetTrigger("AttackRight");
+        _anim.ResetTrigger("AttackLeft");
+        _anim.ResetTrigger("AttackTop");
+        yield return new WaitForSeconds(3.0f);
+        onCD = false;
     }
 
     IEnumerator Blinded() {

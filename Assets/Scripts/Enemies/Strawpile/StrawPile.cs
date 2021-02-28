@@ -17,11 +17,12 @@ public class StrawPile : MonoBehaviour {
         _player = FindObjectOfType<PlayerModel>();
         vision = VisionAreas.NONE;
         isBlinded = false;
+        onCD = false;
     }
 
     // Update is called once per frame
     void Update() {
-        if(!isBlinded && vision != VisionAreas.NONE && Vector3.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
+        if(!isBlinded && vision != VisionAreas.NONE && Vector2.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
             _player.TakeDamage(Damage);
         }
     }

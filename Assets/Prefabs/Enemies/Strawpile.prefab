@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vision: 3
   Damage: 3
-  range: 3
+  range: 3.81
 --- !u!1 &4183155490209982555
 GameObject:
   m_ObjectHideFlags: 0

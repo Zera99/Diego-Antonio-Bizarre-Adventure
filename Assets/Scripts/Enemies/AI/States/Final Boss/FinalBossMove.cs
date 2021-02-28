@@ -26,7 +26,7 @@ public class FinalBossMove : IState {
     }
 
     public void FlipDirection() {
-        Debug.Log("Flipped!");
+
         dir *= -1;
     }
 }

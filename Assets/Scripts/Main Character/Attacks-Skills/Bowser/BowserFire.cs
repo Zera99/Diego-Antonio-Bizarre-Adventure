@@ -9,7 +9,7 @@ public class BowserFire : MonoBehaviour {
 
     private void Start() {
         Destroy(this.gameObject, timeToDestroy);
-        if(dir.x > 0) {
+        if (dir.x > 0) {
             this.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
@@ -23,17 +23,14 @@ public class BowserFire : MonoBehaviour {
         dir = d;
     }
 
-    public void SetDamage(int value)
-    {
+    public void SetDamage(int value) {
         fireDamage = value;
     }
 
     //TODO: Descomentar esto si queremos que el fuego dañe a todos los enemigos basicos (No trampas/Obstaculos)
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<BasicEnemy>() != null)
-        {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.GetComponent<BasicEnemy>() != null) {
             collision.gameObject.GetComponent<BasicEnemy>().TakeDamage(fireDamage);
             Destroy(gameObject);
         } else if (collision.gameObject.GetComponent<PlayerModel>() == null) { // Si no toco el player, tiene que destruirse

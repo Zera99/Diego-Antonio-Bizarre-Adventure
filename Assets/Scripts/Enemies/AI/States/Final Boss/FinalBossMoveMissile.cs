@@ -25,7 +25,6 @@ public class FinalBossMoveMissile : IState {
     }
 
     public void Enter() {
-        Debug.Log("Entered Move missile");
         inMoveState = true;
         timeForFast = Random.Range(3.0f, 8.0f);
         timeForSlow = Random.Range(1.0f, 4.0f);
@@ -52,7 +51,7 @@ public class FinalBossMoveMissile : IState {
     }
 
     public void FlipDirection() {
-        Debug.Log("Flipped!");
+
         dir *= -1;
     }
 

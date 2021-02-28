@@ -6,7 +6,7 @@ public class FinalBossHurt : IState {
 
     FinalBoss boss;
     float internalTime;
-    float waitTimeOnHurt;
+
 
     public FinalBossHurt (FinalBoss b) {
         boss = b;
@@ -18,7 +18,7 @@ public class FinalBossHurt : IState {
 
     public void Exec() {
         internalTime += Time.deltaTime;
-        if(internalTime >= waitTimeOnHurt) {
+        if(internalTime >= boss.WaitTimeOnHurt) {
             boss.FinishHurt();
         }
 
@@ -27,11 +27,4 @@ public class FinalBossHurt : IState {
     public void Exit() {
 
     }
-
-    IEnumerator WaitOnDamaged() {
-        yield return new WaitForSeconds(3.0f);
-
-    }
-
-
 }

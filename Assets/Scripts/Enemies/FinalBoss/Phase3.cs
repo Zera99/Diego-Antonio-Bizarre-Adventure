@@ -8,19 +8,25 @@ public class Phase3 : PhaseBase {
     FinalBossHurt hurtState;
 
     private void Start() {
-        
+        moveElectricState = new FinalBossMoveElectric(this.boss, this.boss.ElectricMoveSpeed);
+        hurtState = new FinalBossHurt(this.boss);
+
+        fsm = new FSM();
+        fsm.ChangeState(moveElectricState);
     }
 
     public override void OnUpdate() {
-        // Movimiento, rayos y piso electrificado
+        Debug.Log("FSM is: " + fsm);
+        Debug.Log("Current State: " + fsm.PeekCurrentState());
+        fsm.Update();
     }
 
     public override void ChangeDir() {
-        //FinalBossMoveMissile.FlipDirection();
+        moveElectricState.FlipDirection();
     }
 
     public override void FinishHurt() {
-        //fsm.ChangeState(moveElectricState);
+        fsm.ChangeState(moveElectricState);
     }
 
     public override void GetHurt() {

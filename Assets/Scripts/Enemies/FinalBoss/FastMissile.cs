@@ -11,9 +11,8 @@ public class FastMissile : MonoBehaviour {
     float internalTime;
     public Transform PlayerTransform;
     bool hasLaunched;
-
     private void Awake() {
-        
+        Destroy(this.gameObject, 15.0f);
     }
 
     // Start is called before the first frame update

@@ -8,6 +8,10 @@ public class SlowMissile : MonoBehaviour {
     public float Speed;
     public Transform PlayerTransform;
 
+    private void Awake() {
+        Destroy(this.gameObject, 15.0f);
+    }
+
     // Start is called before the first frame update
     void Start() {
         Vector3 vectorToTarget = PlayerTransform.position - transform.position;

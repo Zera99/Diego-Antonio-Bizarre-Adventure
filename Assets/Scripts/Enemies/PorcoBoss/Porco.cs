@@ -18,7 +18,9 @@ public class Porco : MonoBehaviour {
     public PorcoHazards Hazards;
 
     bool _isVulnerable;
+    bool _isBlinded;
     public bool firstGo;
+    bool flipped;
 
     SpriteRenderer sr;
     Rigidbody2D rb;
@@ -56,6 +58,7 @@ public class Porco : MonoBehaviour {
         VulnerableArea.enabled = false;
         sr.flipX = true;
         firstGo = true;
+        flipped = false;
         //FlipSprite();
     }
 
@@ -65,10 +68,15 @@ public class Porco : MonoBehaviour {
     }
 
     public void GetStuck() {
-        fsm.ChangeState(stuckState);
-        anim.SetTrigger("Stuck");
-        WeaponCollider.enabled = false;
-        _isVulnerable = true;
+        if (_isBlinded) {
+            anim.ResetTrigger("Blinded");
+            anim.SetTrigger("Stuck");
+            fsm.ChangeState(stuckState);
+            WeaponCollider.enabled = false;
+            _isVulnerable = true;
+        } else if (!flipped) {
+            StartCoroutine(WaitTurnAround());
+        }
     }
 
     public void Unstuck() {
@@ -85,8 +93,8 @@ public class Porco : MonoBehaviour {
     }
 
     public void Move(bool wasStuck) {
-        anim.ResetTrigger("Idle");
         Hazards.StopPhase();
+        anim.ResetTrigger("Idle");
         if (wasStuck) {
             if (transform.localScale.x > 0) {
                 rb.AddForce(new Vector2(-1, 1).normalized * 7, ForceMode2D.Impulse);
@@ -98,7 +106,6 @@ public class Porco : MonoBehaviour {
             if (!firstGo) {
                 WalkSpeed += WalkingSpeedIncrement;
                 moveState.SetMoveSpeed(WalkSpeed);
-
             }
         }
 
@@ -117,6 +124,7 @@ public class Porco : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         PlayerModel p = collision.gameObject.GetComponent<PlayerModel>();
+        
         if (p != null && _isVulnerable) {
             fsm.ChangeState(hurtState);
             HP--;
@@ -132,6 +140,18 @@ public class Porco : MonoBehaviour {
                 anim.SetTrigger("Hurt");
             }
         }
+
+
+    }
+
+    public void GetBlinded() {
+        _isBlinded = true;
+        anim.SetTrigger("Blinded");
+        anim.ResetTrigger("Walking");
+    }
+
+    public void Unblind() {
+        _isBlinded = false;
     }
 
     public void FlipSprite() {
@@ -158,5 +178,13 @@ public class Porco : MonoBehaviour {
         yield return new WaitForSeconds(t);
         FlipSprite();
 
+    }
+
+    IEnumerator WaitTurnAround() {
+        flipped = true;
+        fsm.ChangeState(moveState);
+        FlipSprite();
+        yield return new WaitForSeconds(1.0f);
+        flipped = false;
     }
 }

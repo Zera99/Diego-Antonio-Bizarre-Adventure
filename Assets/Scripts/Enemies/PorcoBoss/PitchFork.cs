@@ -14,10 +14,16 @@ public class PitchFork : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         PlayerModel p = collision.gameObject.GetComponent<PlayerModel>();
+        Egg e = collision.gameObject.GetComponent<Egg>();
         if (p != null) {
             p.TakeDamage(Damage);
         } else if (collision.gameObject.tag == "Wall") {
             boss.GetStuck();
+        }
+
+        if (e != null) {
+            boss.GetBlinded();
+            Destroy(e.gameObject);
         }
     }
 }

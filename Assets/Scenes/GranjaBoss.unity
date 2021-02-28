@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 8553448317480851531, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.31
+      value: 11.14
       objectReference: {fileID: 0}
     - target: {fileID: 8553448317480851531, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
@@ -1028,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1814766378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 1912838513095330513, guid: 88d501a6e001ba94397e2442d6293a24,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.9
+      value: -10.26
       objectReference: {fileID: 0}
     - target: {fileID: 1912838513095330513, guid: 88d501a6e001ba94397e2442d6293a24,
         type: 3}
@@ -1443,6 +1443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TimeIdle
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912838513095330526, guid: 88d501a6e001ba94397e2442d6293a24,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d501a6e001ba94397e2442d6293a24, type: 3}

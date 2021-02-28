@@ -24,13 +24,16 @@ public class Stuck : IState {
     public void Exec() {
         internalTime += Time.deltaTime;
         if(internalTime > timeStuck) {
+            Debug.Log("True?");
             boss.Move(true);
         }
     }
 
     public void Exit() {
+        Debug.Log("Exiting Stuck state");
         vulnerableArea.enabled = false;
         boss.ToggleVulnerable();
+        boss.Unblind();
 
     }
 }

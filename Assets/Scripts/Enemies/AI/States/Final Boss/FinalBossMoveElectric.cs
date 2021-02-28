@@ -24,7 +24,8 @@ public class FinalBossMoveElectric : IState {
         boss.transform.position += dir.normalized * moveSpeed * Time.deltaTime;
         internalTime += Time.deltaTime;
         if(internalTime >= boss.TimeUntilShock) {
-            boss.PrepareElectricAttack();
+            boss.Attack();
+            boss.ExecuteElectricAttack();
             internalTime = 0.0f;
         }
     }

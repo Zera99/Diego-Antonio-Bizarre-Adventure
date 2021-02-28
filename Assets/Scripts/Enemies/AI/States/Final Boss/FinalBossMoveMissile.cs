@@ -5,7 +5,6 @@ using UnityEngine;
 public class FinalBossMoveMissile : IState {
     private FinalBoss boss;
     private GameObject fastMissilePrefab;
-    private GameObject slowMissilePrefab;
     private float moveSpeed;
     private Transform playerTransform;
     bool inMoveState;
@@ -15,34 +14,26 @@ public class FinalBossMoveMissile : IState {
     float timeForFast;
     float timeForSlow;
 
-    public FinalBossMoveMissile(FinalBoss b, float move, GameObject fast, GameObject slow, Transform p) {
+    public FinalBossMoveMissile(FinalBoss b, float move, GameObject fast, Transform p) {
         this.boss = b;
         moveSpeed = move;
         this.fastMissilePrefab = fast;
-        this.slowMissilePrefab = slow;
         playerTransform = p;
         dir = new Vector3(-1.0f, 0f, 0f);
     }
 
     public void Enter() {
         inMoveState = true;
-        timeForFast = Random.Range(3.0f, 8.0f);
-        timeForSlow = Random.Range(1.0f, 4.0f);
+        timeForFast = Random.Range(1.0f, 3.0f);
     }
 
     public void Exec() {
         boss.transform.position += dir.normalized * moveSpeed * Time.deltaTime;
         internalTimeFast += Time.deltaTime;
-        internalTimeSlow += Time.deltaTime;
 
         if (internalTimeFast >= timeForFast) {
             SpawnFastMissiles();
             internalTimeFast = 0;
-        }
-
-        if(internalTimeSlow >= timeForSlow) {
-            SpawnSlowMissiles();
-            internalTimeSlow = 0;
         }
     }
 
@@ -59,13 +50,7 @@ public class FinalBossMoveMissile : IState {
         FastMissile o = GameObject.Instantiate(fastMissilePrefab).GetComponent<FastMissile>();
         o.PlayerTransform = playerTransform;
         o.transform.position = boss.fastMissileSpawn.position;
-    }
-
-    void SpawnSlowMissiles() {
-        SlowMissile o = GameObject.Instantiate(slowMissilePrefab).GetComponent<SlowMissile>();
-        o.PlayerTransform = playerTransform;
-        o.transform.position = boss.slowMissileSpawn.position;
-
+        boss.Attack();
     }
 
 }

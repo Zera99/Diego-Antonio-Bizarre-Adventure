@@ -10,7 +10,8 @@ public class FinalBoss : MonoBehaviour {
     public int ClawDamage;
     public GameObject MyClaw;
     public GameObject FastMissilePrefab;
-    public GameObject SlowMissilePrefab;
+    public GameObject endingEffect;
+    public GameObject Vultur;
     public Transform fastMissileSpawn;
     public Transform slowMissileSpawn;
     public List<ElectricArea> ElectricAreas;
@@ -23,66 +24,74 @@ public class FinalBoss : MonoBehaviour {
 
     PhaseBase currentPhase;
     int currentPhaseIndex;
+    Animator anim;
 
     private void Awake() {
+        anim = GetComponent<Animator>();
         flipped = false;
-        currentPhaseIndex = -1;
-        GoToNextPhase();
+        currentPhaseIndex = 0;
+        currentPhase = allPhases[currentPhaseIndex];
+        //GoToNextPhase();
     }
 
     private void Update() {
         currentPhase.OnUpdate();
+        if (Input.GetKeyDown(KeyCode.X)) {
+            Die();
+        }
     }
 
     public void GoToNextPhase() {
+        anim.ResetTrigger("Attack");
+        anim.ResetTrigger("Hurt");
+        anim.SetTrigger("Transition");
         currentPhaseIndex++;
         currentPhase = allPhases[currentPhaseIndex];
 
-        if(currentPhaseIndex == 1) {
-
+        if (currentPhaseIndex == 1) {
             Destroy(MyClaw);
         }
 
         if (currentPhaseIndex == 2)
             EnableShockers();
+
     }
 
     public void FinishHurt() {
+        anim.ResetTrigger("Hurt");
         currentPhase.FinishHurt();
     }
 
-    public void ClawAttack() {
-        // Feedback de Claw
-    }
-
-    public void PrepareElectricAttack() {
-        //Animacion de charge up
-        // cuando termina
-        ExecuteElectricAttack();
-    }
-
     public void ExecuteElectricAttack() {
-        foreach(ElectricArea e in ElectricAreas) {
-            e.Activate();
-        }
+        StartCoroutine(ElectricDischarge());
     }
 
     public void EnableShockers() {
-        foreach(ElectricArea s in ElectricAreas) {
+        foreach (ElectricArea s in ElectricAreas) {
             s.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 
     public void TakeDamage(int d) {
         HP -= d;
-        if (HP == 7 || HP == 3)
+        anim.SetTrigger("Hurt");
+        if (HP == 7 || HP == 3) {
             GoToNextPhase();
-           
-        if(HP == 0) {
-            // Die
-            StartCoroutine(WaitToEndScene());
-            Destroy(this.gameObject);
+            StartCoroutine(ResetTransition());
         }
+
+        if (HP == 0) {
+            Die();
+        }
+    }
+
+    void Die() {
+        GameObject o = Instantiate(endingEffect);
+        GameObject v = Instantiate(Vultur);
+        o.transform.parent = this.transform;
+        v.transform.position = this.transform.position;
+        o.transform.localScale = new Vector3(5, 5, 5);
+        Destroy(this.gameObject, 0.5f);
     }
 
     public void FlipDir() {
@@ -90,10 +99,12 @@ public class FinalBoss : MonoBehaviour {
         FlipSprite();
     }
 
-    IEnumerator WaitToEndScene() {
-        yield return new WaitForSeconds(4.0f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public void Attack() {
+        anim.SetTrigger("Attack");
+        StartCoroutine(ResetAttack());
     }
+
+
 
     public void FlipSprite() {
         Vector3 newScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
@@ -108,9 +119,26 @@ public class FinalBoss : MonoBehaviour {
         }
     }
 
+    IEnumerator ElectricDischarge() {
+        yield return new WaitForSeconds(1.0f);
+        foreach (ElectricArea e in ElectricAreas) {
+            e.Activate();
+        }
+    }
+
     IEnumerator ResetFlip() {
         yield return new WaitForSeconds(1.5f);
         flipped = false;
+    }
+
+    IEnumerator ResetAttack() {
+        yield return new WaitForSeconds(1.0f);
+        anim.ResetTrigger("Attack");
+    }
+
+    IEnumerator ResetTransition() {
+        yield return new WaitForSeconds(1.5f);
+        anim.ResetTrigger("Transition");
     }
 
 

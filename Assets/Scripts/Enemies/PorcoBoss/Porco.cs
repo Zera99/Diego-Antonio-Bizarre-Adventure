@@ -10,6 +10,7 @@ public class Porco : MonoBehaviour {
     public BoxCollider2D VulnerableArea;
     public float TimeStuck;
     public float TimeHurt;
+    public float TimeIdle;
     public float JumpForce;
     public int JumpCount;
     public int HP;
@@ -17,6 +18,7 @@ public class Porco : MonoBehaviour {
     public PorcoHazards Hazards;
 
     bool _isVulnerable;
+    public bool firstGo;
 
     SpriteRenderer sr;
     Rigidbody2D rb;
@@ -25,6 +27,7 @@ public class Porco : MonoBehaviour {
     Hurt hurtState;
     Jump jumpState;
     Stuck stuckState;
+    Idle idleState;
     Dead deadState;
 
     Animator anim;
@@ -40,18 +43,20 @@ public class Porco : MonoBehaviour {
         jumpState = new Jump(this, JumpForce, rb);
         jumpState.SetMaxJumps(JumpCount);
         stuckState = new Stuck(this, TimeStuck, VulnerableArea);
+        idleState = new Idle(this, 3.0f);
         deadState = new Dead();
 
     }
 
     // Start is called before the first frame update
     void Start() {
-        fsm.ChangeState(moveState);
-        anim.SetTrigger("Walking");
+        fsm.ChangeState(idleState);
+        anim.SetTrigger("Idle");
         _isVulnerable = false;
         VulnerableArea.enabled = false;
         sr.flipX = true;
-        FlipSprite();
+        firstGo = true;
+        //FlipSprite();
     }
 
     // Update is called once per frame
@@ -67,6 +72,12 @@ public class Porco : MonoBehaviour {
     }
 
     public void Unstuck() {
+        fsm.ChangeState(idleState);
+        anim.SetTrigger("Idle");
+        FlipSprite();
+    }
+
+    public void JumpState() {
         fsm.ChangeState(jumpState);
         anim.SetTrigger("Jump");
         anim.ResetTrigger("Landed");
@@ -74,6 +85,7 @@ public class Porco : MonoBehaviour {
     }
 
     public void Move(bool wasStuck) {
+        anim.ResetTrigger("Idle");
         Hazards.StopPhase();
         if (wasStuck) {
             if (transform.localScale.x > 0) {
@@ -81,14 +93,17 @@ public class Porco : MonoBehaviour {
             } else {
                 rb.AddForce(new Vector2(1, 1).normalized * 7, ForceMode2D.Impulse);
             }
+            StartCoroutine(FlipInSeconds(0.7f));
         } else {
-            WalkSpeed += WalkingSpeedIncrement;
-            moveState.SetMoveSpeed(WalkSpeed);
+            if (!firstGo) {
+                WalkSpeed += WalkingSpeedIncrement;
+                moveState.SetMoveSpeed(WalkSpeed);
+
+            }
         }
 
         fsm.ChangeState(moveState);
         anim.SetTrigger("Walking");
-        FlipSprite();
         StartCoroutine(WaitToEnableWeapon(1.0f));
     }
 
@@ -124,6 +139,12 @@ public class Porco : MonoBehaviour {
         this.transform.localScale = newScale;
     }
 
+    //IEnumerator StartBoss() {
+    //    yield return new WaitForSeconds(2.0f);
+    //    fsm.ChangeState(moveState);
+    //    anim.SetTrigger("Walking");
+    //}
+
     IEnumerator WaitToEnableWeapon(float t) {
         yield return new WaitForSeconds(t);
         WeaponCollider.enabled = true;
@@ -132,5 +153,10 @@ public class Porco : MonoBehaviour {
     IEnumerator WaitToEndScene() {
         yield return new WaitForSeconds(4.0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    IEnumerator FlipInSeconds(float t) {
+        yield return new WaitForSeconds(t);
+        FlipSprite();
+
     }
 }

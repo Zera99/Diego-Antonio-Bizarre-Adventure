@@ -21,11 +21,15 @@ public class Idle : IState {
     public void Exec() {
         internalTime += Time.deltaTime;
         if (internalTime > timeIdle) {
-            boss.Move(true);
+            if (boss.firstGo)
+                boss.Move(false);
+            else
+                boss.JumpState();
         }
     }
 
     public void Exit() {
-        throw new System.NotImplementedException();
+        if (boss.firstGo)
+            boss.firstGo = false;
     }
 }

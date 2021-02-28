@@ -11,7 +11,7 @@ public class Move : IState {
     public Move(Porco b, float m) {
         boss = b;
         moveSpeed = m;
-        dir = new Vector3(-1.0f, 0f, 0f);
+        dir = new Vector3(1.0f, 0f, 0f);
     }
 
     public void Enter() {

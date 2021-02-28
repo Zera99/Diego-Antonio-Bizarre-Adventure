@@ -1439,5 +1439,10 @@ PrefabInstance:
       propertyPath: Hazards
       value: 
       objectReference: {fileID: 732268381}
+    - target: {fileID: 1912838513095330524, guid: 88d501a6e001ba94397e2442d6293a24,
+        type: 3}
+      propertyPath: TimeIdle
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d501a6e001ba94397e2442d6293a24, type: 3}

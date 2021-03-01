@@ -3288,12 +3288,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allIcons.Array.data[0]
       value: 
-      objectReference: {fileID: 1416330787}
+      objectReference: {fileID: 1416330785}
     - target: {fileID: 6709652911312341650, guid: 9ed01cad502b04c41844df9633b2fd74,
         type: 3}
       propertyPath: allIcons.Array.data[1]
       value: 
-      objectReference: {fileID: 1416330785}
+      objectReference: {fileID: 1416330787}
     - target: {fileID: 6709652911312341650, guid: 9ed01cad502b04c41844df9633b2fd74,
         type: 3}
       propertyPath: allIcons.Array.data[2]
@@ -3975,7 +3975,7 @@ PrefabInstance:
     - target: {fileID: 2261174966488377258, guid: 9dc6405c3520b0e4fa24faaf7c3d0d2d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32.800003
+      value: -32.80002
       objectReference: {fileID: 0}
     - target: {fileID: 2261174966488377258, guid: 9dc6405c3520b0e4fa24faaf7c3d0d2d,
         type: 3}
@@ -7088,6 +7088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 4400704312635109753, guid: 60a1c9599765b84479e7f1ca55c75e69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a1c9599765b84479e7f1ca55c75e69, type: 3}
 --- !u!1001 &4544845261363234737
@@ -8191,6 +8196,21 @@ PrefabInstance:
       propertyPath: stopRunningLayer.m_Bits
       value: 8449
       objectReference: {fileID: 0}
+    - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
+        type: 3}
+      propertyPath: skillBowser
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
+        type: 3}
+      propertyPath: skillFRQ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
+        type: 3}
+      propertyPath: skillJet
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8553448317432029726, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: m_Name
@@ -8204,7 +8224,7 @@ PrefabInstance:
     - target: {fileID: 8553448317480851531, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.65
+      value: -64.13
       objectReference: {fileID: 0}
     - target: {fileID: 8553448317480851531, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}

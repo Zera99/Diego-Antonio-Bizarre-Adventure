@@ -135,24 +135,21 @@ public class PlayerModel : MonoBehaviour
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         SkillsAndValues.Add(_mySkins[0], () => { return -1; });
 
-        if (skillBowser)
+        if (skillJet)
         {
-            AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
-            GameObject.Find("BOW").SetActive(true);
-
-            if (skillJet)
-            {
-                AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
-                GameObject.Find("JET").SetActive(true);
-
-                if (skillFRQ)
-                {
-                    AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
-                    GameObject.Find("FRQ").SetActive(true);
-                }
-            }
+            AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
+            GameObject.Find("JET").SetActive(true);
         }
 
+        if (skillBowser) {
+            AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
+            GameObject.Find("BOW").SetActive(true);        
+        }
+
+        if (skillFRQ) {
+            AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
+            GameObject.Find("FRQ").SetActive(true);
+        }
         //AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
         //SkillsAndValues.Add(_mySkins[1], () => { return -1; });
         //AddNewSkin(Resources.Load<Skin>("Skins/FusRohCuack_Skin"));
@@ -219,13 +216,13 @@ public class PlayerModel : MonoBehaviour
 
         switch(_mySkins.Count) {
             case 2:
-                SkillsAndValues.Add(_mySkins[1], () => { return -1; }); ;
+                SkillsAndValues.Add(_mySkins[1], () => { return currentPointsJetPack; });
                 break;
             case 3:
-                SkillsAndValues.Add(_mySkins[2], () => { return currentPointsFRC; });
+                SkillsAndValues.Add(_mySkins[2], () => { return -1; });
                 break;
             case 4:
-                SkillsAndValues.Add(_mySkins[3], () => { return currentPointsJetPack; });
+                SkillsAndValues.Add(_mySkins[3], () => { return currentPointsFRC; });
                 break;
         }
     }

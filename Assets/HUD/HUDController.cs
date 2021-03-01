@@ -23,7 +23,8 @@ public class HUDController : MonoBehaviour {
 
     public void ChangeToBase() {
         foreach(HUDIcon i in allIcons) {
-            i.TurnOff();
+            if(i != null)
+                i.TurnOff();
         }
     }
 

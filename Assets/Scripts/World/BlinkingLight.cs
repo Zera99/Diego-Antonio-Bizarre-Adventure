@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlinkingLight : MonoBehaviour {
 
-    public Light light;
+    public Light myLight;
 
     // Start is called before the first frame update
     void Start() {
@@ -12,18 +12,18 @@ public class BlinkingLight : MonoBehaviour {
     }
 
     IEnumerator BlinkLight() {
-        light.enabled = false;
+        myLight.enabled = false;
         for(int i = 0; i < Random.Range(2, 6); i++) {
             yield return new WaitForSeconds(Random.Range(0.1f, 0.6f));
-            light.enabled = true;
+            myLight.enabled = true;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
-            light.enabled = false;
+            myLight.enabled = false;
         }
         StartCoroutine(StayOn());
     }
 
     IEnumerator StayOn() {
-        light.enabled = true;
+        myLight.enabled = true;
         yield return new WaitForSeconds(Random.Range(1.0f, 3.0f));
         StartCoroutine(BlinkLight());
     }

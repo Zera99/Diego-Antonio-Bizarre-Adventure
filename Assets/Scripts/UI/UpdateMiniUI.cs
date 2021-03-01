@@ -8,7 +8,7 @@ public class UpdateMiniUI : MonoBehaviour {
     public Text hpText;
 	public Text livesText;
     public Text skillText;
-    string skillName = "EGG"; // Por defecto esta en EGG, para el inicio
+    //string skillName = "EGG"; // Por defecto esta en EGG, para el inicio
     public Animator doomDuckAnim;
     public HUDController hudControl;
 

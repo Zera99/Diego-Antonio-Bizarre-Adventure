@@ -15,7 +15,6 @@ public class Poopie : MonoBehaviour {
     Rigidbody2D _rb;
     bool _jumping;
     bool _isFlipped;
-    bool _hasJumped;
 
     private void Awake() {
         _anim = GetComponent<Animator>();
@@ -26,7 +25,6 @@ public class Poopie : MonoBehaviour {
     void Start() {
         _internalTime = 0.0f;
         _jumping = false;
-        _hasJumped = false;
     }
 
     // Update is called once per frame
@@ -34,7 +32,6 @@ public class Poopie : MonoBehaviour {
         _internalTime += Time.deltaTime;
         if (_internalTime >= TimeToJump && !_jumping) {
             _jumping = true;
-            _hasJumped = true;
             _anim.SetBool("Jumping", true);
             if (_isFlipped) {
                 _rb.AddForce(new Vector2(1.0f, 1.0f).normalized * JumpForce, ForceMode2D.Impulse);

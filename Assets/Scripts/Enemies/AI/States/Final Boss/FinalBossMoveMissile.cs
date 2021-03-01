@@ -7,12 +7,11 @@ public class FinalBossMoveMissile : IState {
     private GameObject fastMissilePrefab;
     private float moveSpeed;
     private Transform playerTransform;
-    bool inMoveState;
     float internalTimeFast;
-    float internalTimeSlow;
+
     Vector3 dir;
     float timeForFast;
-    float timeForSlow;
+
 
     public FinalBossMoveMissile(FinalBoss b, float move, GameObject fast, Transform p) {
         this.boss = b;
@@ -23,7 +22,6 @@ public class FinalBossMoveMissile : IState {
     }
 
     public void Enter() {
-        inMoveState = true;
         timeForFast = Random.Range(1.0f, 3.0f);
     }
 
@@ -38,7 +36,7 @@ public class FinalBossMoveMissile : IState {
     }
 
     public void Exit() {
-        inMoveState = false;
+
     }
 
     public void FlipDirection() {

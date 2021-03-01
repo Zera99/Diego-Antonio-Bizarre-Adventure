@@ -10,7 +10,6 @@ public class FSM {
         if (_currentState != null) {
             _currentState.Exit();
         }
-        Debug.Log("New State: " + newState.GetType().ToString());
         _currentState = newState;
         _currentState.Enter();
     }

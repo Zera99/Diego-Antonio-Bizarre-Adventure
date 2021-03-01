@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraEnemyView : MonoBehaviour {
 
-    public Light light;
+    public Light myLight;
     Animator _anim;
 
     private void Awake() {
@@ -12,12 +12,12 @@ public class CameraEnemyView : MonoBehaviour {
     }
 
     public void ChangeColor(Color color) {
-        light.color = color;
+        myLight.color = color;
     }
 
     public void DieFRQ() {
         _anim.SetTrigger("DieFRQ");
-        Destroy(light);
+        Destroy(myLight);
     }
 
 }

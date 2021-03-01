@@ -34,7 +34,7 @@ public class Medusa : BasicEnemy {
 
 
 
-    void Die() {
+    public override void Die() {
         Destroy(this.gameObject);
     }
 

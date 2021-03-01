@@ -9,7 +9,7 @@ public class MedusaSpawner : MonoBehaviour {
 
     float xSpawn = 25.0f;
     float ySpawn = 15.0f;
-    float padding = 5.0f;
+    //float padding = 5.0f;
 
     Vector3 GetRandomPosition() {
         return new Vector3(xSpawn, Random.Range(-ySpawn, ySpawn), 0);

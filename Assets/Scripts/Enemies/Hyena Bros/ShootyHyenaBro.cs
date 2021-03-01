@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShootyHyenaBro : MonoBehaviour {
     FSM _fsm;
@@ -145,6 +146,6 @@ public class ShootyHyenaBro : MonoBehaviour {
     IEnumerator WaitToEndScene()
     {
         yield return new WaitForSeconds(4.0f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -20,5 +20,6 @@ public class LatinLoverStats : ScriptableObject {
     public float throwForce;
     public int eggDamage;
     public float damageForce;
+    public int CurrentSceneIndex;
 
 }

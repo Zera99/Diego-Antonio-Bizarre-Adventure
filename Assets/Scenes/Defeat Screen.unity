@@ -259,7 +259,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 1047982371}
   - component: {fileID: 1047982370}
   - component: {fileID: 1047982369}
+  - component: {fileID: 1047982372}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -568,9 +569,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 637742671}
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1047982372}
+        m_MethodName: LoadSceneOnStats
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -615,6 +616,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047982367}
   m_CullTransparentMesh: 0
+--- !u!114 &1047982372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047982367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89059d97bfbc057449218896340d539a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: d03566da7a98c9942adec7332d896ff2, type: 2}
 --- !u!1 &1828939284
 GameObject:
   m_ObjectHideFlags: 0

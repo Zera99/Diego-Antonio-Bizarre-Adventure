@@ -181,6 +181,8 @@ public class PlayerModel : MonoBehaviour
         //_ui.UpdateLivesText(stats.lives);
 		_miniUI.UpdateHPText(stats.hp);
 		_miniUI.UpdateLivesText(stats.lives);
+
+        stats.CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void Update() {
@@ -694,7 +696,7 @@ public class PlayerModel : MonoBehaviour
         if (stats.lives <= 0)
         {
             stats.lives = stats.maxLives;
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(7);
             //StartCoroutine(RestartLevel());
         }
         else

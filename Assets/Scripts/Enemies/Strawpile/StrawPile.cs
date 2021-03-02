@@ -76,7 +76,7 @@ public class StrawPile : MonoBehaviour {
         _anim.ResetTrigger("AttackRight");
         _anim.ResetTrigger("AttackLeft");
         _anim.ResetTrigger("AttackTop");
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         onCD = false;
     }
 

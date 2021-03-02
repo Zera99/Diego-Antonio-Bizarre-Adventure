@@ -10,6 +10,7 @@ public class RoamerModel : BasicEnemy {
 
     Vector2 dir;
     bool _isFlipped;
+    bool _isDying;
 
     RoamerView _view;
 
@@ -43,8 +44,7 @@ public class RoamerModel : BasicEnemy {
             return true;
     }
 
-    public override void MakeCollisionDamage(PlayerModel player)
-    {
+    public override void MakeCollisionDamage(PlayerModel player) {
         base.MakeCollisionDamage(player);
         _view.Attack();
     }
@@ -70,6 +70,7 @@ public class RoamerModel : BasicEnemy {
     }
 
     public override void Die() {
+        _isDying = true;
         _view.Die();
         Destroy(this.gameObject, 1f);
     }
@@ -82,9 +83,10 @@ public class RoamerModel : BasicEnemy {
 
     public override void TakeDamage(int damage) {
         HP -= damage;
-        //_rb.AddForce(new Vector2(1, 1).normalized * stats.damageForce, ForceMode2D.Impulse);
-        _view.TakeDamage();
-        if (HP <= 0) {
+        if(!_isDying)
+            _view.TakeDamage();
+
+        if (HP <= 0 && !_isDying) {
             Die();
         }
     }

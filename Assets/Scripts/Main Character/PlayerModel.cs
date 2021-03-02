@@ -538,6 +538,10 @@ public class PlayerModel : MonoBehaviour {
         IPickupable pickupable = collision.gameObject.GetComponent<IPickupable>();
         //Debug.Log("Trigger: " + collision.gameObject.name);
 
+        if (collision.gameObject.GetComponent<Spike>() != null) {
+            collision.gameObject.GetComponent<Spike>().MakeDamage(this);
+        }
+
         if (pickupable != null) {
             pickupable.OnPickUp(this);
         } else if (collision.gameObject.GetComponent<IHazard>() != null) {
@@ -552,9 +556,7 @@ public class PlayerModel : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.GetComponent<Spike>() != null) {
-            collision.gameObject.GetComponent<Spike>().MakeDamage(this);
-        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
@@ -659,7 +661,7 @@ public class PlayerModel : MonoBehaviour {
 
         if (stats.lives <= 0) {
             stats.lives = stats.maxLives;
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings-1);
             //StartCoroutine(RestartLevel());
         } else {
             StartCoroutine(DieToCheckpoint());

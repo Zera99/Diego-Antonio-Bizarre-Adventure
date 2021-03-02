@@ -5,6 +5,6 @@ using UnityEngine;
 public class Spike : MonoBehaviour {
 
     public void MakeDamage(PlayerModel player) {
-        player.TakeDamage(100);
+        player.Die();
     }
 }

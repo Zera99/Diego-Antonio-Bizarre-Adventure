@@ -6,6 +6,8 @@ public class Crusher : MonoBehaviour {
 
     public float speed;
     public int damage;
+    public float minTime;
+    public float maxTime;
 
     float timeToCrush;
     Vector3 originalPosition;
@@ -17,7 +19,7 @@ public class Crusher : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        timeToCrush = Random.Range(2, 3);
+        timeToCrush = Random.Range(minTime, maxTime);
         originalPosition = this.transform.position;
         crushing = false;
     }

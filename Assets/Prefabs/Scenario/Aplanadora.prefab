@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   damage: 2
+  minTime: 2
+  maxTime: 5
   crushing: 0
   audioSource: {fileID: 7947064357201377532}
   crushingSound: {fileID: 8300000, guid: 965bdadff87c7e1439e3860e54733deb, type: 3}

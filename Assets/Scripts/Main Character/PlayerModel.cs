@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerModel : MonoBehaviour
-{
-    
+public class PlayerModel : MonoBehaviour {
+
     Rigidbody2D _rb;
     //UpdateUI _ui;
     UpdateMiniUI _miniUI; // Cuando sepamos cual queda, se borra el otro y listo.
     PlayerController _control;
+    AudioListener listener;
 
     PhysicsCalculation _physics;
     float yVelocity;
@@ -24,7 +24,7 @@ public class PlayerModel : MonoBehaviour
     bool _isImmune;
     bool _isDying;
     bool _isOnCrusher;
-    
+
     float _currentSpeed;
 
     public LayerMask stopRunningLayer;
@@ -89,7 +89,7 @@ public class PlayerModel : MonoBehaviour
     public event Action<bool> onLadderGrab = delegate { };
     public event Action<bool> onGrabChain = delegate { };
     public event Action onBackToCheckpoint = delegate { };
-	
+
     Action<PlayerModel, Action> _prepareAttack = delegate { };
     Action _optionalAttack = delegate { };
 
@@ -97,8 +97,8 @@ public class PlayerModel : MonoBehaviour
 
     public Action<Action> addAttackToAnimation = delegate { };
     public Action<Action<PlayerModel>> onSkinKeys;
-    
-	
+
+
     Action<bool> _detectFloor;
     Action _applyPhysics; //Si no estoy en lader o agarrado, hay gravity
     Action _restrictVerticalMovement; //Detecto en el fixed update si puedo subir o no en la escalera, solo va a contener codigo si esta dentro de una escalera
@@ -108,10 +108,13 @@ public class PlayerModel : MonoBehaviour
     IController _groundKeys, _airKeys, _ladderKeys, _chainKeys;
     IMovement _groundMovementStrategy, _airMovementStrategy;
     IMovement _currentStrategy;
-    
-    private void Awake()
-    {
+
+
+    bool gameIsPaused;
+
+    private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
+        listener = Camera.main.GetComponent<AudioListener>();
         _physics = new PhysicsCalculation();
         _physics.CalculateGravity(stats.jumpHeight, stats.timeToApex);
         Physics.gravity = Vector3.zero;
@@ -125,7 +128,7 @@ public class PlayerModel : MonoBehaviour
         _airKeys = new AirController().SetModel(this);
         _ladderKeys = new LadderController().SetModel(this);
         _chainKeys = new ChainController().SetModel(this);
-        
+
         stats.hp = stats.maxHP;
 
         _currentSpeed = stats.walkingSpeed;
@@ -135,15 +138,14 @@ public class PlayerModel : MonoBehaviour
         AddNewSkin(Resources.Load<Skin>("Skins/Latin_Lover_Skin"));
         SkillsAndValues.Add(_mySkins[0], () => { return -1; });
 
-        if (skillJet)
-        {
+        if (skillJet) {
             AddNewSkin(Resources.Load<Skin>("Skins/Jetpack_Skin"));
             GameObject.Find("JET").SetActive(true);
         }
 
         if (skillBowser) {
             AddNewSkin(Resources.Load<Skin>("Skins/Bowser_Skin"));
-            GameObject.Find("BOW").SetActive(true);        
+            GameObject.Find("BOW").SetActive(true);
         }
 
         if (skillFRQ) {
@@ -176,45 +178,56 @@ public class PlayerModel : MonoBehaviour
 
         //_ui.UpdateHPText(stats.hp);
         //_ui.UpdateLivesText(stats.lives);
-		_miniUI.UpdateHPText(stats.hp);
-		_miniUI.UpdateLivesText(stats.lives);
+        _miniUI.UpdateHPText(stats.hp);
+        _miniUI.UpdateLivesText(stats.lives);
 
         stats.CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void Update() {
-        
+
         if (_isDying)
             return;
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if(gameIsPaused) {
+                gameIsPaused = false;
+                Time.timeScale = 1;
+                listener.enabled = true;
+            } else {
+                gameIsPaused = true;
+                listener.enabled = false;
+                Time.timeScale = 0;
+            }
+        }
 
-        onUpdate();
-        
+        if (!gameIsPaused) {
+
+            onUpdate();
+        }
+
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         onFixedUpdate();
 
         _applyPhysics?.Invoke();
-        
+
         if (!_isControllerManipulated)
             _detectFloor(GroundDetect());
 
         _restrictVerticalMovement?.Invoke(); //Es lo mismo que preguntar si es nulo antes de ejecutarlo. El invoke viene del Action, no es lo mismo que la caca del Invoke convencional
-        
+
     }
 
-    public void SetNewStrategies(IController newControl, IMovement newMovement)
-    {
+    public void SetNewStrategies(IController newControl, IMovement newMovement) {
         _control.SetController(newControl);
         _currentStrategy = newMovement;
     }
 
-    public void AddNewSkin(Skin newSkin)
-    {
+    public void AddNewSkin(Skin newSkin) {
         _mySkins.Add(newSkin);
 
-        switch(_mySkins.Count) {
+        switch (_mySkins.Count) {
             case 2:
                 SkillsAndValues.Add(_mySkins[1], () => { return currentPointsJetPack; });
                 break;
@@ -227,8 +240,7 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public void ChangeSkin(int index)
-    {
+    public void ChangeSkin(int index) {
 
         if (index >= _mySkins.Count) {
             return;
@@ -239,19 +251,17 @@ public class PlayerModel : MonoBehaviour
         if (!newSkin)
             return;
 
-        if (_currentSkin != newSkin)
-        {
+        if (_currentSkin != newSkin) {
             GameObject effect = Instantiate(changeSkinEffect.gameObject, effectSpawnPoint);
             _currentSkin = newSkin;
             onChangeSkin(_currentSkin.newAnimator);
             _currentSkin.GetAttack(this);
             onSkinKeys(_currentSkin.ExtraKeys);
-            _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin),SkillsAndValues[_currentSkin]());
+            _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]());
         }
     }
 
-    public void SetAttack(Action<PlayerModel, Action> preparation, Action execution, Action secondAction)
-    {
+    public void SetAttack(Action<PlayerModel, Action> preparation, Action execution, Action secondAction) {
         _prepareAttack = preparation;
         _optionalAttack = secondAction;
         addAttackToAnimation(execution);
@@ -259,50 +269,41 @@ public class PlayerModel : MonoBehaviour
 
     #region Gravity n Floor / Wall detection
 
-    void ApplyGravity()
-    {
+    void ApplyGravity() {
         float newYValue = _rb.velocity.y + _physics._jumpGravity * Time.deltaTime;
         _rb.velocity = new Vector2(_rb.velocity.x, newYValue);
 
         onYVelocity(newYValue);
     }
 
-    bool DownwardsCollisionCheck()
-    {
+    bool DownwardsCollisionCheck() {
         return Physics2D.Raycast(wallCheck.position + new Vector3(0, 1f), Vector2.down, 2.5f, stopRunningLayer);
     }
 
-    bool GroundDetect()
-    {
+    bool GroundDetect() {
         return Physics2D.BoxCast(transform.position - new Vector3(0, boxSize.y / 2), boxSize, 0, Vector2.right, 0, groundLayers);
     }
 
-    public void ControlPhysics()
-    {
+    public void ControlPhysics() {
         _isControllerManipulated = true;
         _rb.velocity = Vector3.zero;
     }
 
-    public void RestorePhysics()
-    {
+    public void RestorePhysics() {
         _isControllerManipulated = false;
         yVelocity = 0;
 
-        if (GroundDetect())
-        {
+        if (GroundDetect()) {
             GroundSettings();
             _detectFloor = DetectGroundFromGround;
-        }
-        else
-        {
+        } else {
             AirSettings();
             _detectFloor = DetectGroundFromAir;
         }
 
     }
 
-    void GroundSettings()
-    {
+    void GroundSettings() {
         yVelocity = 0;
         _isInAir = false;
         _currentJumps = 0;
@@ -313,25 +314,21 @@ public class PlayerModel : MonoBehaviour
         SetNewStrategies(_groundKeys, _groundMovementStrategy);
 
         _detectFloor = DetectGroundFromGround;
-        
+
     }
 
-    void DetectGroundFromAir(bool groundDetected)
-    {
-        if (groundDetected)
-        {
+    void DetectGroundFromAir(bool groundDetected) {
+        if (groundDetected) {
             GroundSettings();
             onLandGround();
         }
     }
 
-    void AirSettings()
-    {
+    void AirSettings() {
         _isInAir = true;
         onDetectGround(false);
 
-        if (_currentStrategy != _airMovementStrategy)
-        {
+        if (_currentStrategy != _airMovementStrategy) {
             //_currentStrategy = _airMovementStrategy;
             //_control.SetController(_airKeys);
             SetNewStrategies(_airKeys, _airMovementStrategy);
@@ -342,38 +339,32 @@ public class PlayerModel : MonoBehaviour
         _detectFloor = DetectGroundFromAir;
     }
 
-    void DetectGroundFromGround(bool groundDetected)
-    {
-        if (!groundDetected)
-        {
+    void DetectGroundFromGround(bool groundDetected) {
+        if (!groundDetected) {
             AirSettings();
         }
     }
 
-    void DetectMovementVerticalRestrictions()
-    {
-        _canMoveUp = Physics2D.BoxCast(transform.position - new Vector3(0, boxSizeCheck.y/2) + offsetPosLadderPlatform, boxSizeCheck, 0, Vector2.right, 0, topLadderLayer);
+    void DetectMovementVerticalRestrictions() {
+        _canMoveUp = Physics2D.BoxCast(transform.position - new Vector3(0, boxSizeCheck.y / 2) + offsetPosLadderPlatform, boxSizeCheck, 0, Vector2.right, 0, topLadderLayer);
         _canMoveDown = Physics2D.BoxCast(transform.position - new Vector3(0, boxSize.y / 2), boxSize, 0, Vector2.right, 0, downLadderLayer);
     }
 
     #endregion
-    
-    #region Movement
-    
 
-    public void PressedRun()
-    {
+    #region Movement
+
+
+    public void PressedRun() {
         _currentSpeed = stats.runningSpeed;
         _isRunning = true;
     }
-    public void ReleaseRun()
-    {
+    public void ReleaseRun() {
         _currentSpeed = stats.walkingSpeed;
         _isRunning = false;
     }
 
-    public void Flip()
-    {
+    public void Flip() {
         _isFlipped = !_isFlipped;
         onFlipRender(_isFlipped);
         Vector3 newBulletSpawnerPos = eggSpawnPoint.localPosition;
@@ -389,52 +380,40 @@ public class PlayerModel : MonoBehaviour
         fireSpawnPoint.right = -fireSpawnPoint.right;
     }
 
-    public void MoveHorizontal(float xAxi)
-    {
-        _currentStrategy.MoveHorizontal(xAxi, _currentSpeed, _isRunning, ()=> 
-        {
-            if ((xAxi > 0 && _isFlipped) || (xAxi < 0 && !_isFlipped))
-            {
+    public void MoveHorizontal(float xAxi) {
+        _currentStrategy.MoveHorizontal(xAxi, _currentSpeed, _isRunning, () => {
+            if ((xAxi > 0 && _isFlipped) || (xAxi < 0 && !_isFlipped)) {
                 Flip();
             }
         });
     }
 
-    public void MoveVertical(float yAxi)
-    {
-        if (_onLadderZone)
-        {
-            if ((yAxi > 0 && _canMoveUp) || (yAxi < 0 && _canMoveDown))
-            {
-                if (_setVerticalStrategy == null)
-                {
+    public void MoveVertical(float yAxi) {
+        if (_onLadderZone) {
+            if ((yAxi > 0 && _canMoveUp) || (yAxi < 0 && _canMoveDown)) {
+                if (_setVerticalStrategy == null) {
                     _cancelVerticalGrab();
                     Debug.Log("Cancel");
-                    
+
                 }
-            }
-            else
-            {
-                if (yAxi != 0)
-                {
+            } else {
+                if (yAxi != 0) {
                     _setVerticalStrategy?.Invoke();
                     Debug.Log("Invoke");
                 }
-                
+
                 _currentStrategy.MoveVertical(yAxi, stats.climbingSpeed);
 
             }
         }
-        
+
     }
 
-    public void EnterChain(float dirX)
-    {
+    public void EnterChain(float dirX) {
 
         if (_isControllerManipulated) return;
 
-        if (dirX > 0 && _isFlipped || dirX < 0 && !_isFlipped)
-        {
+        if (dirX > 0 && _isFlipped || dirX < 0 && !_isFlipped) {
             Flip();
         }
 
@@ -442,8 +421,7 @@ public class PlayerModel : MonoBehaviour
         SetNewStrategies(_ladderKeys, new ChainMovement());
         _applyPhysics = null;
         _rb.velocity = Vector3.zero;
-        _cancelVerticalGrab = () => 
-        {
+        _cancelVerticalGrab = () => {
             onGrabChain(false);
             _applyPhysics = ApplyGravity;
             SetNewStrategies(_airKeys, _airMovementStrategy);
@@ -452,16 +430,14 @@ public class PlayerModel : MonoBehaviour
         onGrabChain(true);
     }
 
-    public void ExitChain()
-    {
+    public void ExitChain() {
         _cancelVerticalGrab?.Invoke();
     }
 
-    void SetLadderSettings(Action moveUp, Action moveDown)
-    {
-        
+    void SetLadderSettings(Action moveUp, Action moveDown) {
+
         SetNewStrategies(_ladderKeys, new LadderMovement(transform, moveUp, moveDown, onYMovement));
-        
+
         _applyPhysics = null;
 
         ControlPhysics();
@@ -469,14 +445,13 @@ public class PlayerModel : MonoBehaviour
         _setVerticalStrategy = null;
         onLadderGrab(true);
     }
-    
 
-    void CancelLadderSettings(Action moveUp, Action moveDown)
-    {
+
+    void CancelLadderSettings(Action moveUp, Action moveDown) {
         Debug.Log("cancelExecuted");
 
         _cancelVerticalGrab = null;
-        
+
 
         RestorePhysics();
 
@@ -488,26 +463,23 @@ public class PlayerModel : MonoBehaviour
 
         onLadderGrab(false);
     }
-    
-    public void EnterLadderZone(GameObject switchPlatform)
-    {
+
+    public void EnterLadderZone(GameObject switchPlatform) {
         _onLadderZone = true;
 
         Action onMovingVerticalPositive = () => { if (!switchPlatform.activeSelf) switchPlatform.SetActive(true); };
 
         Action onMovingVerticalNegative = () => { if (switchPlatform.activeSelf) switchPlatform.SetActive(false); };
 
-        _setVerticalStrategy = () =>
-        {
+        _setVerticalStrategy = () => {
             SetLadderSettings(onMovingVerticalPositive, onMovingVerticalNegative);
         };
-        
+
 
         _restrictVerticalMovement = DetectMovementVerticalRestrictions;
-        
+
     }
-    public void ExitLadderZone()
-    {
+    public void ExitLadderZone() {
         _onLadderZone = false;
         _cancelVerticalGrab?.Invoke();
         _restrictVerticalMovement = null;
@@ -516,14 +488,12 @@ public class PlayerModel : MonoBehaviour
 
     #region Jumps
 
-    void JumpLogic()
-    {
+    void JumpLogic() {
         yVelocity = _physics.CalculateJumpVelocity(stats.timeToApex);
         _rb.velocity = new Vector2(_rb.velocity.x, yVelocity);
     }
 
-    public void GroundedJump()
-    {
+    public void GroundedJump() {
         _cancelVerticalGrab?.Invoke();
 
         SetNewStrategies(_airKeys, _airMovementStrategy);
@@ -531,10 +501,8 @@ public class PlayerModel : MonoBehaviour
         onGroundedJump();
     }
 
-    public void AirJump()
-    {
-        if (_currentJumps < stats.maxJumps)
-        {
+    public void AirJump() {
+        if (_currentJumps < stats.maxJumps) {
             _currentJumps++;
             JumpLogic();
             onAirJump();
@@ -547,29 +515,23 @@ public class PlayerModel : MonoBehaviour
             collision.gameObject.GetComponent<IHazardCollider>().MakeCollisionDamage(this);
         }
 
-        
+
 
         if (collision.gameObject.tag == "Wall" && _isOnCrusher) {
             TakeDamage(100);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
+    private void OnTriggerEnter2D(Collider2D collision) {
+
         IPickupable pickupable = collision.gameObject.GetComponent<IPickupable>();
         //Debug.Log("Trigger: " + collision.gameObject.name);
 
-        if (pickupable != null)
-        {
+        if (pickupable != null) {
             pickupable.OnPickUp(this);
-        }
-        else if (collision.gameObject.GetComponent<IHazard>() != null)
-        {
+        } else if (collision.gameObject.GetComponent<IHazard>() != null) {
             collision.gameObject.GetComponent<IHazard>().MakeDamage(this);
-        }
-        else if (collision.GetComponent<Checkpoint>())
-        {
+        } else if (collision.GetComponent<Checkpoint>()) {
             _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
             collision.GetComponent<Checkpoint>().ActivateCheckpoint();
         } else if (collision.gameObject.GetComponent<IMovingPlatform>() != null) {
@@ -579,8 +541,7 @@ public class PlayerModel : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.GetComponent<Spike>() != null)
-        {
+        if (collision.gameObject.GetComponent<Spike>() != null) {
             collision.gameObject.GetComponent<Spike>().MakeDamage(this);
         }
     }
@@ -601,14 +562,12 @@ public class PlayerModel : MonoBehaviour
         //_miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
     }
 
-    public void SecondAttack()
-    {
+    public void SecondAttack() {
         _optionalAttack();
         //_miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), SkillsAndValues[_currentSkin]);
     }
-    
-    public void ChangePointsValue(Skin skinCalling, float value)
-    {
+
+    public void ChangePointsValue(Skin skinCalling, float value) {
         if (_currentSkin == skinCalling)
             _miniUI.UpdateSkillText(_mySkins.IndexOf(_currentSkin), value);
     }
@@ -639,8 +598,7 @@ public class PlayerModel : MonoBehaviour
     // -------------------------------------------- End Attacks --------------------------------------------
     // -------------------------------------------- Damage --------------------------------------------
 
-    public void CancelAttackActionsOnDmg(Action action)
-    {
+    public void CancelAttackActionsOnDmg(Action action) {
         _cancelAttackSettings = action;
         if (action != null)
             _cancelAttackSettings += () => _cancelAttackSettings = null;
@@ -649,7 +607,7 @@ public class PlayerModel : MonoBehaviour
     public void TakeDamage(int dmg) {
 
         if (_isImmune || _isDying) return;
-        
+
         stats.hp = Mathf.Max(stats.hp -= dmg, 0);
 
         _miniUI.UpdateHPText(stats.hp);
@@ -673,8 +631,7 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public void SetImmunity(bool i)
-    {
+    public void SetImmunity(bool i) {
         _isImmune = i;
     }
 
@@ -682,28 +639,24 @@ public class PlayerModel : MonoBehaviour
         _isOnCrusher = c;
     }
 
-    public void Die()
-    {
+    public void Die() {
         _isDying = true;
         yVelocity = 0;
 
         stats.lives--;
-		_miniUI.UpdateLivesText(stats.lives);
+        _miniUI.UpdateLivesText(stats.lives);
 
-        if (stats.lives <= 0)
-        {
+        if (stats.lives <= 0) {
             stats.lives = stats.maxLives;
             SceneManager.LoadScene(7);
             //StartCoroutine(RestartLevel());
-        }
-        else
-        {
+        } else {
             StartCoroutine(DieToCheckpoint());
         }
 
         onDeath();
-        
-    } 
+
+    }
 
     public void ActivateCheat() {
         stats.lives = stats.maxLives;
@@ -718,21 +671,18 @@ public class PlayerModel : MonoBehaviour
     //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     //}
 
-    IEnumerator DieToCheckpoint()
-    {
+    IEnumerator DieToCheckpoint() {
         yield return new WaitForSeconds(1.3f);
         transform.position = _checkpointPosition;
         _isDying = false;
         stats.hp = stats.maxHP;
-		_miniUI.UpdateHPText(stats.hp);
+        _miniUI.UpdateHPText(stats.hp);
         onBackToCheckpoint();
     }
 
-    IEnumerator GetHitEffect()
-    {
+    IEnumerator GetHitEffect() {
         onRenderColor(new Color(175, 0, 0, 0.8f));
-        for (int i = 0; i < 5; i++)
-        {
+        for (int i = 0; i < 5; i++) {
             onShowRender(false);
             yield return new WaitForSeconds(0.1f);
             onShowRender(true);
@@ -743,10 +693,9 @@ public class PlayerModel : MonoBehaviour
         SetImmunity(false);
     }
 
-    IEnumerator PickUpColorRender(Color newCol)
-    {
+    IEnumerator PickUpColorRender(Color newCol) {
         onRenderColor(newCol);
-        
+
         yield return new WaitForSeconds(0.2f);
         normalRenderColor();
     }
@@ -754,8 +703,7 @@ public class PlayerModel : MonoBehaviour
 
     // -------------------------------------------- Pickups -----------------------------------------------
 
-    public void HealthPickUp(int hp)
-    {
+    public void HealthPickUp(int hp) {
         onHealPickUp();
         stats.hp = Mathf.Min(stats.hp + hp, stats.maxHP);
         //_ui.UpdateHPText(stats.hp);
@@ -763,8 +711,7 @@ public class PlayerModel : MonoBehaviour
         StartCoroutine(PickUpColorRender(Color.green));
     }
 
-    public void LivesPickUp()
-    {
+    public void LivesPickUp() {
         onLifePickUp();
         stats.lives++;
         _miniUI.UpdateLivesText(stats.lives);
@@ -774,21 +721,17 @@ public class PlayerModel : MonoBehaviour
 
     // -------------------------------------------- End Pickups --------------------------------------------
 
-    public Coroutine RechargeBar(Func<bool> condition, Action recharge, Action end)
-    {
+    public Coroutine RechargeBar(Func<bool> condition, Action recharge, Action end) {
         return StartCoroutine(Recharge(condition, recharge, end));
     }
 
-    public void StopRecharge(Coroutine cor)
-    {
+    public void StopRecharge(Coroutine cor) {
         if (cor != null)
             StopCoroutine(cor);
     }
 
-    IEnumerator Recharge(Func<bool> condition, Action recharge, Action end)
-    {
-        while (condition())
-        {
+    IEnumerator Recharge(Func<bool> condition, Action recharge, Action end) {
+        while (condition()) {
             recharge();
             yield return null;
         }
@@ -810,7 +753,7 @@ public class PlayerModel : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - new Vector3(0, boxSize.y / 2), boxSize);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position - new Vector3(0, boxSizeCheck.y/2) + offsetPosLadderPlatform, boxSizeCheck);
+        Gizmos.DrawWireCube(transform.position - new Vector3(0, boxSizeCheck.y / 2) + offsetPosLadderPlatform, boxSizeCheck);
     }
 }
 

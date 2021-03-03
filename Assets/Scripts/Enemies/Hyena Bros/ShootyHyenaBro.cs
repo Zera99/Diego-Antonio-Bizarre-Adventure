@@ -86,7 +86,7 @@ public class ShootyHyenaBro : MonoBehaviour {
 
         GameObject Box = Instantiate(hyenaBoxPrefab);
         Box.transform.position = bulletSpawnPoint.position;
-        Vector2 forceVector = new Vector2(Random.Range(-1, 0), 1).normalized * Random.Range(5, maxThrowForce);
+        Vector2 forceVector = new Vector2(Random.Range(-1, 0), Random.Range(-1, 1)).normalized * Random.Range(7, maxThrowForce);
         Box.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
         ShootFeedback();
     }

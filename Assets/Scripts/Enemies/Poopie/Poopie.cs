@@ -16,10 +16,16 @@ public class Poopie : MonoBehaviour {
     bool _jumping;
     bool _isFlipped;
 
+
+    AudioSource Source;
+    public AudioClip JumpSound;
+    public AudioClip LandSound;
+
     private void Awake() {
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
+        Source = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start() {
@@ -33,6 +39,7 @@ public class Poopie : MonoBehaviour {
         if (_internalTime >= TimeToJump && !_jumping) {
             _jumping = true;
             _anim.SetBool("Jumping", true);
+            Source.PlayOneShot(JumpSound);
             if (_isFlipped) {
                 _rb.AddForce(new Vector2(1.0f, 1.0f).normalized * JumpForce, ForceMode2D.Impulse);
             } else {
@@ -46,6 +53,7 @@ public class Poopie : MonoBehaviour {
         if (p != null) {
             p.TakeDamage(Damage);
             PoopieHit();
+            Source.PlayOneShot(LandSound);
         }
 
         if (transform.position.x > WPRight.transform.position.x) {
@@ -59,6 +67,7 @@ public class Poopie : MonoBehaviour {
         _jumping = false;
         _anim.SetBool("Jumping", false);
         _internalTime = 0.0f;
+        Source.PlayOneShot(LandSound);
     }
 
     void PoopieHit() {

@@ -8,7 +8,7 @@ public class Missile : MonoBehaviour
     public float speed;
     public int damage;
     private void Start() {
-        Destroy(this.gameObject, 30.0f);
+        Destroy(this.gameObject, 6.7f);
     }
 
     // Update is called once per frame

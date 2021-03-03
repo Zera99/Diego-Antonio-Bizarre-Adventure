@@ -12,9 +12,14 @@ public class StrawPile : MonoBehaviour {
     bool isBlinded;
     bool onCD;
 
+    AudioSource Source;
+    public AudioClip AttackSound;
+    public AudioClip BlindedSound;
+
     private void Awake() {
         _anim = GetComponent<Animator>();
         _player = FindObjectOfType<PlayerModel>();
+        Source = GetComponent<AudioSource>();
         vision = VisionAreas.NONE;
         isBlinded = false;
         onCD = false;
@@ -24,6 +29,8 @@ public class StrawPile : MonoBehaviour {
     void Update() {
         if(!isBlinded && vision != VisionAreas.NONE && Vector2.Distance(this.gameObject.transform.position, _player.transform.position) <= range && !onCD) {
             _player.TakeDamage(Damage);
+            if(!Source.isPlaying)
+                Source.PlayOneShot(AttackSound);
         }
     }
 
@@ -65,7 +72,8 @@ public class StrawPile : MonoBehaviour {
         if(e != null && _anim.GetCurrentAnimatorStateInfo(0).IsName("Idle") && !isBlinded) {
             isBlinded = true;
             _anim.SetTrigger("Blinded");
-            StartCoroutine(Blinded());
+            Source.PlayOneShot(BlindedSound);
+            StartCoroutine(GetBlinded());
         }
     }
 
@@ -80,11 +88,11 @@ public class StrawPile : MonoBehaviour {
         onCD = false;
     }
 
-    IEnumerator Blinded() {
+    IEnumerator GetBlinded() {
         yield return new WaitForSeconds(2.0f);
         _anim.ResetTrigger("Blinded");
         isBlinded = false;
-        _anim.SetTrigger("StopAttacking");
+        _anim.SetTrigger("NotBlinded");
     }
 
 }

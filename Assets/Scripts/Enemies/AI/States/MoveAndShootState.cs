@@ -65,7 +65,7 @@ public class MoveAndShootState : IState {
 
     void Move() {
         _hyena.transform.position += _currentDir * _speed * Time.deltaTime;
-        if(Vector3.Distance(_hyena.transform.position, _targetWP.position) < 0.5f) {
+        if(Vector3.Distance(_hyena.transform.position, _targetWP.position) < 2f) {
             SwitchTarget();
             _currentDir = CalculateDirection();
         }
@@ -87,6 +87,7 @@ public class MoveAndShootState : IState {
                     break;
                 case 2:
                     _hyena.ThrowBox();
+                    amount -= (int)amount / 2;
                     break;
                 case 3:
                     _hyena.ShootMissile();

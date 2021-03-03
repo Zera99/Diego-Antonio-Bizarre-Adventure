@@ -289,6 +289,8 @@ MonoBehaviour:
   vision: 3
   Damage: 3
   range: 3.81
+  AttackSound: {fileID: 8300000, guid: ca15ea10e6405a4458f76ecdf335a199, type: 3}
+  BlindedSound: {fileID: 8300000, guid: ad6fa40395b71c947b53a9cf6b415fcd, type: 3}
 --- !u!1 &4183155490209982555
 GameObject:
   m_ObjectHideFlags: 0

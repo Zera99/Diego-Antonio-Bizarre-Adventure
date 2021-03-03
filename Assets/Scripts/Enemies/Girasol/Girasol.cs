@@ -7,15 +7,19 @@ public class Girasol : MonoBehaviour {
     public int damage;
     public float damageRadius;
     Animator anim;
+    AudioSource Source;
+    public AudioClip explosion;
 
     private void Awake() {
         anim = GetComponent<Animator>();
+        Source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         PlayerModel p = collision.GetComponent<PlayerModel>();
         if (p != null)
             StartCoroutine(ExecuteAttack(p));
+        GetComponent<Collider2D>().enabled = false;
     }
 
     IEnumerator ExecuteAttack(PlayerModel player) {
@@ -27,8 +31,10 @@ public class Girasol : MonoBehaviour {
         if (Vector3.Distance(transform.position, player.transform.position) <= damageRadius) {
             player.TakeDamage(damage);
         }
+        Source.PlayOneShot(explosion);
         yield return new WaitForSeconds(0.5f);
-        Destroy(this.gameObject);
+        GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(this.gameObject, 3.0f);
     }
 
 

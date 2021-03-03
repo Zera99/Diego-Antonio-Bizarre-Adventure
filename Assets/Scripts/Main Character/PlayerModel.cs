@@ -537,7 +537,7 @@ public class PlayerModel : MonoBehaviour {
 
         IPickupable pickupable = collision.gameObject.GetComponent<IPickupable>();
         //Debug.Log("Trigger: " + collision.gameObject.name);
-
+        Checkpoint c = collision.GetComponent<Checkpoint>();
         if (collision.gameObject.GetComponent<Spike>() != null) {
             collision.gameObject.GetComponent<Spike>().MakeDamage(this);
         }
@@ -546,9 +546,11 @@ public class PlayerModel : MonoBehaviour {
             pickupable.OnPickUp(this);
         } else if (collision.gameObject.GetComponent<IHazard>() != null) {
             collision.gameObject.GetComponent<IHazard>().MakeDamage(this);
-        } else if (collision.GetComponent<Checkpoint>()) {
-            _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
-            collision.GetComponent<Checkpoint>().ActivateCheckpoint();
+        } else if (c != null) {
+            if(!c.activated) {
+                _checkpointPosition = collision.GetComponent<Checkpoint>().GetCheckpointPosition();
+                c.ActivateCheckpoint();
+            }
         } else if (collision.gameObject.GetComponent<IMovingPlatform>() != null) {
             Debug.Log("Parent");
             collision.gameObject.GetComponent<IMovingPlatform>().ParentToPlatform(this.gameObject.transform);

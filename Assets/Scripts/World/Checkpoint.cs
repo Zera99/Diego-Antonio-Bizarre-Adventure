@@ -2,20 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour
-{
+public class Checkpoint : MonoBehaviour {
 
     Animator anim;
+    AudioSource Source;
+    public AudioClip checkpointAudio;
+    public bool activated;
+
+    private void Awake() {
+        anim = GetComponent<Animator>();
+        Source = GetComponent<AudioSource>();
+    }
 
     private void Start() {
-        anim = GetComponent<Animator>();
+        activated = false;
     }
-    public Vector3 GetCheckpointPosition()
-    {
+    public Vector3 GetCheckpointPosition() {
         return transform.position;
     }
 
     public void ActivateCheckpoint() {
-        anim.SetBool("isActivated", true);
+        if (!activated) {
+            activated = true;
+            anim.SetBool("isActivated", true);
+            Source.PlayOneShot(checkpointAudio);
+        }
     }
 }

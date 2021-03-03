@@ -8,6 +8,10 @@ public class MissileTrigger : MonoBehaviour
     public Transform spawnPoint;
     public GameObject missilePrefab;
 
+    private void Awake() {
+        Destroy(this.gameObject, 4.0f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<PlayerModel>()) {
             ShootMissile();

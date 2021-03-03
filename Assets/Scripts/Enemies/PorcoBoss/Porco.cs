@@ -33,11 +33,20 @@ public class Porco : MonoBehaviour {
     Dead deadState;
 
     Animator anim;
+    AudioSource mySource;
+    public AudioSource StageSource;
+
+    public AudioClip walkSound;
+    public AudioClip trembleSound;
+    public AudioClip stuckSound;
+    public AudioClip landSound;
+    public AudioClip hitSound;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        mySource = GetComponent<AudioSource>();
 
         fsm = new FSM();
         moveState = new Move(this, WalkSpeed);
@@ -69,8 +78,12 @@ public class Porco : MonoBehaviour {
 
     public void GetStuck() {
         if (_isBlinded) {
+            mySource.Stop();
+            mySource.loop = false;
+            mySource.clip = null;
             anim.ResetTrigger("Blinded");
             anim.SetTrigger("Stuck");
+            mySource.PlayOneShot(stuckSound);
             fsm.ChangeState(stuckState);
             WeaponCollider.enabled = false;
             _isVulnerable = true;
@@ -86,6 +99,9 @@ public class Porco : MonoBehaviour {
     }
 
     public void JumpState() {
+        mySource.clip = landSound;
+        mySource.loop = true;
+        StageSource.Play();
         fsm.ChangeState(jumpState);
         anim.SetTrigger("Jump");
         anim.ResetTrigger("Landed");
@@ -94,7 +110,13 @@ public class Porco : MonoBehaviour {
 
     public void Move(bool wasStuck) {
         Hazards.StopPhase();
+        StartCoroutine(FadeOutSound());
+
         anim.ResetTrigger("Idle");
+        mySource.clip = walkSound;
+        mySource.loop = true;
+        mySource.Play();
+
         if (wasStuck) {
             if (transform.localScale.x > 0) {
                 rb.AddForce(new Vector2(-1, 1).normalized * 7, ForceMode2D.Impulse);
@@ -127,6 +149,7 @@ public class Porco : MonoBehaviour {
         
         if (p != null && _isVulnerable) {
             fsm.ChangeState(hurtState);
+            mySource.PlayOneShot(hitSound);
             HP--;
             if (HP <= 0) {
                 anim.SetTrigger("Dead");
@@ -186,5 +209,17 @@ public class Porco : MonoBehaviour {
         FlipSprite();
         yield return new WaitForSeconds(1.0f);
         flipped = false;
+    }
+
+    IEnumerator FadeOutSound() {
+        float ticks = 0;
+        while (ticks < 1) {
+            ticks += Time.deltaTime;
+            StageSource.volume = Mathf.Lerp(1, 0, ticks);
+            yield return null;
+        }
+        StageSource.volume = 0;
+        StageSource.Stop();
+        StageSource.volume = 1;
     }
 }

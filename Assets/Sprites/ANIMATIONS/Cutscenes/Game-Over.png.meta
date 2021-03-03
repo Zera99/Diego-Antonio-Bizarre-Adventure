@@ -146,8 +146,8 @@ TextureImporter:
       name: Game-Over_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 1685
+        x: 18
+        y: 1689
         width: 1404
         height: 524
       alignment: 0
@@ -157,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee080b23f2a13b3418adb105c297f7ab
+      spriteID: e1f12eb1953577c4fa5d59e4f61d277f
       internalID: -2823741679623943083
       vertices: []
       indices: 
@@ -168,7 +168,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1441
-        y: 1685
+        y: 1689
         width: 1406
         height: 524
       alignment: 0
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 362578ec15c24ff488c86606b8ef678d
+      spriteID: 2672799766fbd0643829d89fa47a9198
       internalID: -6322541934462485053
       vertices: []
       indices: 
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dbac14cffbfa974aac4f0cb5d860f63
+      spriteID: 53d42253ac8725f4f9c329dfea4d4148
       internalID: -6625213445879223845
       vertices: []
       indices: 
@@ -210,7 +210,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4320
-        y: 1689
+        y: 1685
         width: 1407
         height: 524
       alignment: 0
@@ -220,7 +220,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17236e876e3b8ec4bb8e4bb961e16bd0
+      spriteID: 3ccd5ff2d79f5cd488c792c903c26c60
       internalID: 651431577961820123
       vertices: []
       indices: 
@@ -241,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7df7de048ee7faa42b578bdd8d6eb427
+      spriteID: 43ca0ac75649717419f788e39d11b906
       internalID: -3419811530649239826
       vertices: []
       indices: 
@@ -251,8 +251,8 @@ TextureImporter:
       name: Game-Over_5
       rect:
         serializedVersion: 2
-        x: 1441
-        y: 1152
+        x: 1445
+        y: 1148
         width: 1406
         height: 523
       alignment: 0
@@ -262,7 +262,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c11ea7ad7a11591488acc2a47271ee66
+      spriteID: ddc42878bfb4ded489adf2e3f301181d
       internalID: -5998962726261299062
       vertices: []
       indices: 
@@ -273,7 +273,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2873
-        y: 1148
+        y: 1152
         width: 1406
         height: 523
       alignment: 0
@@ -283,7 +283,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96c5333dfd2445844a59c44a2d28a306
+      spriteID: 521a43be7dcb53542803415726df2c9f
       internalID: -1921280370916742562
       vertices: []
       indices: 
@@ -293,7 +293,7 @@ TextureImporter:
       name: Game-Over_7
       rect:
         serializedVersion: 2
-        x: 4316
+        x: 4325
         y: 1148
         width: 1407
         height: 523
@@ -304,7 +304,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef020ae3233e45b4bae0884e9e2fa354
+      spriteID: 79172fe802fb1d74c820c92880b1056d
       internalID: -363411946552997010
       vertices: []
       indices: 
@@ -325,7 +325,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5457eef5fab26fa4895e36f40c11627a
+      spriteID: c499d9efa4d350e4081622657957ae1b
       internalID: 6338273680009431155
       vertices: []
       indices: 
@@ -346,7 +346,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe88ca3a687572429f5fdc1edede6fd
+      spriteID: 09bba5ab6e303554694484d06e128641
       internalID: 7054256191473538940
       vertices: []
       indices: 
@@ -357,7 +357,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2873
-        y: 603
+        y: 599
         width: 1406
         height: 521
       alignment: 0
@@ -367,7 +367,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e3f86df78f38447b8d4eb857c45cbb
+      spriteID: 1181116427ea34542a55ddd9c57e1152
       internalID: 9060425424493990231
       vertices: []
       indices: 
@@ -377,7 +377,7 @@ TextureImporter:
       name: Game-Over_11
       rect:
         serializedVersion: 2
-        x: 4320
+        x: 4316
         y: 599
         width: 1407
         height: 521
@@ -388,7 +388,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23439107a9f930b46abf8cdc16c43551
+      spriteID: dd8f7abced9fa07408e03c04753db98d
       internalID: 2754574591640441377
       vertices: []
       indices: 
@@ -399,7 +399,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 25
-        y: 51
+        y: 55
         width: 1407
         height: 520
       alignment: 0
@@ -409,7 +409,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b575aef2389d8042969b41d0f0cc793
+      spriteID: 6eb27aa80ee6f2646a5c8e7552edd30c
       internalID: -6533268310178578893
       vertices: []
       indices: 
@@ -430,7 +430,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d60d64a5fe0f59d4ea94b9a0d85a4383
+      spriteID: d51420e4494100b4fb2e154e4ed428f7
       internalID: -6034727295905288656
       vertices: []
       indices: 
@@ -451,7 +451,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c297ad986a0e5f4cb8b13b304250c31
+      spriteID: aca38166be3fc37448e691442921ef1f
       internalID: -6397845940688631411
       vertices: []
       indices: 

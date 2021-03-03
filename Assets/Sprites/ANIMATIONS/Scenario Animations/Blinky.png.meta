@@ -103,7 +103,7 @@ TextureImporter:
         serializedVersion: 2
         x: 2
         y: 3
-        width: 35
+        width: 34
         height: 19
       alignment: 9
       pivot: {x: 0.4857143, y: 0.33333334}
@@ -124,8 +124,8 @@ TextureImporter:
         serializedVersion: 2
         x: 41
         y: 3
-        width: 32
-        height: 17
+        width: 34
+        height: 19
       alignment: 9
       pivot: {x: 0.53125, y: 0.4117647}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,9 +143,9 @@ TextureImporter:
       name: Blinky_2
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 3
-        width: 33
+        width: 34
         height: 19
       alignment: 9
       pivot: {x: 0.4848485, y: 0.36842105}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Blinky_3
       rect:
         serializedVersion: 2
-        x: 121
+        x: 120
         y: 2
-        width: 30
-        height: 18
+        width: 34
+        height: 19
       alignment: 9
       pivot: {x: 0.5, y: 0.44444445}
       border: {x: 0, y: 0, z: 0, w: 0}

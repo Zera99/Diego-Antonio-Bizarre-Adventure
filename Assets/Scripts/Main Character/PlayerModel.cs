@@ -11,6 +11,7 @@ public class PlayerModel : MonoBehaviour {
     UpdateMiniUI _miniUI; // Cuando sepamos cual queda, se borra el otro y listo.
     PlayerController _control;
     AudioListener listener;
+    AudioSource mainCameraSource;
 
     PhysicsCalculation _physics;
     float yVelocity;
@@ -28,6 +29,7 @@ public class PlayerModel : MonoBehaviour {
     float _currentSpeed;
 
     public LayerMask stopRunningLayer;
+    public GameObject PauseMenu;
 
     public LatinLoverStats stats;
     public Skin normalSkin, bowserSkin;
@@ -115,6 +117,7 @@ public class PlayerModel : MonoBehaviour {
     private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
         listener = Camera.main.GetComponent<AudioListener>();
+        mainCameraSource = Camera.main.GetComponent<AudioSource>();
         _physics = new PhysicsCalculation();
         _physics.CalculateGravity(stats.jumpHeight, stats.timeToApex);
         Physics.gravity = Vector3.zero;
@@ -191,10 +194,18 @@ public class PlayerModel : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if(gameIsPaused) {
                 gameIsPaused = false;
-                Time.timeScale = 1;
+                PauseMenu.SetActive(false);
+                _miniUI.enabled = true;
+                mainCameraSource.UnPause();
                 listener.enabled = true;
+                Time.timeScale = 1;
+
+
             } else {
                 gameIsPaused = true;
+                PauseMenu.SetActive(true);
+                _miniUI.enabled = false;
+                mainCameraSource.Pause();
                 listener.enabled = false;
                 Time.timeScale = 0;
             }
@@ -527,6 +538,10 @@ public class PlayerModel : MonoBehaviour {
         IPickupable pickupable = collision.gameObject.GetComponent<IPickupable>();
         //Debug.Log("Trigger: " + collision.gameObject.name);
 
+        if (collision.gameObject.GetComponent<Spike>() != null) {
+            collision.gameObject.GetComponent<Spike>().MakeDamage(this);
+        }
+
         if (pickupable != null) {
             pickupable.OnPickUp(this);
         } else if (collision.gameObject.GetComponent<IHazard>() != null) {
@@ -541,9 +556,7 @@ public class PlayerModel : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.GetComponent<Spike>() != null) {
-            collision.gameObject.GetComponent<Spike>().MakeDamage(this);
-        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
@@ -648,7 +661,7 @@ public class PlayerModel : MonoBehaviour {
 
         if (stats.lives <= 0) {
             stats.lives = stats.maxLives;
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings-1);
             //StartCoroutine(RestartLevel());
         } else {
             StartCoroutine(DieToCheckpoint());

@@ -46,11 +46,16 @@ public class Poopie : MonoBehaviour {
         if (p != null) {
             p.TakeDamage(Damage);
             PoopieHit();
-        } else if (transform.position.x > WPRight.transform.position.x) {
+        }
+
+        if (transform.position.x > WPRight.transform.position.x) {
             FlipPoopie(false);
-        } else if (transform.position.x < WPLeft.transform.position.x) {
+        }
+
+        if (transform.position.x < WPLeft.transform.position.x) {
             FlipPoopie(true);
         }
+
         _jumping = false;
         _anim.SetBool("Jumping", false);
         _internalTime = 0.0f;

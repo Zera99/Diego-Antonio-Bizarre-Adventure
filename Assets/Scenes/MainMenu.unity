@@ -1253,6 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingBarFill: {fileID: 527915087}
+  stats: {fileID: 11400000, guid: d03566da7a98c9942adec7332d896ff2, type: 2}
 --- !u!1 &1027567187
 GameObject:
   m_ObjectHideFlags: 0

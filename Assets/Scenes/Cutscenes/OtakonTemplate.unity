@@ -442,7 +442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -54, y: 107}
+  m_AnchoredPosition: {x: -63.7, y: 107}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1183905068
@@ -501,24 +501,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextToDisplay:
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.
-  - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea commodo consequat.
-  - Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-    fugiat nulla pariatur.
-  - Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-    mollit anim id est laborum.
+  - Good work Diego! You've reached the end of the game!
+  - Game..? I thought this was a mission.. I was supposed to rescue my wife, you said
+    so!
+  - Wife? Diego, you've been single for 10 years. You've spent all your time gaming,
+    and now you're even dreaming in videogame form.
+  - So this was all a dream? Like, for real?
+  - Yep.
+  - '... Let''s start again. I had a blast, I want to do it again!'
   typer: {fileID: 1183905068}
   InitialCutsceneDelay: 2
-  DelayBetweenLetters: 0.01
+  DelayBetweenLetters: 0.05
   DiegoSounds:
-  - {fileID: 8300000, guid: 371c77a783c7cbe4c9280d464c771600, type: 3}
-  - {fileID: 8300000, guid: c09bc7de67c8d084589d60af5a15f569, type: 3}
+  - {fileID: 8300000, guid: 2128bf2c249c790448164e98bb7cf4dd, type: 3}
+  - {fileID: 8300000, guid: ba1cabd3490818d408236f317184b8e6, type: 3}
   OtaconSounds:
-  - {fileID: 8300000, guid: 5d1665753915b9e41ada06bdf012f07d, type: 3}
-  - {fileID: 8300000, guid: 4457c27178d8e4ec2aef0a0406b75e06, type: 3}
-  RadioSound: {fileID: 8300000, guid: d1bf7caca3fe0814892c49a573975b5c, type: 3}
+  - {fileID: 8300000, guid: e4f58b8b54b1de44b9bc7cb05bbc3a06, type: 3}
+  - {fileID: 8300000, guid: 9ed6e912eb9da6041bd5d60366e985ba, type: 3}
+  RadioSound: {fileID: 8300000, guid: cd22ab38fe047564b98a35e9e76ed72e, type: 3}
   DiegoAnimator: {fileID: 2085977334}
   OtaconAnimator: {fileID: 2098454848}
   RadioAnimator: {fileID: 2104153750}
@@ -540,8 +540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1da42ad635f4cd49ba0fc83c7dd6637, type: 2}
   m_sharedMaterial: {fileID: -2268978748644650366, guid: e1da42ad635f4cd49ba0fc83c7dd6637,
@@ -608,16 +607,16 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -114.906624, y: 0, z: -257.54947, w: -75.2836}
+  m_margin: {x: -118.63614, y: 0, z: -253.81982, w: -75.2836}
   m_textInfo:
     textComponent: {fileID: 1183905070}
-    characterCount: 123
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 18
-    wordCount: 19
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 3
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -655,7 +654,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.24
-  m_Pitch: 1
+  m_Pitch: 1.4
   Loop: 0
   Mute: 0
   Spatialize: 0

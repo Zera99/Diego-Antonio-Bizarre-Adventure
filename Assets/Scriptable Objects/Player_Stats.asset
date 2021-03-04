@@ -27,3 +27,4 @@ MonoBehaviour:
   throwForce: 25
   eggDamage: 2
   damageForce: 9
+  CurrentSceneIndex: 0

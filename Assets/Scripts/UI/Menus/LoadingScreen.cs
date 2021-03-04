@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class LoadingScreen : MonoBehaviour
 {
     public Image loadingBarFill;
+    public LatinLoverStats stats;
 
     public void LoadLevel(int sceneIndex)
     {
+        stats.hp = stats.maxHP;
+        stats.lives = stats.maxLives;
         StartCoroutine(LoadLevelAsync(sceneIndex));
     }
 

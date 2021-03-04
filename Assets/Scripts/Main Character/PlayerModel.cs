@@ -200,8 +200,7 @@ public class PlayerModel : MonoBehaviour {
                 PauseMenu.SetActive(false);
                 _miniUI.enabled = true;
                 mainCameraSource.UnPause();
-                AudioListener.volume = 1.0f;
-                //listener.enabled = true;
+                listener.enabled = true;
                 Time.timeScale = 1;
 
 
@@ -210,8 +209,7 @@ public class PlayerModel : MonoBehaviour {
                 PauseMenu.SetActive(true);
                 _miniUI.enabled = false;
                 mainCameraSource.Pause();
-                AudioListener.volume = 0.0f;
-                //listener.enabled = false;
+                listener.enabled = false;
                 Time.timeScale = 0;
             }
         }

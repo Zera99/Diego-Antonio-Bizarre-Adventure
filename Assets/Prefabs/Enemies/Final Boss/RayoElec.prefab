@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c0fcbc93aa64541bcbcb3dcde391aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCollider: {fileID: 0}
+  electricity: {fileID: 8300000, guid: 5fc592ffa743ca14282499ff0ae7133b, type: 3}
 --- !u!82 &3073951165328888422
 AudioSource:
   m_ObjectHideFlags: 0

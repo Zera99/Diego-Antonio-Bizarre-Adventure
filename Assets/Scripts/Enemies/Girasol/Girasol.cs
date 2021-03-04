@@ -19,10 +19,10 @@ public class Girasol : MonoBehaviour {
         PlayerModel p = collision.GetComponent<PlayerModel>();
         if (p != null)
             StartCoroutine(ExecuteAttack(p));
-        GetComponent<Collider2D>().enabled = false;
     }
 
     IEnumerator ExecuteAttack(PlayerModel player) {
+        GetComponent<Collider2D>().enabled = false;
         anim.SetBool("Attacking", true);
         if(transform.position.x - Mathf.Abs(player.transform.position.x) < 0) {
             GetComponent<SpriteRenderer>().flipX = true;

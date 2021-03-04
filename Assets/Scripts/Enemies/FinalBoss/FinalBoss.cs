@@ -32,6 +32,7 @@ public class FinalBoss : MonoBehaviour {
 
     private void Awake() {
         anim = GetComponent<Animator>();
+        Source = GetComponent<AudioSource>();
         flipped = false;
         currentPhaseIndex = 0;
         currentPhase = allPhases[currentPhaseIndex];

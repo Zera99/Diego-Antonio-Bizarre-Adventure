@@ -7,9 +7,12 @@ public class ElectricArea : MonoBehaviour {
     public BoxCollider2D myCollider;
     bool activated;
     Animator anim;
+    AudioSource Source;
+    public AudioClip electricity;
 
     private void Awake() {
         myCollider = GetComponent<BoxCollider2D>();
+        Source = GetComponent<AudioSource>();
         activated = false;
         anim = GetComponent<Animator>();
     }
@@ -25,6 +28,7 @@ public class ElectricArea : MonoBehaviour {
         myCollider.enabled = true;
         StartCoroutine(WaitAndDeactivate());
         anim.SetBool("Active", true);
+        Source.PlayOneShot(electricity);
     }
 
     public void Deactivate() {

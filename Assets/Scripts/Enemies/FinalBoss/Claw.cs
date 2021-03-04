@@ -15,6 +15,7 @@ public class Claw : MonoBehaviour {
         PlayerModel p = collision.gameObject.GetComponent<PlayerModel>();
         if(p != null) {
             boss.Attack();
+            boss.ClawSound();
             p.TakeDamage(boss.ClawDamage);
         } 
     }

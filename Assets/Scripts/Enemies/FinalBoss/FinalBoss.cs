@@ -25,6 +25,10 @@ public class FinalBoss : MonoBehaviour {
     PhaseBase currentPhase;
     int currentPhaseIndex;
     Animator anim;
+    AudioSource Source;
+    public AudioClip HitClip;
+    public AudioClip ClawAttack;
+    public AudioClip ElectricAttack;
 
     private void Awake() {
         anim = GetComponent<Animator>();
@@ -62,12 +66,18 @@ public class FinalBoss : MonoBehaviour {
         currentPhase.FinishHurt();
     }
 
+    public void ClawSound() {
+        Source.PlayOneShot(ClawAttack);
+    }
+
     public void ExecuteElectricAttack() {
         StartCoroutine(ElectricDischarge());
     }
 
     public void EnableShockers() {
         foreach (ElectricArea s in ElectricAreas) {
+            Source.PlayOneShot(ElectricAttack);
+
             s.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
@@ -75,6 +85,7 @@ public class FinalBoss : MonoBehaviour {
     public void TakeDamage(int d) {
         HP -= d;
         anim.SetTrigger("Hurt");
+        Source.PlayOneShot(HitClip);
         if (HP == 7 || HP == 3) {
             GoToNextPhase();
             StartCoroutine(ResetTransition());

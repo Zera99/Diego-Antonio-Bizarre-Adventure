@@ -35,7 +35,7 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
 
     IEnumerator Move() {
         _isMoving = true;
-        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.2f) {
+        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.5) {
             //transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
             _rb.velocity = Vector2.up * speed;
             yield return new WaitForEndOfFrame();
@@ -52,7 +52,7 @@ public class VerticalPlatform : MonoBehaviour, IMovingPlatform {
     IEnumerator ReturnToOriginalPos() {
         _isMoving = true;
         yield return new WaitForSeconds(3.0f);
-        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.2f) {
+        while (Vector3.Distance(this.transform.position, finishPosition) >= 0.5) {
             //transform.position += (finishPosition - startPosition).normalized * speed * Time.deltaTime;
             _rb.velocity = Vector2.down * speed;
             yield return new WaitForEndOfFrame();

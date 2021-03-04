@@ -29,7 +29,7 @@ public class Crusher : MonoBehaviour {
         if (crushing) {
             transform.position -= transform.up * speed * Time.deltaTime;
             return;
-        } else if (Vector2.Distance(originalPosition, this.transform.position) >= 0.2f) {
+        } else if (Vector2.Distance(originalPosition, this.transform.position) >= 1f) {
             transform.position += transform.up * (speed / 3) * Time.deltaTime;
             return;
         } else if (!isWaiting) {

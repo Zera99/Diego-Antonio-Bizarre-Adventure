@@ -9,6 +9,7 @@ public class RatBoiStanding : MonoBehaviour {
     public Transform effectSpawnPoint;
     public AudioSource audSource;
     public AudioClip triggerClip;
+    public float time;
     Animator _anim;
 
     private void Awake() {
@@ -24,7 +25,7 @@ public class RatBoiStanding : MonoBehaviour {
             audSource.clip = triggerClip;
             audSource.Play();
 
-            Die();
+            StartCoroutine(Die());
         }
 
     }
@@ -34,7 +35,8 @@ public class RatBoiStanding : MonoBehaviour {
         hp.transform.position = itemSpawnPoint.position;
     }
 
-    public void Die() {
+    IEnumerator Die() {
+        yield return new WaitForSeconds(time);
         GameObject effect = Instantiate(deathEffect, effectSpawnPoint);
         effect.transform.localPosition = Vector3.zero;
         Destroy(this.gameObject, 0.75f);

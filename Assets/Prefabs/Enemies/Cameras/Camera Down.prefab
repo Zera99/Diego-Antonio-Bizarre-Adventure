@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d12e9dc3e3b09543a467b16c6af7f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 5447352940689618787}
+  myLight: {fileID: 5447352940689618787}
 --- !u!82 &7938767338730291403
 AudioSource:
   m_ObjectHideFlags: 0

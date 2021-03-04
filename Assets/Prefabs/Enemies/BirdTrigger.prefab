@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4988755244053972767}
   - component: {fileID: 701094549401932470}
   m_Layer: 0
-  m_Name: Missile Trigger
+  m_Name: BirdTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4988755244392302088}
-  missilePrefab: {fileID: 7047447967506664478, guid: 63045519a21080b4482c2d818e4c6bb5,
+  missilePrefab: {fileID: 2470717071092405458, guid: 59da467c0c69fc040a3b287ce3a64386,
     type: 3}
 --- !u!1 &4988755244392302089
 GameObject:

@@ -125,6 +125,7 @@ MonoBehaviour:
   effectSpawnPoint: {fileID: 7019600140141634106}
   audSource: {fileID: 4210418435767048348}
   triggerClip: {fileID: 8300000, guid: 29a8e38a4cfe29240831f721f84b2994, type: 3}
+  time: 10
 --- !u!61 &7145316219333452283
 BoxCollider2D:
   m_ObjectHideFlags: 0

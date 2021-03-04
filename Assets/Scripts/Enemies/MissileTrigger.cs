@@ -9,7 +9,7 @@ public class MissileTrigger : MonoBehaviour
     public GameObject missilePrefab;
 
     private void Awake() {
-        Destroy(this.gameObject, 4.0f);
+        //Destroy(this.gameObject, 4.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

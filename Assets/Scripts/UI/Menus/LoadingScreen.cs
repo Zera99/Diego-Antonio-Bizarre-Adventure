@@ -9,6 +9,7 @@ public class LoadingScreen : MonoBehaviour
     public Image loadingBarFill;
     public LatinLoverStats stats;
 
+
     public void LoadLevel(int sceneIndex)
     {
         stats.hp = stats.maxHP;

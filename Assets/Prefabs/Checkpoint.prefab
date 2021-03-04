@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7679208871976089436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.188, y: -1.656, z: 394.2322}
+  m_LocalPosition: {x: 3.188, y: -1.656, z: 0}
   m_LocalScale: {x: 8.828064, y: 8.828064, z: 1.471344}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointAudio: {fileID: 8300000, guid: 0d7c491f14e384944b6c08b1d1fa0ca6, type: 3}
+  activated: 0
 --- !u!95 &1769723673
 Animator:
   serializedVersion: 3

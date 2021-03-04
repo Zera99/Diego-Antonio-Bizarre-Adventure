@@ -115,6 +115,9 @@ public class PlayerModel : MonoBehaviour {
     bool gameIsPaused;
 
     private void Awake() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         _rb = GetComponent<Rigidbody2D>();
         listener = Camera.main.GetComponent<AudioListener>();
         mainCameraSource = Camera.main.GetComponent<AudioSource>();

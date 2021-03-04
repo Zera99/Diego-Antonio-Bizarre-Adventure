@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -4159,6 +4159,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1879749322}
     m_Modifications:
+    - target: {fileID: 2261174965172895478, guid: 9dc6405c3520b0e4fa24faaf7c3d0d2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2261174966488377257, guid: 9dc6405c3520b0e4fa24faaf7c3d0d2d,
         type: 3}
       propertyPath: m_Name
@@ -8329,17 +8334,17 @@ PrefabInstance:
     - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: skillBowser
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: skillFRQ
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}
       propertyPath: skillJet
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8553448317432029722, guid: a43aa29068d9fa04587e090f23839f8e,
         type: 3}

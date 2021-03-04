@@ -32,6 +32,7 @@ public class FusRohSkill : ISkill {
     }
 
     public void UseSkill() {
+        EventsManager.TriggerEvent(Constants.EVENT_SHAKECAMERA, 0.5f);
         var sad = GameObject.FindObjectsOfType<MonoBehaviour>().Select(x => x.GetComponent<IFusRohCuack>()).ToList();
         Debug.Log("FusRo Enter");
         Collider2D[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy").Select(x => x.GetComponent<Collider2D>()).ToArray();
